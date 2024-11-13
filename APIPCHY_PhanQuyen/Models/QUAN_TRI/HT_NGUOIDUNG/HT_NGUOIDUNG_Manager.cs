@@ -32,7 +32,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 {
                     HT_NGUOIDUNG_Model user = new HT_NGUOIDUNG_Model();
                     user.id = ds.Rows[0]["ID"] != DBNull.Value ? ds.Rows[0]["ID"].ToString() : null;
-                    user.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_ID"].ToString():null;
+                    user.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_ID"].ToString() : null;
                     user.ten_donvi = ds.Rows[0]["TEN"] != DBNull.Value ? ds.Rows[0]["TEN"].ToString() : null;
                     user.dm_phongban_id = ds.Rows[0]["DM_PHONGBAN_ID"] != DBNull.Value ? ds.Rows[0]["DM_PHONGBAN_ID"].ToString() : null;
                     user.ten_phongban = ds.Rows[0]["TEN_PB"] != DBNull.Value ? ds.Rows[0]["TEN_PB"].ToString() : null;
@@ -85,6 +85,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 throw ex;
             }
         }
+
         public List<HTNguoiDungDTO> GET_HT_NGUOIDUNG(int pageIndex, int pageSize, out long total)
         {
             List<HTNguoiDungDTO> result = new List<HTNguoiDungDTO>();
@@ -157,9 +158,6 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
         }
 
 
-
-
-
         //them nguoi dung
         public HTNguoiDungDTO Insert_QLTN_NGUOI_DUNG(HTNguoiDungDTO data)
         {
@@ -174,7 +172,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 
             try
             {
-                string hashPassword=PasswordHasher.HashString(data.MAT_KHAU);
+                string hashPassword = PasswordHasher.HashString(data.MAT_KHAU);
                 cmd.Parameters.Clear();
                 cmd.Connection = cn;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -184,7 +182,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 cmd.Parameters.Add("p_DM_KIEUCANBO_ID", OracleDbType.Varchar2).Value = data.DM_KIEUCANBO_ID;
                 cmd.Parameters.Add("p_DM_CHUCVU_ID", OracleDbType.Varchar2).Value = data.DM_CHUCVU_ID;
                 cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = data.TEN_DANG_NHAP;
-                cmd.Parameters.Add("p_MAT_KHAU", OracleDbType.Varchar2).Value =hashPassword;
+                cmd.Parameters.Add("p_MAT_KHAU", OracleDbType.Varchar2).Value = hashPassword;
                 cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = data.HO_TEN;
                 cmd.Parameters.Add("p_EMAIL", OracleDbType.Varchar2).Value = data.EMAIL;
                 cmd.Parameters.Add("p_LDAP", OracleDbType.Varchar2).Value = data.LDAP;
@@ -230,7 +228,6 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 }
             }
         }
-
 
 
         //get by id nguoi dung
@@ -371,9 +368,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
             }
         }
 
-
-
-        public List<UserResponse> FILTER_HT_NGUOIDUNG(UserFilterRequest request)
+        public List<UserResponse> FILTER_HT_NGUOIDUNG(UserFilterRequest request, out int totalRecords)
         {
             OracleConnection cn = new ConnectionOracle().getConnection();
             try
@@ -382,9 +377,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = cn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PKG_QLTN_TANH.search_HT_NGUOIDUNG";
+                cmd.CommandText = @"PKG_QLTN_TANH.search_HT_NGUOIDUNG";
 
-                // Add input parameters with checks for null or empty
                 cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.HO_TEN) ? (object)DBNull.Value : request.HO_TEN;
                 cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.TEN_DANG_NHAP) ? (object)DBNull.Value : request.TEN_DANG_NHAP;
                 cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = request.TRANG_THAI.HasValue ? (object)request.TRANG_THAI.Value : DBNull.Value;
@@ -392,11 +386,28 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.DM_PHONGBAN_ID) ? (object)DBNull.Value : request.DM_PHONGBAN_ID;
                 cmd.Parameters.Add("p_DM_CHUCVU_ID", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.DM_CHUCVU_ID) ? (object)DBNull.Value : request.DM_CHUCVU_ID;
 
+                cmd.Parameters.Add("p_pageNumber", OracleDbType.Int32).Value = request.PageIndex;
+                cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = request.PageSize;
+
+                cmd.Parameters.Add("p_totalRecords", OracleDbType.Decimal).Direction = ParameterDirection.Output;
+
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
+                //bat dau thuc hien truy van
                 OracleDataAdapter dap = new OracleDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 dap.Fill(ds);
+
+                // Lấy tổng số bản ghi từ tham số out
+                if (cmd.Parameters["p_totalRecords"].Value != DBNull.Value)
+                {
+                    var oracleDecimalValue = (Oracle.ManagedDataAccess.Types.OracleDecimal)cmd.Parameters["p_totalRecords"].Value;
+                    totalRecords = oracleDecimalValue.ToInt32();
+                }
+                else
+                {
+                    totalRecords = 0;
+                }
 
                 if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
@@ -419,6 +430,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 }
                 else
                 {
+                    totalRecords = 0;
                     return new List<UserResponse>();
                 }
             }
@@ -435,6 +447,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 }
             }
         }
+
+
 
         //Đổi mật khẩu người dùng 
         public string Reset_Password_HT_NGUOIDUNG(string ID, string currentPassword, string newPassword)
@@ -527,6 +541,47 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 }
             }
         }
+
+
+        //delete nguoi dung
+        public void Delete_HT_NGUOIDUNG(int id)
+        {
+            string strErr = "";
+            using (OracleConnection cn = new ConnectionOracle().getConnection())
+            {
+                cn.Open();
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = cn;
+                OracleTransaction transaction = cn.BeginTransaction();
+                cmd.Transaction = transaction;
+
+                try
+                {
+                    cmd.Parameters.Clear();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = @"PKG_QLTN_TANH.delete_HT_NGUOIDUNG";
+
+                    cmd.Parameters.Add("p_ID", OracleDbType.Int32).Value = id;
+                    cmd.Parameters.Add("p_Error", OracleDbType.Varchar2, 200).Direction = ParameterDirection.Output;
+
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex; // Hoặc xử lý lỗi theo cách bạn muốn
+                }
+                finally
+                {
+                    if (cn.State != ConnectionState.Closed)
+                    {
+                        cn.Close();
+                    }
+                }
+            }
+        }
+
 
     }
 
