@@ -117,12 +117,23 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
         {
             try
             {
-                List<UserResponse> users = _manager.FILTER_HT_NGUOIDUNG(request);
-                return Ok(users);
+                int totalRecords;
+                List<UserResponse> users = _manager.FILTER_HT_NGUOIDUNG(request, out totalRecords);
+
+                int totalPages = (int)Math.Ceiling((double)totalRecords / request.PageSize);
+                
+                var result = new
+                {
+                    page = request.PageIndex,
+                    TotalRecords = totalRecords,
+                    TotalPages = totalPages,
+                    PageSize = request.PageSize,
+                    data = users
+                };
+                return Ok(result);
             }
             catch (Exception ex)
             {
-                // Log the exception (có thể sử dụng logging framework)
                 return StatusCode(500, ex.Message);
             }
         }
@@ -143,6 +154,14 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
 
             return Ok(new { message = resultMessage });
             //}
+        }
+
+            
+        [HttpDelete("delete/{id}")]
+        public IActionResult Delete_HT_NGUOIDUNG(int id)
+        {
+            _manager.Delete_HT_NGUOIDUNG(id);
+            return Ok("Xoa thanh cong");
         }
     }
 
