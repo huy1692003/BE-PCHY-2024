@@ -4,8 +4,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
 {
     public class DM_DONVI_Model
     {
-        public Guid? id { get; set; }
-        public Guid? dm_donvi_id { get; set; }
+        public string? id { get; set; }
+        public string? dm_donvi_id { get; set; }
         public int? loai_don_vi { get; set; }
         public string? ma { get; set; }
         public string? ten { get; set; }
@@ -18,9 +18,9 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         public string? nguoi_cap_nhat { get; set; }
         public string? cap_so { get; set; }
         public string? cap_ma { get; set; }
-        public Guid? dm_tinhthanh_id { get; set; }
-        public Guid? dm_quanhuyen_id { get; set; }
-        public Guid? dm_donvi_chuquan_id { get; set; }
+        public string? dm_tinhthanh_id { get; set; }
+        public string? dm_quanhuyen_id { get; set; }
+        public string? dm_donvi_chuquan_id { get; set; }
         public string? ma_fmis { get; set; }
         public string? db_madonvi { get; set; }
         public string? db_madonvi_fmis { get; set; }

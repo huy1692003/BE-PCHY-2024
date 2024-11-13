@@ -31,13 +31,13 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 if (ds != null && ds.Rows.Count > 0)
                 {
                     HT_NGUOIDUNG_Model user = new HT_NGUOIDUNG_Model();
-                    user.id = ds.Rows[0]["ID"] != DBNull.Value ? Guid.Parse(ds.Rows[0]["ID"].ToString()) : null;
-                    user.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[0]["DM_DONVI_ID"].ToString()) : null;
+                    user.id = ds.Rows[0]["ID"] != DBNull.Value ? ds.Rows[0]["ID"].ToString() : null;
+                    user.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_ID"].ToString():null;
                     user.ten_donvi = ds.Rows[0]["TEN"] != DBNull.Value ? ds.Rows[0]["TEN"].ToString() : null;
-                    user.dm_phongban_id = ds.Rows[0]["DM_PHONGBAN_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[0]["DM_PHONGBAN_ID"].ToString()) : null;
+                    user.dm_phongban_id = ds.Rows[0]["DM_PHONGBAN_ID"] != DBNull.Value ? ds.Rows[0]["DM_PHONGBAN_ID"].ToString() : null;
                     user.ten_phongban = ds.Rows[0]["TEN_PB"] != DBNull.Value ? ds.Rows[0]["TEN_PB"].ToString() : null;
                     user.dm_kieucanbo_id = ds.Rows[0]["DM_KIEUCANBO_ID"] != DBNull.Value ? ds.Rows[0]["DM_KIEUCANBO_ID"].ToString() : null;
-                    user.dm_chucvu_id = ds.Rows[0]["DM_CHUCVU_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[0]["DM_CHUCVU_ID"].ToString()) : null;
+                    user.dm_chucvu_id = ds.Rows[0]["DM_CHUCVU_ID"] != DBNull.Value ? ds.Rows[0]["DM_CHUCVU_ID"].ToString() : null;
                     user.ten_dang_nhap = ds.Rows[0]["TEN_DANG_NHAP"] != DBNull.Value ? ds.Rows[0]["TEN_DANG_NHAP"].ToString() : null;
                     user.mat_khau = ds.Rows[0]["MAT_KHAU"] != DBNull.Value ? ds.Rows[0]["MAT_KHAU"].ToString() : null;
                     user.ho_ten = ds.Rows[0]["HO_TEN"] != DBNull.Value ? ds.Rows[0]["HO_TEN"].ToString() : null;

@@ -70,14 +70,14 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN
                 }
 
                 int totalItems = 0;
-                List<HT_NHOMQUYEN_Model> result = manager.search_HT_NHOMQUYEN(pageIndex, pageSize, ten_nhom, out totalItems);
+                List<HT_NHOMQUYEN_Model> result = manager.search_HT_NHOMQUYEN( pageSize, pageIndex, ten_nhom, out totalItems);
                 return result != null ? Ok(new
                 {
                     page = pageIndex,
                     pageSize = pageSize,
                     totalItems = totalItems,
                     data = result,
-                    ten_nhom = ten_nhom
+                   
                 }) : NotFound();
 
             }

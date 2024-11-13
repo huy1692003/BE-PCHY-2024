@@ -8522,11 +8522,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Downloads\\APIPCHY_PhanQuyen\\APIPCHY_PhanQuyen\\APIPCHY_PhanQuyen\\API_PCHY.csproj",
+      "projectUniqueName": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\API_PCHY.csproj",
       "projectName": "API_PCHY",
-      "projectPath": "C:\\Users\\Admin\\Downloads\\APIPCHY_PhanQuyen\\APIPCHY_PhanQuyen\\APIPCHY_PhanQuyen\\API_PCHY.csproj",
+      "projectPath": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\API_PCHY.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Downloads\\APIPCHY_PhanQuyen\\APIPCHY_PhanQuyen\\APIPCHY_PhanQuyen\\obj\\",
+      "outputPath": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

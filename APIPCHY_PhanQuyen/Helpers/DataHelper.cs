@@ -49,6 +49,7 @@ namespace APIPCHY.Helpers
         //public DataTable ExcuteReader
         public string ExcuteNonQuery(string procedureName, string paramOut, params object[] param_list)
         {
+
             OracleCommand cmd = new OracleCommand { CommandText = procedureName, CommandType = CommandType.StoredProcedure, Connection = cn };
 
             OracleTransaction transaction;

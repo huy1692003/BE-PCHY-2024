@@ -4,7 +4,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN
 {
     public class DM_PHONGBAN_Model
     {
-        public Guid? id { get; set; }
+        public string? id { get; set; }
         public string? ma { get; set; }
         public string? ten { get; set; }
         public int? trang_thai { get; set; }

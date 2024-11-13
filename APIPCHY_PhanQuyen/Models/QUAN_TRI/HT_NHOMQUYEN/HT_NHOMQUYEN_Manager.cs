@@ -71,7 +71,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
                                                 "p_TEN_NHOM", pageIndex, pageSize, ten_nhom);
                 var count = ds.Rows.Count;
 
-                if (count > 0)
+                if (pageSize>0&&pageIndex>0&&count > 0)
                 {
                     totalItems = int.Parse(ds.Rows[0]["RecordCount"].ToString());
                 }
@@ -97,7 +97,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
                     model.sap_xep = ds.Rows[i]["SAP_XEP"] != DBNull.Value ? int.Parse(ds.Rows[i]["SAP_XEP"].ToString()) : null;
                     model.ten_nhom = ds.Rows[i]["TEN_NHOM"] != DBNull.Value ? ds.Rows[i]["TEN_NHOM"].ToString() : null;
                     model.ma_dviqly = ds.Rows[i]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[i]["MA_DVIQLY"].ToString() : null;
-                    model.ten = ds.Rows[i]["TEN"] != DBNull.Value ? ds.Rows[i]["TEN"].ToString() : null;
+                    model.ten = ds.Rows[i]["TEN_DVIQLY"] != DBNull.Value ? ds.Rows[i]["TEN_DVIQLY"].ToString() : null;
 
                     list.Add(model);
                 }
@@ -131,7 +131,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
                     model.sap_xep = ds.Rows[0]["SAP_XEP"] != DBNull.Value ? int.Parse(ds.Rows[0]["SAP_XEP"].ToString()) : null;
                     model.ten_nhom = ds.Rows[0]["TEN_NHOM"] != DBNull.Value ? ds.Rows[0]["TEN_NHOM"].ToString() : null;
                     model.ma_dviqly = ds.Rows[0]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[0]["MA_DVIQLY"].ToString() : null;
-                    model.ten = ds.Rows[0]["TEN"] != DBNull.Value ? ds.Rows[0]["TEN"].ToString() : null;
+                    model.ten = ds.Rows[0]["TEN_DVIQLY"] != DBNull.Value ? ds.Rows[0]["TEN_DVIQLY"].ToString() : null;
 
                     return model;
                 }

@@ -21,14 +21,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                 Guid dm_donvi_id = Guid.NewGuid();
                 string str_dm_donvi_id = dm_donvi_id.ToString();
 
-                Guid tinhthanh_id = Guid.NewGuid();
-                string str_tinhthanh_id = tinhthanh_id.ToString();
-
-                Guid quanhuyen_id = Guid.NewGuid();
-                string str_quanhuyen_id = quanhuyen_id.ToString();
-
-                Guid donvi_chuquan_id = Guid.NewGuid();
-                string str_donvi_chuquan_id = donvi_chuquan_id.ToString();
+               
 
                 string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.insert_DM_DONVI", "p_Error",
                                                     "p_ID", "p_DM_DONVI_ID", "p_LOAI_DON_VI", "p_MA", "p_TEN",
@@ -37,8 +30,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                                                     "p_MA_FMIS", "p_DB_MADONVI", "p_DB_MADONVI_FMIS", "p_DB_NGAY",
                                                     "p_TYPE_DONVI", "p_GROUP_DONVI", "p_DO_DUTHAO", "p_SU_DUNG", "p_MA_DVIQLY",
                                                     str_id, str_dm_donvi_id, model.loai_don_vi, model.ma, model.ten, model.trang_thai,
-                                                    model.sap_xep, model.ghi_chu, model.nguoi_tao, model.cap_so, model.cap_ma, str_tinhthanh_id,
-                                                    str_quanhuyen_id, str_donvi_chuquan_id, model.ma_fmis, model.db_madonvi, model.db_madonvi_fmis,
+                                                    model.sap_xep, model.ghi_chu, model.nguoi_tao, model.cap_so, model.cap_ma, model.dm_tinhthanh_id,
+                                                    model.dm_quanhuyen_id, model.dm_donvi_chuquan_id, model.ma_fmis, model.db_madonvi, model.db_madonvi_fmis,
                                                     model.db_ngay, model.type_donvi, model.group_donvi, model.do_duthao, model.su_dung, model.ma_dviqly);
 
                 return result;
@@ -55,30 +48,17 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         {
             try
             {
-                //Guid id = Guid.NewGuid();
+                //Guid id = Guid.NewGuid();               
 
-                Guid dm_donvi_id = Guid.NewGuid();
-                string str_dm_donvi_id = dm_donvi_id.ToString();
-
-                Guid tinhthanh_id = Guid.NewGuid();
-                string str_tinhthanh_id = tinhthanh_id.ToString();
-
-                Guid quanhuyen_id = Guid.NewGuid();
-                string str_quanhuyen_id = quanhuyen_id.ToString();
-
-                Guid donvi_chuquan_id = Guid.NewGuid();
-                string str_donvi_chuquan_id = donvi_chuquan_id.ToString();
-
-                string str_id = model.id.ToString();
                 string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.update_DM_DONVI", "p_Error",
                                                     "p_ID", "p_DM_DONVI_ID", "p_LOAI_DON_VI", "p_MA", "p_TEN",
                                                     "p_TRANG_THAI", "p_SAP_XEP", "p_GHI_CHU", "p_NGAY_CAP_NHAT", "p_NGUOI_CAP_NHAT",
                                                     "p_CAP_SO", "p_CAP_MA", "p_DM_TINHTHANH_ID", "p_DM_QUANHUYEN_ID",
                                                     "p_DM_DONVI_CHUQUAN_ID", "p_MA_FMIS", "p_DB_MADONVI", "p_DB_MADONVI_FMIS",
                                                     "p_DB_NGAY", "p_TYPE_DONVI", "p_GROUP_DONVI", "p_DO_DUTHAO", "p_SU_DUNG", "p_MA_DVIQLY",
-                                                    str_id, str_dm_donvi_id, model.loai_don_vi, model.ma, model.ten, model.trang_thai,
-                                                    model.sap_xep, model.ghi_chu, model.ngay_cap_nhat, model.nguoi_cap_nhat, model.cap_so, model.cap_ma, str_tinhthanh_id,
-                                                    str_quanhuyen_id, str_donvi_chuquan_id, model.ma_fmis, model.db_madonvi, model.db_madonvi_fmis,
+                                                    model.id, model.dm_donvi_id, model.loai_don_vi, model.ma, model.ten, model.trang_thai,
+                                                    model.sap_xep, model.ghi_chu, model.ngay_cap_nhat??DateTime.Now, model.nguoi_cap_nhat??"Trống", model.cap_so, model.cap_ma, model.dm_tinhthanh_id,
+                                                    model.dm_quanhuyen_id, model.dm_donvi_chuquan_id, model.ma_fmis, model.db_madonvi, model.db_madonvi_fmis,
                                                     model.db_ngay, model.type_donvi, model.group_donvi, model.do_duthao, model.su_dung, model.ma_dviqly);
 
                 return result;
@@ -116,13 +96,13 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                 DataTable ds = helper.ExcuteReader("PKG_QLKC_NGOCANH.search_DM_DONVI", "p_page_index", "p_page_size",
                                                     "p_TEN", "p_MA", "p_TRANG_THAI", pageIndex, pageSize, ten, ma, trang_thai);
                 var count = ds.Rows.Count;
-                totalItems = int.Parse(ds.Rows[0]["RecordCount"].ToString());
+                totalItems = int.Parse(ds.Rows[0]["RECORDCOUNT"].ToString());
                 List<DM_DONVI_Model> list = new List<DM_DONVI_Model>();
                 for (int i = 0; i < ds.Rows.Count; i++)
                 {
                     DM_DONVI_Model model = new DM_DONVI_Model();
-                    model.id = Guid.Parse(ds.Rows[i]["ID"].ToString());
-                    model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[i]["DM_DONVI_ID"].ToString()) : null;
+                    model.id =ds.Rows[i]["ID"].ToString();
+                    model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[i]["DM_DONVI_ID"].ToString() : null;
                     model.loai_don_vi = ds.Rows[i]["LOAI_DON_VI"] != DBNull.Value ? int.Parse(ds.Rows[i]["LOAI_DON_VI"].ToString()) : null;
                     model.ma = ds.Rows[i]["MA"] != DBNull.Value ? ds.Rows[i]["MA"].ToString() : null;
                     model.ten = ds.Rows[i]["TEN"] != DBNull.Value ? ds.Rows[i]["TEN"].ToString() : null;
@@ -135,9 +115,9 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                     model.nguoi_cap_nhat = ds.Rows[i]["NGUOI_CAP_NHAT"] != DBNull.Value ? ds.Rows[i]["NGUOI_CAP_NHAT"].ToString() : null;
                     model.cap_so = ds.Rows[i]["CAP_SO"] != DBNull.Value ? ds.Rows[i]["CAP_SO"].ToString() : null;
                     model.cap_ma = ds.Rows[i]["CAP_MA"] != DBNull.Value ? ds.Rows[i]["CAP_MA"].ToString() : null;
-                    model.dm_tinhthanh_id = ds.Rows[i]["DM_TINHTHANH_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[i]["DM_TINHTHANH_ID"].ToString()) : null;
-                    model.dm_quanhuyen_id = ds.Rows[i]["DM_QUANHUYEN_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[i]["DM_QUANHUYEN_ID"].ToString()) : null;
-                    model.dm_donvi_chuquan_id = ds.Rows[i]["DM_DONVI_CHUQUAN_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[i]["DM_DONVI_CHUQUAN_ID"].ToString()) : null;
+                    model.dm_tinhthanh_id = ds.Rows[i]["DM_TINHTHANH_ID"] != DBNull.Value ? ds.Rows[i]["DM_TINHTHANH_ID"].ToString() : null;
+                    model.dm_quanhuyen_id = ds.Rows[i]["DM_QUANHUYEN_ID"] != DBNull.Value ? ds.Rows[i]["DM_QUANHUYEN_ID"].ToString() : null;
+                    model.dm_donvi_chuquan_id = ds.Rows[i]["DM_DONVI_CHUQUAN_ID"] != DBNull.Value ? ds.Rows[i]["DM_DONVI_CHUQUAN_ID"].ToString() : null;
                     model.ma_fmis = ds.Rows[i]["MA_FMIS"] != DBNull.Value ? ds.Rows[i]["MA_FMIS"].ToString() : null;
                     model.db_madonvi_fmis = ds.Rows[i]["DB_MADONVI_FMIS"] != DBNull.Value ? ds.Rows[i]["DB_MADONVI_FMIS"].ToString() : null;
                     model.db_ngay = ds.Rows[i]["DB_NGAY"] != DBNull.Value ? DateTime.Parse(ds.Rows[i]["DB_NGAY"].ToString()) : null;
@@ -171,8 +151,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                     for (int i = 0; i < ds.Rows.Count; i++)
                     {
                         DM_DONVI_Model model = new DM_DONVI_Model();
-                        model.id = Guid.Parse(ds.Rows[i]["ID"].ToString());
-                        model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[i]["DM_DONVI_ID"].ToString()) : null;
+                        model.id = ds.Rows[i]["ID"].ToString();
+                        model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ?ds.Rows[i]["DM_DONVI_ID"].ToString() : null;
                         model.loai_don_vi = ds.Rows[i]["LOAI_DON_VI"] != DBNull.Value ? int.Parse(ds.Rows[i]["LOAI_DON_VI"].ToString()) : null;
                         model.ma = ds.Rows[i]["MA"] != DBNull.Value ? ds.Rows[i]["MA"].ToString() : null;
                         model.ten = ds.Rows[i]["TEN"] != DBNull.Value ? ds.Rows[i]["TEN"].ToString() : null;
@@ -185,9 +165,9 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                         model.nguoi_cap_nhat = ds.Rows[i]["NGUOI_CAP_NHAT"] != DBNull.Value ? ds.Rows[i]["NGUOI_CAP_NHAT"].ToString() : null;
                         model.cap_so = ds.Rows[i]["CAP_SO"] != DBNull.Value ? ds.Rows[i]["CAP_SO"].ToString() : null;
                         model.cap_ma = ds.Rows[i]["CAP_MA"] != DBNull.Value ? ds.Rows[i]["CAP_MA"].ToString() : null;
-                        model.dm_tinhthanh_id = ds.Rows[i]["DM_TINHTHANH_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[i]["DM_TINHTHANH_ID"].ToString()) : null;
-                        model.dm_quanhuyen_id = ds.Rows[i]["DM_QUANHUYEN_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[i]["DM_QUANHUYEN_ID"].ToString()) : null;
-                        model.dm_donvi_chuquan_id = ds.Rows[i]["DM_DONVI_CHUQUAN_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[i]["DM_DONVI_CHUQUAN_ID"].ToString()) : null;
+                        model.dm_tinhthanh_id = ds.Rows[i]["DM_TINHTHANH_ID"] != DBNull.Value ? ds.Rows[i]["DM_TINHTHANH_ID"].ToString() : null;
+                        model.dm_quanhuyen_id = ds.Rows[i]["DM_QUANHUYEN_ID"] != DBNull.Value ? ds.Rows[i]["DM_QUANHUYEN_ID"].ToString() : null;
+                        model.dm_donvi_chuquan_id = ds.Rows[i]["DM_DONVI_CHUQUAN_ID"] != DBNull.Value ? ds.Rows[i]["DM_DONVI_CHUQUAN_ID"].ToString() : null;
                         model.ma_fmis = ds.Rows[i]["MA_FMIS"] != DBNull.Value ? ds.Rows[i]["MA_FMIS"].ToString() : null;
                         model.db_madonvi_fmis = ds.Rows[i]["DB_MADONVI_FMIS"] != DBNull.Value ? ds.Rows[i]["DB_MADONVI_FMIS"].ToString() : null;
                         model.db_ngay = ds.Rows[i]["DB_NGAY"] != DBNull.Value ? DateTime.Parse(ds.Rows[i]["DB_NGAY"].ToString()) : null;
@@ -221,8 +201,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                 {
                     DM_DONVI_Model model = new DM_DONVI_Model();
 
-                    model.id = Guid.Parse(ds.Rows[0]["ID"].ToString());
-                    model.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[0]["DM_DONVI_ID"].ToString()) : null;
+                    model.id = ds.Rows[0]["ID"].ToString();
+                    model.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_ID"].ToString() : null;
                     model.loai_don_vi = ds.Rows[0]["LOAI_DON_VI"] != DBNull.Value ? int.Parse(ds.Rows[0]["LOAI_DON_VI"].ToString()) : null;
                     model.ma = ds.Rows[0]["MA"] != DBNull.Value ? ds.Rows[0]["MA"].ToString() : null;
                     model.ten = ds.Rows[0]["TEN"] != DBNull.Value ? ds.Rows[0]["TEN"].ToString() : null;
@@ -235,9 +215,9 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                     model.nguoi_cap_nhat = ds.Rows[0]["NGUOI_CAP_NHAT"] != DBNull.Value ? ds.Rows[0]["NGUOI_CAP_NHAT"].ToString() : null;
                     model.cap_so = ds.Rows[0]["CAP_SO"] != DBNull.Value ? ds.Rows[0]["CAP_SO"].ToString() : null;
                     model.cap_ma = ds.Rows[0]["CAP_MA"] != DBNull.Value ? ds.Rows[0]["CAP_MA"].ToString() : null;
-                    model.dm_tinhthanh_id = ds.Rows[0]["DM_TINHTHANH_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[0]["DM_TINHTHANH_ID"].ToString()) : null;
-                    model.dm_quanhuyen_id = ds.Rows[0]["DM_QUANHUYEN_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[0]["DM_QUANHUYEN_ID"].ToString()) :  null;
-                    model.dm_donvi_chuquan_id = ds.Rows[0]["DM_DONVI_CHUQUAN_ID"] != DBNull.Value ? Guid.Parse(ds.Rows[0]["DM_DONVI_CHUQUAN_ID"].ToString()) : null;
+                    model.dm_tinhthanh_id = ds.Rows[0]["DM_TINHTHANH_ID"] != DBNull.Value ? ds.Rows[0]["DM_TINHTHANH_ID"].ToString() : null;
+                    model.dm_quanhuyen_id = ds.Rows[0]["DM_QUANHUYEN_ID"] != DBNull.Value ? ds.Rows[0]["DM_QUANHUYEN_ID"].ToString() :  null;
+                    model.dm_donvi_chuquan_id = ds.Rows[0]["DM_DONVI_CHUQUAN_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_CHUQUAN_ID"].ToString() : null;
                     model.ma_fmis = ds.Rows[0]["MA_FMIS"] != DBNull.Value ? ds.Rows[0]["MA_FMIS"].ToString() : null;
                     model.db_madonvi = ds.Rows[0]["DB_MADONVI"] != DBNull.Value ? ds.Rows[0]["DB_MADONVI"].ToString() : null;
                     model.db_madonvi_fmis = ds.Rows[0]["DB_MADONVI_FMIS"] != DBNull.Value ? ds.Rows[0]["DB_MADONVI_FMIS"].ToString() : null;
@@ -246,7 +226,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                     model.group_donvi = ds.Rows[0]["GROUP_DONVI"] != DBNull.Value ? int.Parse(ds.Rows[0]["GROUP_DONVI"].ToString()) : null;
                     model.do_duthao = ds.Rows[0]["DO_DUTHAO"] != DBNull.Value ? int.Parse(ds.Rows[0]["DO_DUTHAO"].ToString()) : null;
                     model.su_dung = ds.Rows[0]["SU_DUNG"] != DBNull.Value ? int.Parse(ds.Rows[0]["SU_DUNG"].ToString()) : null;
-
+                    model.ma_dviqly = ds.Rows[0]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[0]["MA_DVIQLY"].ToString() : null;
                     return model;
                 }
                 else

@@ -4,13 +4,13 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 {
     public class HT_NGUOIDUNG_Model
     {
-        public Guid? id { get; set; }
-        public Guid? dm_donvi_id { get; set; }
+        public string? id { get; set; }
+        public string? dm_donvi_id { get; set; }
         public string? ten_donvi { get; set; }
-        public Guid? dm_phongban_id { get; set; }
+        public string? dm_phongban_id { get; set; }
         public string? ten_phongban { get; set; }
         public string? dm_kieucanbo_id { get; set; }
-        public Guid? dm_chucvu_id { get; set; }
+        public string? dm_chucvu_id { get; set; }
         public string? ten_dang_nhap { get; set; }
         public string? mat_khau { get; set; }
         public string? ho_ten { get; set; }

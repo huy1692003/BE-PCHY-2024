@@ -76,7 +76,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN
                 {
 
                     DM_PHONGBAN_Model dM_PHONGBAN = new DM_PHONGBAN_Model();
-                    dM_PHONGBAN.id =  Guid.Parse(ds.Rows[i]["ID"].ToString());
+                    dM_PHONGBAN.id =  ds.Rows[i]["ID"].ToString();
                     dM_PHONGBAN.ma = ds.Rows[i]["MA"] != DBNull.Value ? ds.Rows[i]["MA"].ToString() : null;
                     dM_PHONGBAN.ten = ds.Rows[i]["TEN"] != DBNull.Value ? ds.Rows[i]["TEN"].ToString() : null;
                     dM_PHONGBAN.trang_thai = ds.Rows[i]["TRANG_THAI"] != DBNull.Value ? int.Parse(ds.Rows[i]["TRANG_THAI"].ToString()) : null;
@@ -116,7 +116,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN
                 {
                     DM_PHONGBAN_Model dM_PHONGBAN = new DM_PHONGBAN_Model();
 
-                    dM_PHONGBAN.id = Guid.Parse(ds.Rows[0]["ID"].ToString());
+                    dM_PHONGBAN.id = ds.Rows[0]["ID"].ToString();
                     dM_PHONGBAN.ma = ds.Rows[0]["MA"] != DBNull.Value ? ds.Rows[0]["MA"].ToString() : null;
                     dM_PHONGBAN.ten = ds.Rows[0]["TEN"] != DBNull.Value ? ds.Rows[0]["TEN"].ToString() : null;
                     dM_PHONGBAN.trang_thai = ds.Rows[0]["TRANG_THAI"] != DBNull.Value ? int.Parse(ds.Rows[0]["TRANG_THAI"].ToString()) : null;
