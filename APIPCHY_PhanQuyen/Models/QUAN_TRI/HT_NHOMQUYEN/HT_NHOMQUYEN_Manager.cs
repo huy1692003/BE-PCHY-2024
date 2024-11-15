@@ -33,9 +33,9 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.create_HT_NHOMQUYEN", "p_Error", "p_ID", "p_NHOM_ID",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.update_HT_NHOMQUYEN", "p_Error", "p_ID",
                                                     "p_GHI_CHU", "p_NGUOI_SUA", "p_CAP_BAC", "p_SAP_XEP", "p_TEN_NHOM",
-                                                    "p_MA_DVIQLY", model.id, model.nhom_id, model.ghi_chu, model.nguoi_sua, model.cap_bac,
+                                                    "p_MA_DVIQLY", model.id, model.ghi_chu, model.nguoi_sua, model.cap_bac,
                                                     model.sap_xep, model.ten_nhom, model.ma_dviqly);
                 return result;
             }
@@ -161,7 +161,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
                     {
                         Connection = cn,
                         CommandType = CommandType.StoredProcedure,
-                        CommandText = "PKG_QLTN_TANH.get_NHOMQUYEN_BY_DVIQLY"
+                        CommandText = "PKG_QLKC_QUANTRI.get_NHOMQUYEN_BY_DVIQLY"
                     };
 
                     cmd.Parameters.Add("p_ma_dviqly", OracleDbType.Varchar2).Value = maDvi;

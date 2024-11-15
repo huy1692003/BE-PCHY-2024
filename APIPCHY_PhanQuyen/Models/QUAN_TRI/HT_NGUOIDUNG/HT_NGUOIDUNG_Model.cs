@@ -27,7 +27,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
         public int? trang_thai_dong_bo { get; set; }
         public string? db_taikhoandangnhap { get; set; }
         public DateTime? db_ngay { get; set; }
-        public string? db_donvi_lamviec_id { get; set; }
+        public string? dm_donvi_lamviec_id { get; set; }
         public string? ht_vaitro_id { get; set; }
         public string? sign_alias { get; set; }
         public string? sign_username { get; set; }
@@ -61,7 +61,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 
     public class UserResponse : NguoidungManager
     {
-
+        public string ID { get; set; }
         public string TEN_DONVI { get; set; }
         public string TEN_PHONGBAN { get; set; }
         public string TEN_CHUCVU { get; set; }

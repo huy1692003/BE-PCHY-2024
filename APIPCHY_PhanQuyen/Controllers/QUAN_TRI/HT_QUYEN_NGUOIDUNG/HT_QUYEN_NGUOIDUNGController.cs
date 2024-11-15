@@ -1,5 +1,6 @@
 ﻿using APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_QUYEN_NGUOIDUNG
 {
@@ -9,14 +10,15 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_QUYEN_NGUOIDUNG
     {
         HT_QUYEN_NGUOIDUNG_Manager manager = new HT_QUYEN_NGUOIDUNG_Manager();
 
-
+        //Thêm 1 mảng quyền người dùng 
         [HttpPost("createMultiple")]
-        public void PostInsertQuyenMultiple([FromBody] HT_QUYEN_NGUOIDUNG_Model[] list)
+        public IActionResult PostInsertQuyenMultiple([FromBody] HT_QUYEN_NGUOIDUNG_Model[] list)
         {
             foreach (var item in list)
             {
                 manager.Insert_HT_QUYEN_NGUOIDUNG(item);
             }
+            return Ok("Thêm quyền thành công");
         }
 
         [HttpPost("create")]
@@ -38,7 +40,20 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_QUYEN_NGUOIDUNG
             manager.Delete_HT_QUYEN_NGUOIDUNG(id);
             return Ok("Xoa thanh cong");
         }
-
+        [HttpGet("getByUserId/{maNguoiDung}")]
+        public IActionResult get_QUYEN_NGUOIDUNG_byID(string maNguoiDung)
+        {
+            if (maNguoiDung == null)
+            {
+                return BadRequest("Ma nguoi dung ko dc trong");
+            }
+            var listRole = manager.Get_QUYEN_NGUOIDUNG_BY_USERID(maNguoiDung);
+            if (listRole == null || listRole.Count == 0)
+            {
+                return Ok(Array.Empty<object>());
+            }
+            return Ok(listRole);
+        }
     }
 }
 

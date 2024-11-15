@@ -81,7 +81,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
         {
             try
             {
-                var nguoiDung = _manager.GETDATA_DM_NGUOIDUNG_byID(id);
+                var nguoiDung = _manager.GET_DM_NGUOIDUNG_byID(id);
                 if (nguoiDung == null)
                 {
                     return NotFound($"Không tìm thấy người dùng với ID: {id}");
@@ -96,7 +96,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
 
 
         [HttpPost("create")]
-        public IActionResult PostInsertNguoiDung([FromBody] HTNguoiDungDTO nd)
+        public IActionResult PostInsertNguoiDung([FromBody] HT_NGUOIDUNG_Model nd)
         {
             var result = _manager.Insert_QLTN_NGUOI_DUNG(nd);
 
@@ -106,7 +106,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
         }
 
         [HttpPatch("update")]
-        public void UpdateQuyen([FromBody] HTNguoiDungDTO nd)
+        public void UpdateQuyen([FromBody] HT_NGUOIDUNG_Model nd)
         {
             _manager.Update_HT_NGUOIDUNG(nd);
         }
@@ -142,27 +142,43 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
 
         //đổi mật khẩu 
         [HttpPost("resetPassword")]
-        //[AllowAnonymous]
-        //[Authorize]
-        public IActionResult Reset_Password_HT_NGUOIDUNG(string ID, string currentPassword, string newPassword)
+        public IActionResult Reset_Password_HT_NGUOIDUNG([FromBody] Dictionary<string, string> request)
         {
-            string resultMessage = _manager.Reset_Password_HT_NGUOIDUNG(ID, currentPassword, newPassword);
+            // Lấy các giá trị từ Dictionary
+            if (!request.TryGetValue("ID", out string id) ||
+                !request.TryGetValue("currentPassword", out string currentPassword) ||
+                !request.TryGetValue("newPassword", out string newPassword))
+            {
+                return BadRequest(new { message = "Thiếu thông tin yêu cầu." });
+            }
+
+            // Gọi hàm reset password
+            string resultMessage = _manager.Reset_Password_HT_NGUOIDUNG(id, currentPassword, newPassword);
+
             if (resultMessage == "Mật khẩu hiện tại không chính xác.")
             {
                 return Unauthorized(new { message = resultMessage });
             }
 
             return Ok(new { message = resultMessage });
-            //}
         }
 
-            
+
         [HttpDelete("delete/{id}")]
-        public IActionResult Delete_HT_NGUOIDUNG(int id)
+        public IActionResult Delete_HT_NGUOIDUNG(string id)
         {
             _manager.Delete_HT_NGUOIDUNG(id);
             return Ok("Xoa thanh cong");
+        }  
+        
+        [HttpPut("update_Trangthai/{id}/{trangthai}")]
+        public IActionResult updateTrangThai(string id,int trangthai)
+        {
+            _manager.updateTrangThai_NguoiDung(id,trangthai);
+            return Ok("Thành công");
         }
+
+
     }
 
 }

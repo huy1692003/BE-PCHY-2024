@@ -54,7 +54,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                     user.trang_thai_dong_bo = ds.Rows[0]["TRANG_THAI_DONG_BO"] != DBNull.Value ? int.Parse(ds.Rows[0]["TRANG_THAI_DONG_BO"].ToString()) : null;
                     user.db_taikhoandangnhap = ds.Rows[0]["DB_TAIKHOANDANGNHAP"] != DBNull.Value ? ds.Rows[0]["DB_TAIKHOANDANGNHAP"].ToString() : null;
                     user.db_ngay = ds.Rows[0]["DB_NGAY"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["DB_NGAY"].ToString()) : null;
-                    user.db_donvi_lamviec_id = ds.Rows[0]["DM_DONVI_LAMVIEC_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_LAMVIEC_ID"].ToString() : null;
+                    user.dm_donvi_lamviec_id = ds.Rows[0]["DM_DONVI_LAMVIEC_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_LAMVIEC_ID"].ToString() : null;
                     user.ht_vaitro_id = ds.Rows[0]["HT_VAITRO_ID"] != DBNull.Value ? ds.Rows[0]["HT_VAITRO_ID"].ToString() : null;
                     user.sign_alias = ds.Rows[0]["SIGN_ALIAS"] != DBNull.Value ? ds.Rows[0]["SIGN_ALIAS"].ToString() : null;
                     user.sign_username = ds.Rows[0]["SIGN_USERNAME"] != DBNull.Value ? ds.Rows[0]["SIGN_USERNAME"].ToString() : null;
@@ -98,7 +98,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                     OracleCommand cmd = new OracleCommand();
                     cmd.Connection = cn;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLTN_TANH.get_ALL_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLKC_QUANTRI.get_ALL_NGUOIDUNG";
 
                     cmd.Parameters.Add("p_pageIndex", OracleDbType.Int32).Value = pageIndex;
                     cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = pageSize;
@@ -159,7 +159,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 
 
         //them nguoi dung
-        public HTNguoiDungDTO Insert_QLTN_NGUOI_DUNG(HTNguoiDungDTO data)
+        public HT_NGUOIDUNG_Model Insert_QLTN_NGUOI_DUNG(HT_NGUOIDUNG_Model data)
         {
             string strErr = "";
             OracleConnection cn = new ConnectionOracle().getConnection();
@@ -172,42 +172,43 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 
             try
             {
-                string hashPassword = PasswordHasher.HashString(data.MAT_KHAU);
+                string hashPassword = PasswordHasher.HashString(data.mat_khau);
                 cmd.Parameters.Clear();
                 cmd.Connection = cn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLTN_TANH.insert_HT_NGUOIDUNG";
-                cmd.Parameters.Add("p_DM_DONVI_ID", OracleDbType.Varchar2).Value = data.DM_DONVI_ID;
-                cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = data.DM_PHONGBAN_ID;
-                cmd.Parameters.Add("p_DM_KIEUCANBO_ID", OracleDbType.Varchar2).Value = data.DM_KIEUCANBO_ID;
-                cmd.Parameters.Add("p_DM_CHUCVU_ID", OracleDbType.Varchar2).Value = data.DM_CHUCVU_ID;
-                cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = data.TEN_DANG_NHAP;
+                cmd.CommandText = @"PKG_QLKC_QUANTRI.insert_HT_NGUOIDUNG";
+                cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = Guid.NewGuid().ToString();
+                cmd.Parameters.Add("p_DM_DONVI_ID", OracleDbType.Varchar2).Value = data.dm_donvi_id;
+                cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = data.dm_phongban_id;
+                cmd.Parameters.Add("p_DM_KIEUCANBO_ID", OracleDbType.Varchar2).Value = data.dm_kieucanbo_id;
+                cmd.Parameters.Add("p_DM_CHUCVU_ID", OracleDbType.Varchar2).Value = data.dm_chucvu_id;
+                cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = data.ten_dang_nhap;
                 cmd.Parameters.Add("p_MAT_KHAU", OracleDbType.Varchar2).Value = hashPassword;
-                cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = data.HO_TEN;
-                cmd.Parameters.Add("p_EMAIL", OracleDbType.Varchar2).Value = data.EMAIL;
-                cmd.Parameters.Add("p_LDAP", OracleDbType.Varchar2).Value = data.LDAP;
-                cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = data.TRANG_THAI;
-                cmd.Parameters.Add("p_NGAY_TAO", OracleDbType.Date).Value = data.NGAY_TAO != DateTime.MinValue ? (object)data.NGAY_TAO : DBNull.Value;
-                cmd.Parameters.Add("p_NGUOI_TAO", OracleDbType.Varchar2).Value = data.NGUOI_TAO;
-                cmd.Parameters.Add("p_NGAY_CAP_NHAT", OracleDbType.Date).Value = data.NGAY_CAP_NHAT != DateTime.MinValue ? (object)data.NGAY_CAP_NHAT : DBNull.Value;
-                cmd.Parameters.Add("p_NGUOI_CAP_NHAT", OracleDbType.Varchar2).Value = data.NGUOI_CAP_NHAT;
-                cmd.Parameters.Add("p_SO_DIEN_THOAI", OracleDbType.Varchar2).Value = data.SO_DIEN_THOAI;
-                cmd.Parameters.Add("p_GIOI_TINH", OracleDbType.Int32).Value = data.GIOI_TINH;
-                cmd.Parameters.Add("p_SO_CMND", OracleDbType.Varchar2).Value = data.SO_CMND;
-                cmd.Parameters.Add("p_TRANG_THAI_DONG_BO", OracleDbType.Int32).Value = data.TRANG_THAI_DONG_BO;
-                cmd.Parameters.Add("p_DB_TAIKHOANDANGNHAP", OracleDbType.Varchar2).Value = data.DB_TAIKHOANDANGNHAP;
-                cmd.Parameters.Add("p_DB_NGAY", OracleDbType.Date).Value = data.DB_NGAY != DateTime.MinValue ? (object)data.DB_NGAY : DBNull.Value;
-                cmd.Parameters.Add("p_DM_DONVI_LAMVIEC_ID", OracleDbType.Varchar2).Value = data.DM_DONVI_LAMVIEC_ID;
-                cmd.Parameters.Add("p_HT_VAITRO_ID", OracleDbType.Varchar2).Value = data.HT_VAITRO_ID;
-                cmd.Parameters.Add("p_SIGN_ALIAS", OracleDbType.Varchar2).Value = data.SIGN_ALIAS;
-                cmd.Parameters.Add("p_SIGN_USERNAME", OracleDbType.Varchar2).Value = data.SIGN_USERNAME;
-                cmd.Parameters.Add("p_SIGN_PASSWORD", OracleDbType.Varchar2).Value = data.SIGN_PASSWORD;
-                cmd.Parameters.Add("p_HRMS_TYPE", OracleDbType.Int32).Value = data.HRMS_TYPE; // Đảm bảo giá trị là số nguyên
-                cmd.Parameters.Add("p_SIGN_IMAGE", OracleDbType.Varchar2).Value = data.SIGN_IMAGE;
-                cmd.Parameters.Add("p_ANHCHUKYNHAY", OracleDbType.Varchar2).Value = data.ANHCHUKYNHAY;
-                cmd.Parameters.Add("p_ROLEID", OracleDbType.Varchar2).Value = data.ROLEID;
-                cmd.Parameters.Add("p_PHONG_BAN", OracleDbType.Varchar2).Value = data.PHONG_BAN;
-                cmd.Parameters.Add("p_ANHDAIDIEN", OracleDbType.Varchar2).Value = data.ANHDAIDIEN;
+                cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = data.ho_ten;
+                cmd.Parameters.Add("p_EMAIL", OracleDbType.Varchar2).Value = data.email;
+                cmd.Parameters.Add("p_LDAP", OracleDbType.Varchar2).Value = data.ldap;
+                cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = data.trang_thai;
+                cmd.Parameters.Add("p_NGAY_TAO", OracleDbType.Date).Value = data.ngay_tao != DateTime.MinValue ? (object)data.ngay_tao : DBNull.Value;
+                cmd.Parameters.Add("p_NGUOI_TAO", OracleDbType.Varchar2).Value = data.nguoi_tao;
+                cmd.Parameters.Add("p_NGAY_CAP_NHAT", OracleDbType.Date).Value = data.ngay_cap_nhat != DateTime.MinValue ? (object)data.ngay_cap_nhat : DBNull.Value;
+                cmd.Parameters.Add("p_NGUOI_CAP_NHAT", OracleDbType.Varchar2).Value = data.nguoi_cap_nhat;
+                cmd.Parameters.Add("p_SO_DIEN_THOAI", OracleDbType.Varchar2).Value = data.so_dien_thoai;
+                cmd.Parameters.Add("p_GIOI_TINH", OracleDbType.Int32).Value = data.gioi_tinh;
+                cmd.Parameters.Add("p_SO_CMND", OracleDbType.Varchar2).Value = data.so_cmnd;
+                cmd.Parameters.Add("p_TRANG_THAI_DONG_BO", OracleDbType.Int32).Value = data.trang_thai_dong_bo;
+                cmd.Parameters.Add("p_DB_TAIKHOANDANGNHAP", OracleDbType.Varchar2).Value = data.db_taikhoandangnhap;
+                cmd.Parameters.Add("p_DB_NGAY", OracleDbType.Date).Value = data.db_ngay != DateTime.MinValue ? (object)data.db_ngay : DBNull.Value;
+                cmd.Parameters.Add("p_DM_DONVI_LAMVIEC_ID", OracleDbType.Varchar2).Value = data.dm_donvi_lamviec_id;
+                cmd.Parameters.Add("p_HT_VAITRO_ID", OracleDbType.Varchar2).Value = data.ht_vaitro_id;
+                cmd.Parameters.Add("p_SIGN_ALIAS", OracleDbType.Varchar2).Value = data.sign_alias;
+                cmd.Parameters.Add("p_SIGN_USERNAME", OracleDbType.Varchar2).Value = data.sign_username;
+                cmd.Parameters.Add("p_SIGN_PASSWORD", OracleDbType.Varchar2).Value = data.sign_password;
+                cmd.Parameters.Add("p_HRMS_TYPE", OracleDbType.Int32).Value = data.hrms_type; // Đảm bảo giá trị là số nguyên
+                cmd.Parameters.Add("p_SIGN_IMAGE", OracleDbType.Varchar2).Value = data.sign_image;
+                cmd.Parameters.Add("p_ANHCHUKYNHAY", OracleDbType.Varchar2).Value = data.anhchukynhay;
+                cmd.Parameters.Add("p_ROLEID", OracleDbType.Varchar2).Value = data.roleid;
+                cmd.Parameters.Add("p_PHONG_BAN", OracleDbType.Varchar2).Value = data.phong_ban;
+                cmd.Parameters.Add("p_ANHDAIDIEN", OracleDbType.Varchar2).Value = data.anhdaidien;
                 cmd.Parameters.Add("p_Error", OracleDbType.Varchar2, 4000).Direction = ParameterDirection.Output;
 
                 cmd.ExecuteNonQuery();
@@ -241,7 +242,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 cmd.Connection = cn;
                 OracleDataAdapter dap = new OracleDataAdapter();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLTN_TANH.get_HT_NGUOIDUNG_byID";
+                cmd.CommandText = @"PKG_QLKC_QUANTRI.get_HT_NGUOIDUNG_byID";
                 cmd.Parameters.Add("p_ID", Id);
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                 dap.SelectCommand = cmd;
@@ -300,9 +301,94 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 }
             }
         }
+        //Lấy chi tiết 
+        public HT_NGUOIDUNG_Model GET_DM_NGUOIDUNG_byID(string Id)
+        {
+            OracleConnection cn = new ConnectionOracle().getConnection();
+            cn.Open();
+            try
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = cn;
+                OracleDataAdapter dap = new OracleDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = @"PKG_QLKC_HUYEN.get_HT_NGUOIDUNGByID";
+                cmd.Parameters.Add("p_ID", Id);
+                cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                dap.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                dap.Fill(ds);
+
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow dr = ds.Tables[0].Rows[0];
+                    HT_NGUOIDUNG_Model result = new HT_NGUOIDUNG_Model()
+                    {
+                        id = dr["ID"].ToString(),
+                        dm_donvi_id = dr["DM_DONVI_ID"].ToString(),
+                        dm_phongban_id = dr["DM_PHONGBAN_ID"].ToString(),
+                        dm_kieucanbo_id = dr["DM_KIEUCANBO_ID"].ToString(),
+                        dm_chucvu_id = dr["DM_CHUCVU_ID"].ToString(),
+                        ten_dang_nhap = dr["TEN_DANG_NHAP"].ToString(),
+                        mat_khau = null,
+                        ho_ten = dr["HO_TEN"].ToString(),
+                        email = dr["EMAIL"].ToString(),
+                        ldap = dr["LDAP"].ToString(),
+                        trang_thai = int.Parse(dr["TRANG_THAI"].ToString()),
+                        ngay_tao = dr["NGAY_TAO"] as DateTime?,
+                        nguoi_tao = dr["NGUOI_TAO"].ToString(),
+                        ngay_cap_nhat = dr["NGAY_CAP_NHAT"] as DateTime?,
+                        nguoi_cap_nhat = dr["NGUOI_CAP_NHAT"].ToString(),
+                        so_dien_thoai = dr["SO_DIEN_THOAI"].ToString(),
+                        gioi_tinh = int.Parse(dr["GIOI_TINH"].ToString()),
+                        so_cmnd = dr["SO_CMND"].ToString(),
+                        trang_thai_dong_bo = dr["TRANG_THAI_DONG_BO"] as int?,
+                        db_taikhoandangnhap = dr["DB_TAIKHOANDANGNHAP"].ToString(),
+                        db_ngay = dr["DB_NGAY"] as DateTime?,
+                        dm_donvi_lamviec_id = dr["DM_DONVI_LAMVIEC_ID"].ToString(),
+                        ht_vaitro_id = dr["HT_VAITRO_ID"].ToString(),
+                        sign_alias = dr["SIGN_ALIAS"].ToString(),
+                        sign_username = dr["SIGN_USERNAME"].ToString(),
+                        sign_password = null,
+                        hrms_type = dr["HRMS_TYPE"] as int?,
+                        sign_image = dr["SIGN_IMAGE"].ToString(),
+                        anhchukynhay = dr["ANHCHUKYNHAY"].ToString(),
+                        roleid = dr["ROLEID"].ToString(),
+                        phong_ban = dr["PHONG_BAN"].ToString(),
+                        anhdaidien = dr["ANHDAIDIEN"].ToString(),
 
 
-        public HTNguoiDungDTO Update_HT_NGUOIDUNG(HTNguoiDungDTO nguoidung)
+                    };
+
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+            }
+        }
+
+
+
+        public HT_NGUOIDUNG_Model Update_HT_NGUOIDUNG(HT_NGUOIDUNG_Model data)
         {
             using (OracleConnection cn = new ConnectionOracle().getConnection())
             {
@@ -319,45 +405,45 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                         {
                             cmd.Parameters.Clear();
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.CommandText = @"PKG_QLTN_TANH.update_HT_NGUOIDUNG";
-
-                            cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = nguoidung.ID;
-                            cmd.Parameters.Add("p_DM_DONVI_ID", OracleDbType.Varchar2).Value = nguoidung.DM_DONVI_ID;
-                            cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = nguoidung.DM_PHONGBAN_ID;
-                            cmd.Parameters.Add("p_DM_KIEUCANBO_ID", OracleDbType.Varchar2).Value = nguoidung.DM_KIEUCANBO_ID;
-                            cmd.Parameters.Add("p_DM_CHUCVU_ID", OracleDbType.Varchar2).Value = nguoidung.DM_CHUCVU_ID;
-                            cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = nguoidung.TEN_DANG_NHAP;
-                            cmd.Parameters.Add("p_MAT_KHAU", OracleDbType.Varchar2).Value = nguoidung.MAT_KHAU;
-                            cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = nguoidung.HO_TEN;
-                            cmd.Parameters.Add("p_EMAIL", OracleDbType.Varchar2).Value = nguoidung.EMAIL;
-                            cmd.Parameters.Add("p_LDAP", OracleDbType.Varchar2).Value = nguoidung.LDAP;
-                            cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = nguoidung.TRANG_THAI;
-                            cmd.Parameters.Add("p_NGAY_TAO", OracleDbType.Date).Value = nguoidung.NGAY_TAO ?? (object)DBNull.Value;
-                            cmd.Parameters.Add("p_NGUOI_TAO", OracleDbType.Varchar2).Value = nguoidung.NGUOI_TAO;
-                            cmd.Parameters.Add("p_NGAY_CAP_NHAT", OracleDbType.Date).Value = nguoidung.NGAY_CAP_NHAT ?? (object)DBNull.Value;
-                            cmd.Parameters.Add("p_NGUOI_CAP_NHAT", OracleDbType.Varchar2).Value = nguoidung.NGUOI_CAP_NHAT;
-                            cmd.Parameters.Add("p_SO_DIEN_THOAI", OracleDbType.Varchar2).Value = nguoidung.SO_DIEN_THOAI;
-                            cmd.Parameters.Add("p_GIOI_TINH", OracleDbType.Int32).Value = nguoidung.GIOI_TINH ?? (object)DBNull.Value;
-                            cmd.Parameters.Add("p_SO_CMND", OracleDbType.Varchar2).Value = nguoidung.SO_CMND;
-                            cmd.Parameters.Add("p_TRANG_THAI_DONG_BO", OracleDbType.Int32).Value = nguoidung.TRANG_THAI_DONG_BO ?? (object)DBNull.Value;
-                            cmd.Parameters.Add("p_DB_TAIKHOANDANGNHAP", OracleDbType.Varchar2).Value = nguoidung.DB_TAIKHOANDANGNHAP;
-                            cmd.Parameters.Add("p_DB_NGAY", OracleDbType.Date).Value = nguoidung.DB_NGAY ?? (object)DBNull.Value;
-                            cmd.Parameters.Add("p_DM_DONVI_LAMVIEC_ID", OracleDbType.Varchar2).Value = nguoidung.DM_DONVI_LAMVIEC_ID;
-                            cmd.Parameters.Add("p_HT_VAITRO_ID", OracleDbType.Varchar2).Value = nguoidung.HT_VAITRO_ID;
-                            cmd.Parameters.Add("p_SIGN_ALIAS", OracleDbType.Varchar2).Value = nguoidung.SIGN_ALIAS;
-                            cmd.Parameters.Add("p_SIGN_USERNAME", OracleDbType.Varchar2).Value = nguoidung.SIGN_USERNAME;
-                            cmd.Parameters.Add("p_SIGN_PASSWORD", OracleDbType.Varchar2).Value = nguoidung.SIGN_PASSWORD;
-                            cmd.Parameters.Add("p_HRMS_TYPE", OracleDbType.Int32).Value = nguoidung.HRMS_TYPE ?? (object)DBNull.Value;
-                            cmd.Parameters.Add("p_SIGN_IMAGE", OracleDbType.Varchar2).Value = nguoidung.SIGN_IMAGE;
-                            cmd.Parameters.Add("p_ANHCHUKYNHAY", OracleDbType.Varchar2).Value = nguoidung.ANHCHUKYNHAY;
-                            cmd.Parameters.Add("p_ROLEID", OracleDbType.Varchar2).Value = nguoidung.ROLEID;
-                            cmd.Parameters.Add("p_PHONG_BAN", OracleDbType.Varchar2).Value = nguoidung.PHONG_BAN;
-                            cmd.Parameters.Add("p_ANHDAIDIEN", OracleDbType.Varchar2).Value = nguoidung.ANHDAIDIEN;
+                            cmd.CommandText = @"PKG_QLKC_QUANTRI.update_HT_NGUOIDUNG";
+                            cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = data.id;
+                            cmd.Parameters.Add("p_DM_DONVI_ID", OracleDbType.Varchar2).Value = data.dm_donvi_id;
+                            cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = data.dm_phongban_id;
+                            cmd.Parameters.Add("p_DM_KIEUCANBO_ID", OracleDbType.Varchar2).Value = data.dm_kieucanbo_id;
+                            cmd.Parameters.Add("p_DM_CHUCVU_ID", OracleDbType.Varchar2).Value = data.dm_chucvu_id;
+                            cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = data.ten_dang_nhap;
+                            cmd.Parameters.Add("p_MAT_KHAU", OracleDbType.Varchar2).Value = null;
+                            cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = data.ho_ten;
+                            cmd.Parameters.Add("p_EMAIL", OracleDbType.Varchar2).Value = data.email;
+                            cmd.Parameters.Add("p_LDAP", OracleDbType.Varchar2).Value = data.ldap;
+                            cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = data.trang_thai;
+                            cmd.Parameters.Add("p_NGAY_TAO", OracleDbType.Date).Value = data.ngay_tao != DateTime.MinValue ? (object)data.ngay_tao : DBNull.Value;
+                            cmd.Parameters.Add("p_NGUOI_TAO", OracleDbType.Varchar2).Value = data.nguoi_tao;
+                            cmd.Parameters.Add("p_NGAY_CAP_NHAT", OracleDbType.Date).Value = data.ngay_cap_nhat != DateTime.MinValue ? (object)data.ngay_cap_nhat : DBNull.Value;
+                            cmd.Parameters.Add("p_NGUOI_CAP_NHAT", OracleDbType.Varchar2).Value = data.nguoi_cap_nhat;
+                            cmd.Parameters.Add("p_SO_DIEN_THOAI", OracleDbType.Varchar2).Value = data.so_dien_thoai;
+                            cmd.Parameters.Add("p_GIOI_TINH", OracleDbType.Int32).Value = data.gioi_tinh;
+                            cmd.Parameters.Add("p_SO_CMND", OracleDbType.Varchar2).Value = data.so_cmnd;
+                            cmd.Parameters.Add("p_TRANG_THAI_DONG_BO", OracleDbType.Int32).Value = data.trang_thai_dong_bo;
+                            cmd.Parameters.Add("p_DB_TAIKHOANDANGNHAP", OracleDbType.Varchar2).Value = data.db_taikhoandangnhap;
+                            cmd.Parameters.Add("p_DB_NGAY", OracleDbType.Date).Value = data.db_ngay != DateTime.MinValue ? (object)data.db_ngay : DBNull.Value;
+                            cmd.Parameters.Add("p_DM_DONVI_LAMVIEC_ID", OracleDbType.Varchar2).Value = data.dm_donvi_lamviec_id;
+                            cmd.Parameters.Add("p_HT_VAITRO_ID", OracleDbType.Varchar2).Value = data.ht_vaitro_id;
+                            cmd.Parameters.Add("p_SIGN_ALIAS", OracleDbType.Varchar2).Value = data.sign_alias;
+                            cmd.Parameters.Add("p_SIGN_USERNAME", OracleDbType.Varchar2).Value = data.sign_username;
+                            cmd.Parameters.Add("p_SIGN_PASSWORD", OracleDbType.Varchar2).Value = data.sign_password;
+                            cmd.Parameters.Add("p_HRMS_TYPE", OracleDbType.Int32).Value = data.hrms_type; // Đảm bảo giá trị là số nguyên
+                            cmd.Parameters.Add("p_SIGN_IMAGE", OracleDbType.Varchar2).Value = data.sign_image;
+                            cmd.Parameters.Add("p_ANHCHUKYNHAY", OracleDbType.Varchar2).Value = data.anhchukynhay;
+                            cmd.Parameters.Add("p_ROLEID", OracleDbType.Varchar2).Value = data.roleid;
+                            cmd.Parameters.Add("p_PHONG_BAN", OracleDbType.Varchar2).Value = data.phong_ban;
+                            cmd.Parameters.Add("p_ANHDAIDIEN", OracleDbType.Varchar2).Value = data.anhdaidien;
+                           
 
                             cmd.ExecuteNonQuery();
                             transaction.Commit();
 
-                            return nguoidung;
+                            return data;
                         }
                         catch (Exception ex)
                         {
@@ -368,6 +454,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
             }
         }
 
+
         public List<UserResponse> FILTER_HT_NGUOIDUNG(UserFilterRequest request, out int totalRecords)
         {
             OracleConnection cn = new ConnectionOracle().getConnection();
@@ -377,11 +464,11 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = cn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLTN_TANH.search_HT_NGUOIDUNG";
+                cmd.CommandText = @"PKG_QLKC_QUANTRI.search_HT_NGUOIDUNG";
 
                 cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.HO_TEN) ? (object)DBNull.Value : request.HO_TEN;
                 cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.TEN_DANG_NHAP) ? (object)DBNull.Value : request.TEN_DANG_NHAP;
-                cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = request.TRANG_THAI.HasValue ? (object)request.TRANG_THAI.Value : DBNull.Value;
+                cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = request.TRANG_THAI!=-1 ? (object)request.TRANG_THAI.Value : DBNull.Value;
                 cmd.Parameters.Add("p_DM_DONVI_ID", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.DM_DONVI_ID) ? (object)DBNull.Value : request.DM_DONVI_ID;
                 cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.DM_PHONGBAN_ID) ? (object)DBNull.Value : request.DM_PHONGBAN_ID;
                 cmd.Parameters.Add("p_DM_CHUCVU_ID", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.DM_CHUCVU_ID) ? (object)DBNull.Value : request.DM_CHUCVU_ID;
@@ -416,6 +503,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                     {
                         UserResponse result = new UserResponse
                         {
+                            ID = dr["ID"] != DBNull.Value ? dr["ID"].ToString() : null,
                             HO_TEN = dr["HO_TEN"] != DBNull.Value ? dr["HO_TEN"].ToString() : null,
                             TEN_DANG_NHAP = dr["TEN_DANG_NHAP"] != DBNull.Value ? dr["TEN_DANG_NHAP"].ToString() : null,
                             TRANG_THAI = dr["TRANG_THAI"] != DBNull.Value ? Convert.ToInt32(dr["TRANG_THAI"]) : 0,
@@ -470,7 +558,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 string hashedNewPassword = PasswordHasher.HashString(newPassword);
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLTN_DAT.update_password_HT_NGUOIDUNG";
+                cmd.CommandText = @"PKG_QLKC_QUANTRI.update_password_HT_NGUOIDUNG";
                 cmd.Parameters.Add("p_USER_ID", ID);
                 cmd.Parameters.Add("p_NEW_PASSWORD", hashedNewPassword);
                 cmd.Parameters.Add("p_Error", OracleDbType.NVarchar2, 200).Direction = ParameterDirection.Output;
@@ -510,7 +598,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 OracleDataAdapter dap = new OracleDataAdapter();
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.CommandText = @"PKG_QLTN_TANH.get_HT_NGUOIDUNG_byID";
+                cmd.CommandText = @"PKG_QLKC_QUANTRI.get_HT_NGUOIDUNG_byID";
                 cmd.Parameters.Add("p_ID", ID);
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
@@ -544,7 +632,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 
 
         //delete nguoi dung
-        public void Delete_HT_NGUOIDUNG(int id)
+        public void Delete_HT_NGUOIDUNG(string id)
         {
             string strErr = "";
             using (OracleConnection cn = new ConnectionOracle().getConnection())
@@ -559,10 +647,47 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 {
                     cmd.Parameters.Clear();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLTN_TANH.delete_HT_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLKC_QUANTRI.delete_HT_NGUOIDUNG";
 
-                    cmd.Parameters.Add("p_ID", OracleDbType.Int32).Value = id;
+                    cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = id;
                     cmd.Parameters.Add("p_Error", OracleDbType.Varchar2, 200).Direction = ParameterDirection.Output;
+
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex; // Hoặc xử lý lỗi theo cách bạn muốn
+                }
+                finally
+                {
+                    if (cn.State != ConnectionState.Closed)
+                    {
+                        cn.Close();
+                    }
+                }
+            }
+        }
+        public void updateTrangThai_NguoiDung(string id,int trangthainew)
+        {
+            string strErr = "";
+            using (OracleConnection cn = new ConnectionOracle().getConnection())
+            {
+                cn.Open();
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = cn;
+                OracleTransaction transaction = cn.BeginTransaction();
+                cmd.Transaction = transaction;
+
+                try
+                {
+                    cmd.Parameters.Clear();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = @"PKG_QLKC_QUANTRI.update_TT_NGUOIDUNG";
+
+                    cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = id;
+                    cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = trangthainew;
 
                     cmd.ExecuteNonQuery();
                     transaction.Commit();

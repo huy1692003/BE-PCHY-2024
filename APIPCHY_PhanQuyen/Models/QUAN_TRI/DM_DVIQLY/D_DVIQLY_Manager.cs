@@ -11,7 +11,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.D_DVIQLY
         {
             try
             {
-                DataTable tb = helper.ExcuteReader("PKG_QLKC_SANG.getAllD_DVIQLY");
+                DataTable tb = helper.ExcuteReader("PKG_QLKC_SANG.getAllDM_DVIQLY");
                 List<D_DVIQLY_Model> result = new List<D_DVIQLY_Model>();
                 if (tb != null)
                 {

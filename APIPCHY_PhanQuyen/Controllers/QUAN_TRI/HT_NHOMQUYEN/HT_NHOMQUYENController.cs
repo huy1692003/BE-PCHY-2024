@@ -88,7 +88,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN
         }
        
 
-        [HttpGet("getNhomQuyen_byMaDV/{maDVI}")]
+        [HttpGet("getNhomQuyen_byMaDV")]
         public ActionResult<List<HT_NHOMQUYEN_Model>> GetNhomQuyenByMaDVI(string maDviqly)
         {
             try
@@ -96,7 +96,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN
                 var nhomList = manager.GET_NHOMQUYEN_BY_MADV(maDviqly);
                 if (nhomList == null || nhomList.Count == 0)
                 {
-                    return NotFound("KHONG TIM THAY DON VI NAO");
+                    return new List<HT_NHOMQUYEN_Model>();
                 }
                 return Ok(nhomList);
             }

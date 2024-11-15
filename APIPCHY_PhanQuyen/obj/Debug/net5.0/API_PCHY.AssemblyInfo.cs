@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("API_PCHY")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+060afefb8a5b777be5ee9665fd53025b449b0fb1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+981eab0eeeceab332692d1e8f1dd71295a228d8e")]
 [assembly: System.Reflection.AssemblyProductAttribute("API_PCHY")]
 [assembly: System.Reflection.AssemblyTitleAttribute("API_PCHY")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

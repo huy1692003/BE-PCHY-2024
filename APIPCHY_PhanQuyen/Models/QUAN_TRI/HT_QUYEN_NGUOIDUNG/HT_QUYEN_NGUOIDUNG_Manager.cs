@@ -78,9 +78,9 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG
             {
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLTN_TANH.grant_HT_QUYEN_NGUOIDUNG";
+                cmd.CommandText = @"PKG_QLKC_QUANTRI.grant_HT_QUYEN_NGUOIDUNG";
                 cmd.Parameters.Add("p_MA_NGUOI_DUNG", qnd.MA_NGUOI_DUNG);
-                cmd.Parameters.Add("p_NHOM_QUYEN_ID", int.Parse(qnd.MA_NHOM_TV));
+                cmd.Parameters.Add("p_NHOM_QUYEN_ID", qnd.MA_NHOM_TV);
                 cmd.Parameters.Add("p_Error", OracleDbType.NVarchar2, 200).Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
                 transaction.Commit();
@@ -153,7 +153,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG
                 {
                     cmd.Parameters.Clear();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLTN_TANH.delete_HT_QUYEN_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLKC_QUANTRI.delete_HT_QUYEN_NGUOIDUNG";
 
                     cmd.Parameters.Add("p_ID", OracleDbType.Int32).Value = id;
                     cmd.Parameters.Add("p_Error", OracleDbType.Varchar2, 200).Direction = ParameterDirection.Output;
@@ -174,6 +174,51 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG
                     }
                 }
             }
+        }
+        public List<object> Get_QUYEN_NGUOIDUNG_BY_USERID(string maNguoiDung)
+        {
+            List<object> result = new List<object>();
+            OracleConnection cn = new ConnectionOracle().getConnection();
+            try
+            {
+                cn.Open();
+                OracleCommand cmd = new OracleCommand
+                {
+                    Connection = cn,
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = @"PKG_QLKC_QUANTRI.get_NHOMQUYEN_BY_NGUOIDUNG_ID"
+                };
+                cmd.Parameters.Add("p_MA_NGUOI_DUNG", OracleDbType.Varchar2).Value = maNguoiDung;
+                cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                using (OracleDataAdapter dap = new OracleDataAdapter(cmd))
+                {
+                    DataSet ds = new DataSet();
+                    dap.Fill(ds);
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        var items = new
+                        {
+                            ID=dr.Field<decimal>("ID"),
+                            IDNhomQuyen = dr.Field<string>("NHOM_ID"),
+                            TenNhomQuyen = dr.Field<string>("TEN_NHOM"),
+                            TenDonVi = dr.Field<string>("TEN_DVIQLY"),
+                        };
+                        result.Add(items);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+            }
+            return result;
         }
 
     }
