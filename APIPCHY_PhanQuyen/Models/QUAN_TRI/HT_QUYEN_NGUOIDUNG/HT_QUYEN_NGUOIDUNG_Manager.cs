@@ -9,6 +9,62 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG
     public class HT_QUYEN_NGUOIDUNG_Manager
     {
         DataHelper helper = new DataHelper();
+
+        public List<object> Get_QUYEN_NGUOIDUNG_BY_USERID(string maNguoiDung)
+        {
+            List<object> result = new List<object>();
+            OracleConnection cn = new ConnectionOracle().getConnection();
+
+            try
+            {
+                cn.Open();
+
+                OracleCommand cmd = new OracleCommand
+                {
+                    Connection = cn,
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = @"PKG_QLTN_TANH.get_NHOMQUYEN_BY_NGUOIDUNG_ID"
+                };
+                cmd.Parameters.Add("p_MA_NGUOI_DUNG", OracleDbType.Varchar2).Value = maNguoiDung;
+                cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                using (OracleDataAdapter dap = new OracleDataAdapter(cmd))
+                {
+                    DataSet ds = new DataSet();
+                    dap.Fill(ds);
+
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        var items = new
+                        {
+                            ID = Convert.ToInt32(dr.Field<decimal>("NHOM_ID")),
+                            TenNhomQuyen = dr.Field<string>("TEN_NHOM"),
+                            TenDonVi = dr.Field<string>("TEN_DVIQLY"),
+                        };
+
+                        result.Add(items);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+            }
+
+            return result;
+        }
+
+
+
+
+
         public List<HT_QUYEN_NGUOIDUNG_Model> Get_QUYEN_NGUOIDUNG()
         {
             string strErr = "";
