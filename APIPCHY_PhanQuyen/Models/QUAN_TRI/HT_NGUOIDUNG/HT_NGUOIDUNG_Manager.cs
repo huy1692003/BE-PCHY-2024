@@ -76,6 +76,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                         user.phong_ban = ds.Rows[0]["PHONG_BAN"] != DBNull.Value ? ds.Rows[0]["PHONG_BAN"].ToString() : null;
                         user.anhdaidien = ds.Rows[0]["ANHDAIDIEN"] != DBNull.Value ? ds.Rows[0]["ANHDAIDIEN"].ToString() : null;
                         user.ma_dviqly= ds.Rows[0]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[0]["MA_DVIQLY"].ToString() : null;
+                        user.value_token= ds.Rows[0]["VALUE_TOKEN"] != DBNull.Value ? ds.Rows[0]["VALUE_TOKEN"].ToString() : null;
                         user.ds_donvi = new DM_DONVI_Manager().get_All_DM_DONVI_ByMADVIQLY(user.ma_dviqly);
                         TokenService tokenService = new TokenService(_configuration);
                         string token = tokenService.GenerateJwtToken(user);
@@ -214,6 +215,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 cmd.Parameters.Add("p_ROLEID", OracleDbType.Varchar2).Value = data.roleid;
                 cmd.Parameters.Add("p_PHONG_BAN", OracleDbType.Varchar2).Value = data.phong_ban;
                 cmd.Parameters.Add("p_ANHDAIDIEN", OracleDbType.Varchar2).Value = data.anhdaidien;
+                cmd.Parameters.Add("p_VALUE_TOKEN", OracleDbType.Varchar2).Value = data.value_token;
                 cmd.Parameters.Add("p_Error", OracleDbType.Varchar2, 4000).Direction = ParameterDirection.Output;
 
                 cmd.ExecuteNonQuery();
@@ -360,12 +362,13 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                         sign_alias = dr["SIGN_ALIAS"].ToString(),
                         sign_username = dr["SIGN_USERNAME"].ToString(),
                         sign_password = null,
-                        hrms_type = int.TryParse(dr["HRMS_TYPE"].ToString(), out int hrmsType) ? hrmsType : (int?)null,  // Trả về null nếu không thể parse
+                        hrms_type = int.TryParse(dr["SMART"].ToString(), out int hrmsType) ? hrmsType : (int?)null,  // Trả về null nếu không thể parse
                         sign_image = dr["SIGN_IMAGE"].ToString(),
                         anhchukynhay = dr["ANHCHUKYNHAY"].ToString(),
                         roleid = dr["ROLEID"].ToString(),
                         phong_ban = dr["PHONG_BAN"].ToString(),
-                        anhdaidien = dr["ANHDAIDIEN"].ToString()
+                        anhdaidien = dr["ANHDAIDIEN"].ToString(),
+                        value_token = dr["VALUE_TOKEN"].ToString()
 
 
                     };
@@ -443,6 +446,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                             cmd.Parameters.Add("p_ROLEID", OracleDbType.Varchar2).Value = data.roleid;
                             cmd.Parameters.Add("p_PHONG_BAN", OracleDbType.Varchar2).Value = data.phong_ban;
                             cmd.Parameters.Add("p_ANHDAIDIEN", OracleDbType.Varchar2).Value = data.anhdaidien;
+                            cmd.Parameters.Add("p_VALUE_TOKEN", OracleDbType.Varchar2).Value = data.value_token;
+
 
 
                             cmd.ExecuteNonQuery();

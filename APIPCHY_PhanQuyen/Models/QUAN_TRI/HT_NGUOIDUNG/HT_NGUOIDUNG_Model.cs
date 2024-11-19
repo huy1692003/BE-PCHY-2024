@@ -42,6 +42,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
         public string? phong_ban { get; set; }
         public string? anhdaidien { get; set; }
         public string? ma_dviqly { get; set; }
+        public string ? value_token {  get; set; }
         public List<DM_DONVI_Model> ds_donvi { get; set; }
         public string token { get; set; }
 
