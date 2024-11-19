@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace APIPCHY_PhanQuyen.Models.QLKC.HT_MENU
 {
@@ -16,5 +17,6 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_MENU
         public int? parent_id { get; set; }
         public string? icon { get; set; }
         public int? sap_xep { get; set; }
+        public List<HT_MENU_Model> children { get; set; }
     }
 }

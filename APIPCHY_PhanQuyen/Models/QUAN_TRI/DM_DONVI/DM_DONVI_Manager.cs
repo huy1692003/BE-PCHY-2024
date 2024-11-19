@@ -23,7 +23,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
 
                
 
-                string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.insert_DM_DONVI", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.insert_DM_DONVI", "p_Error",
                                                     "p_ID", "p_DM_DONVI_ID", "p_LOAI_DON_VI", "p_MA", "p_TEN",
                                                     "p_TRANG_THAI", "p_SAP_XEP", "p_GHI_CHU", "p_NGUOI_TAO", "p_CAP_SO",
                                                     "p_CAP_MA", "p_DM_TINHTHANH_ID", "p_DM_QUANHUYEN_ID", "p_DM_DONVI_CHUQUAN_ID",
@@ -50,7 +50,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
             {
                 //Guid id = Guid.NewGuid();               
 
-                string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.update_DM_DONVI", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.update_DM_DONVI", "p_Error",
                                                     "p_ID", "p_DM_DONVI_ID", "p_LOAI_DON_VI", "p_MA", "p_TEN",
                                                     "p_TRANG_THAI", "p_SAP_XEP", "p_GHI_CHU", "p_NGAY_CAP_NHAT", "p_NGUOI_CAP_NHAT",
                                                     "p_CAP_SO", "p_CAP_MA", "p_DM_TINHTHANH_ID", "p_DM_QUANHUYEN_ID",
@@ -75,7 +75,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.delete_DM_DONVI", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.delete_DM_DONVI", "p_Error",
                                                     "p_ID", id);
 
                 return result;
@@ -93,7 +93,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
             totalItems = 0;
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_NGOCANH.search_DM_DONVI", "p_page_index", "p_page_size",
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.search_DM_DONVI", "p_page_index", "p_page_size",
                                                     "p_TEN", "p_MA", "p_TRANG_THAI", pageIndex, pageSize, ten, ma, trang_thai);
                 var count = ds.Rows.Count;
                 totalItems = int.Parse(ds.Rows[0]["RECORDCOUNT"].ToString());
@@ -144,7 +144,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_NGOCANH.get_All_DM_DONVI");
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_All_DM_DONVI");
                 List<DM_DONVI_Model> list = new List<DM_DONVI_Model>();
                 if (ds != null)
                 {
@@ -192,11 +192,44 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
 
         }
 
+        public List<DM_DONVI_Model> get_All_DM_DONVI_ByMADVIQLY(string MaDVIQLY)
+        {
+            try
+            {
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_DM_DONVI_By_MADVIQLY", "@p_MA_DVIQLY",MaDVIQLY);
+                List<DM_DONVI_Model> list = new List<DM_DONVI_Model>();
+                if (ds != null)
+                {
+                    for (int i = 0; i < ds.Rows.Count; i++)
+                    {
+                        DM_DONVI_Model model = new DM_DONVI_Model();
+                        model.id = ds.Rows[i]["ID"].ToString();
+                        model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[i]["DM_DONVI_ID"].ToString() : null;
+                        model.loai_don_vi = ds.Rows[i]["LOAI_DON_VI"] != DBNull.Value ? int.Parse(ds.Rows[i]["LOAI_DON_VI"].ToString()) : null;
+                        model.ma = ds.Rows[i]["MA"] != DBNull.Value ? ds.Rows[i]["MA"].ToString() : null;
+                        model.ten = ds.Rows[i]["TEN"] != DBNull.Value ? ds.Rows[i]["TEN"].ToString() : null;                    
+                        model.ma_dviqly = ds.Rows[i]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[i]["MA_DVIQLY"].ToString() : null;
+
+                        list.Add(model);
+                    }
+                }
+                else list = null;
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
         public DM_DONVI_Model get_DM_DONVI_ByID(string ID)
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_NGOCANH.get_DM_DONVI_By_ID", "p_ID", ID);
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_DM_DONVI_By_ID", "p_ID", ID);
                 if (ds != null && ds.Rows.Count > 0)
                 {
                     DM_DONVI_Model model = new DM_DONVI_Model();

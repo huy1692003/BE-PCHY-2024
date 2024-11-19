@@ -14,7 +14,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN
             {
                 Guid id = Guid.NewGuid();
                 string str_id = id.ToString();
-                string result = helper.ExcuteNonQuery("PKG_QLKC_SANG.insert_DM_PHONGBAN", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.insert_DM_PHONGBAN", "p_Error",
                                                     "p_ID", "p_MA", "p_TEN", "p_TRANG_THAI", "p_SAP_XEP",
                                                     "p_NGUOI_TAO", "p_DM_DONVI_ID", "p_DM_PHONGBAN_ID", "p_DB_MAPHONGBAN", "p_DB_NGAY", "p_MA_DVIQLY",
                                                     str_id, dM_PHONGBAN.ma, dM_PHONGBAN.ten, dM_PHONGBAN.trang_thai, dM_PHONGBAN.sap_xep,
@@ -33,7 +33,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN
             try
             {
                 string str_id = dM_PHONGBAN.id.ToString();
-                string result = helper.ExcuteNonQuery("PKG_QLKC_SANG.update_DM_PHONGBAN", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.update_DM_PHONGBAN", "p_Error",
                                                     "p_ID", "p_MA", "p_TEN", "p_TRANG_THAI", "p_SAP_XEP", "p_NGUOI_TAO", "p_DM_DONVI_ID",
                                                     "p_DM_PHONGBAN_ID", "p_DB_MAPHONGBAN", "p_DB_NGAY", "p_MA_DVIQLY", "p_NGUOI_CAP_NHAT", "p_NGAY_TAO",
                                                     str_id, dM_PHONGBAN.ma,dM_PHONGBAN.ten, dM_PHONGBAN.trang_thai, dM_PHONGBAN.sap_xep, dM_PHONGBAN.nguoi_tao, dM_PHONGBAN.dm_donvi_id,
@@ -51,7 +51,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_SANG.delete_DM_PHONGBAN", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.delete_DM_PHONGBAN", "p_Error",
                                                     "p_ID", ID
                                                     );
                 return result;
@@ -68,7 +68,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN
             try
             {
                 
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_SANG.search_DM_PHONGBAN","p_page_index","p_page_size","p_TEN","p_MA","p_TRANG_THAI",pageIndex,pageSize,ten,ma,trang_thai);
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.search_DM_PHONGBAN","p_page_index","p_page_size","p_TEN","p_MA","p_TRANG_THAI",pageIndex,pageSize,ten,ma,trang_thai);
                 var count = ds.Rows.Count;
                 totalItems = int.Parse(ds.Rows[0]["RecordCount"].ToString());
                 List<DM_PHONGBAN_Model> list = new List<DM_PHONGBAN_Model>();
@@ -110,7 +110,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_SANG.get_DM_PHONGBANBYID", "p_ID", ID);
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_DM_PHONGBANBYID", "p_ID", ID);
               
                 if (ds != null)
                 {

@@ -27,11 +27,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_QUYEN_NGUOIDUNG
             manager.Insert_HT_QUYEN_NGUOIDUNG(quyen);
         }
 
-        [HttpPatch("update")]
-        public void UpdateQuyen([FromBody] HT_QUYEN_NGUOIDUNG_Model quyen)
-        {
-            manager.Update_HT_QUYEN_NGUOIDUNG(quyen);
-        }
+        
 
         [HttpGet("delete/{id}")]
         //[Authorize]

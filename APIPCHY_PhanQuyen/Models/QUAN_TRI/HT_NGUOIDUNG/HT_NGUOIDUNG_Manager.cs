@@ -1,10 +1,13 @@
 ﻿using APIPCHY.Helpers;
+using APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI;
+using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
 using APIPCHY_PhanQuyen.Services;
 using Microsoft.Extensions.Configuration;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
@@ -27,56 +30,58 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_THUAN.login_HT_NGUOIDUNG", "p_TEN_DANG_NHAP", "p_MAT_KHAU", username, password);
-                if (ds != null && ds.Rows.Count > 0)
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.login_HT_NGUOIDUNG", "p_TEN_DANG_NHAP", username);
+                if (ds == null || ds.Rows.Count == 0)
                 {
-                    HT_NGUOIDUNG_Model user = new HT_NGUOIDUNG_Model();
-                    user.id = ds.Rows[0]["ID"] != DBNull.Value ? ds.Rows[0]["ID"].ToString() : null;
-                    user.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_ID"].ToString() : null;
-                    user.ten_donvi = ds.Rows[0]["TEN"] != DBNull.Value ? ds.Rows[0]["TEN"].ToString() : null;
-                    user.dm_phongban_id = ds.Rows[0]["DM_PHONGBAN_ID"] != DBNull.Value ? ds.Rows[0]["DM_PHONGBAN_ID"].ToString() : null;
-                    user.ten_phongban = ds.Rows[0]["TEN_PB"] != DBNull.Value ? ds.Rows[0]["TEN_PB"].ToString() : null;
-                    user.dm_kieucanbo_id = ds.Rows[0]["DM_KIEUCANBO_ID"] != DBNull.Value ? ds.Rows[0]["DM_KIEUCANBO_ID"].ToString() : null;
-                    user.dm_chucvu_id = ds.Rows[0]["DM_CHUCVU_ID"] != DBNull.Value ? ds.Rows[0]["DM_CHUCVU_ID"].ToString() : null;
-                    user.ten_dang_nhap = ds.Rows[0]["TEN_DANG_NHAP"] != DBNull.Value ? ds.Rows[0]["TEN_DANG_NHAP"].ToString() : null;
-                    user.mat_khau = ds.Rows[0]["MAT_KHAU"] != DBNull.Value ? ds.Rows[0]["MAT_KHAU"].ToString() : null;
-                    user.ho_ten = ds.Rows[0]["HO_TEN"] != DBNull.Value ? ds.Rows[0]["HO_TEN"].ToString() : null;
-                    user.email = ds.Rows[0]["EMAIL"] != DBNull.Value ? ds.Rows[0]["EMAIL"].ToString() : null;
-                    user.ldap = ds.Rows[0]["LDAP"] != DBNull.Value ? ds.Rows[0]["LDAP"].ToString() : null;
-                    user.trang_thai = ds.Rows[0]["TRANG_THAI"] != DBNull.Value ? int.Parse(ds.Rows[0]["TRANG_THAI"].ToString()) : null;
-                    user.ngay_tao = ds.Rows[0]["NGAY_TAO"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_TAO"].ToString()) : null;
-                    user.nguoi_tao = ds.Rows[0]["NGUOI_TAO"] != DBNull.Value ? ds.Rows[0]["NGUOI_TAO"].ToString() : null;
-                    user.ngay_cap_nhat = ds.Rows[0]["NGAY_CAP_NHAT"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_CAP_NHAT"].ToString()) : null;
-                    user.nguoi_cap_nhat = ds.Rows[0]["NGUOI_CAP_NHAT"] != DBNull.Value ? ds.Rows[0]["NGUOI_CAP_NHAT"].ToString() : null;
-                    user.so_dien_thoai = ds.Rows[0]["SO_DIEN_THOAI"] != DBNull.Value ? ds.Rows[0]["SO_DIEN_THOAI"].ToString() : null;
-                    user.gioi_tinh = ds.Rows[0]["GIOI_TINH"] != DBNull.Value ? int.Parse(ds.Rows[0]["GIOI_TINH"].ToString()) : null;
-                    user.so_cmnd = ds.Rows[0]["SO_CMND"] != DBNull.Value ? ds.Rows[0]["SO_CMND"].ToString() : null;
-                    user.trang_thai_dong_bo = ds.Rows[0]["TRANG_THAI_DONG_BO"] != DBNull.Value ? int.Parse(ds.Rows[0]["TRANG_THAI_DONG_BO"].ToString()) : null;
-                    user.db_taikhoandangnhap = ds.Rows[0]["DB_TAIKHOANDANGNHAP"] != DBNull.Value ? ds.Rows[0]["DB_TAIKHOANDANGNHAP"].ToString() : null;
-                    user.db_ngay = ds.Rows[0]["DB_NGAY"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["DB_NGAY"].ToString()) : null;
-                    user.dm_donvi_lamviec_id = ds.Rows[0]["DM_DONVI_LAMVIEC_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_LAMVIEC_ID"].ToString() : null;
-                    user.ht_vaitro_id = ds.Rows[0]["HT_VAITRO_ID"] != DBNull.Value ? ds.Rows[0]["HT_VAITRO_ID"].ToString() : null;
-                    user.sign_alias = ds.Rows[0]["SIGN_ALIAS"] != DBNull.Value ? ds.Rows[0]["SIGN_ALIAS"].ToString() : null;
-                    user.sign_username = ds.Rows[0]["SIGN_USERNAME"] != DBNull.Value ? ds.Rows[0]["SIGN_USERNAME"].ToString() : null;
-                    user.sign_password = ds.Rows[0]["SIGN_PASSWORD"] != DBNull.Value ? ds.Rows[0]["SIGN_PASSWORD"].ToString() : null;
-                    user.hrms_type = ds.Rows[0]["HRMS_TYPE"] != DBNull.Value ? int.Parse(ds.Rows[0]["HRMS_TYPE"].ToString()) : null;
-                    user.sign_image = ds.Rows[0]["SIGN_IMAGE"] != DBNull.Value ? ds.Rows[0]["SIGN_IMAGE"].ToString() : null;
-                    user.anhchukynhay = ds.Rows[0]["ANHCHUKYNHAY"] != DBNull.Value ? ds.Rows[0]["ANHCHUKYNHAY"].ToString() : null;
-                    user.roleid = ds.Rows[0]["ROLEID"] != DBNull.Value ? ds.Rows[0]["ROLEID"].ToString() : null;
-                    user.phong_ban = ds.Rows[0]["PHONG_BAN"] != DBNull.Value ? ds.Rows[0]["PHONG_BAN"].ToString() : null;
-                    user.anhdaidien = ds.Rows[0]["ANHDAIDIEN"] != DBNull.Value ? ds.Rows[0]["ANHDAIDIEN"].ToString() : null;
 
-                    TokenService tokenService = new TokenService(_configuration);
-
-                    string token = tokenService.GenerateJwtToken(user);
-                    user.token = token;
-
-                    return user;
+                    return null;
 
                 }
                 else
                 {
-                    return null;
+                    HT_NGUOIDUNG_Model user = new HT_NGUOIDUNG_Model();
+                    user.mat_khau = ds.Rows[0]["MAT_KHAU"] != DBNull.Value ? ds.Rows[0]["MAT_KHAU"].ToString() : null;
+
+                    if (!PasswordHasher.VerifyHashedString(user.mat_khau, password))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+
+
+                      
+                        user.id = ds.Rows[0]["ID"] != DBNull.Value ? ds.Rows[0]["ID"].ToString() : null;
+                        user.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_ID"].ToString() : null;
+                        user.ten_donvi = ds.Rows[0]["TEN"] != DBNull.Value ? ds.Rows[0]["TEN"].ToString() : null;
+                        user.dm_phongban_id = ds.Rows[0]["DM_PHONGBAN_ID"] != DBNull.Value ? ds.Rows[0]["DM_PHONGBAN_ID"].ToString() : null;
+                        user.ten_phongban = ds.Rows[0]["TEN_PB"] != DBNull.Value ? ds.Rows[0]["TEN_PB"].ToString() : null;
+                        user.dm_kieucanbo_id = ds.Rows[0]["DM_KIEUCANBO_ID"] != DBNull.Value ? ds.Rows[0]["DM_KIEUCANBO_ID"].ToString() : null;
+                        user.dm_chucvu_id = ds.Rows[0]["DM_CHUCVU_ID"] != DBNull.Value ? ds.Rows[0]["DM_CHUCVU_ID"].ToString() : null;
+                        user.ten_dang_nhap = ds.Rows[0]["TEN_DANG_NHAP"] != DBNull.Value ? ds.Rows[0]["TEN_DANG_NHAP"].ToString() : null;
+                        user.mat_khau = null;
+                        user.ho_ten = ds.Rows[0]["HO_TEN"] != DBNull.Value ? ds.Rows[0]["HO_TEN"].ToString() : null;
+                        user.email = ds.Rows[0]["EMAIL"] != DBNull.Value ? ds.Rows[0]["EMAIL"].ToString() : null;
+                        user.ldap = ds.Rows[0]["LDAP"] != DBNull.Value ? ds.Rows[0]["LDAP"].ToString() : null;
+                        user.trang_thai = ds.Rows[0]["TRANG_THAI"] != DBNull.Value ? int.Parse(ds.Rows[0]["TRANG_THAI"].ToString()) : null;
+                        user.so_dien_thoai = ds.Rows[0]["SO_DIEN_THOAI"] != DBNull.Value ? ds.Rows[0]["SO_DIEN_THOAI"].ToString() : null;
+                        user.gioi_tinh = ds.Rows[0]["GIOI_TINH"] != DBNull.Value ? int.Parse(ds.Rows[0]["GIOI_TINH"].ToString()) : null;
+                        user.so_cmnd = ds.Rows[0]["SO_CMND"] != DBNull.Value ? ds.Rows[0]["SO_CMND"].ToString() : null;
+                        user.dm_donvi_lamviec_id = ds.Rows[0]["DM_DONVI_LAMVIEC_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_LAMVIEC_ID"].ToString() : null;
+                        user.ht_vaitro_id = ds.Rows[0]["HT_VAITRO_ID"] != DBNull.Value ? ds.Rows[0]["HT_VAITRO_ID"].ToString() : null;
+                        user.hrms_type = ds.Rows[0]["HRMS_TYPE"] != DBNull.Value ? int.Parse(ds.Rows[0]["HRMS_TYPE"].ToString()) : null;
+                        user.sign_image = ds.Rows[0]["SIGN_IMAGE"] != DBNull.Value ? ds.Rows[0]["SIGN_IMAGE"].ToString() : null;
+                        user.anhchukynhay = ds.Rows[0]["ANHCHUKYNHAY"] != DBNull.Value ? ds.Rows[0]["ANHCHUKYNHAY"].ToString() : null;
+                        user.roleid = ds.Rows[0]["ROLEID"] != DBNull.Value ? ds.Rows[0]["ROLEID"].ToString() : null;
+                        user.phong_ban = ds.Rows[0]["PHONG_BAN"] != DBNull.Value ? ds.Rows[0]["PHONG_BAN"].ToString() : null;
+                        user.anhdaidien = ds.Rows[0]["ANHDAIDIEN"] != DBNull.Value ? ds.Rows[0]["ANHDAIDIEN"].ToString() : null;
+                        user.ma_dviqly= ds.Rows[0]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[0]["MA_DVIQLY"].ToString() : null;
+                        user.ds_donvi = new DM_DONVI_Manager().get_All_DM_DONVI_ByMADVIQLY(user.ma_dviqly);
+                        TokenService tokenService = new TokenService(_configuration);
+                        string token = tokenService.GenerateJwtToken(user);
+                        user.token = token;
+                        return user;
+                    }
                 }
             }
             catch (Exception ex)
@@ -312,7 +317,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 cmd.Connection = cn;
                 OracleDataAdapter dap = new OracleDataAdapter();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLKC_HUYEN.get_HT_NGUOIDUNGByID";
+                cmd.CommandText = @"PKG_QLKC_QUANTRI.get_HT_NGUOIDUNGByID";
                 cmd.Parameters.Add("p_ID", Id);
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                 dap.SelectCommand = cmd;
@@ -339,28 +344,28 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                         ho_ten = dr["HO_TEN"].ToString(),
                         email = dr["EMAIL"].ToString(),
                         ldap = dr["LDAP"].ToString(),
-                        trang_thai = int.Parse(dr["TRANG_THAI"].ToString()),
-                        ngay_tao = dr["NGAY_TAO"] as DateTime?,
+                        trang_thai = int.TryParse(dr["TRANG_THAI"].ToString(), out int trangThai) ? trangThai : (int?)null,  // Trả về null nếu không thể parse
+                        ngay_tao = dr["NGAY_TAO"] as DateTime?,  // Nếu không có giá trị thì trả về null
                         nguoi_tao = dr["NGUOI_TAO"].ToString(),
-                        ngay_cap_nhat = dr["NGAY_CAP_NHAT"] as DateTime?,
+                        ngay_cap_nhat = dr["NGAY_CAP_NHAT"] as DateTime?,  // Nếu không có giá trị thì trả về null
                         nguoi_cap_nhat = dr["NGUOI_CAP_NHAT"].ToString(),
                         so_dien_thoai = dr["SO_DIEN_THOAI"].ToString(),
-                        gioi_tinh = int.Parse(dr["GIOI_TINH"].ToString()),
+                        gioi_tinh = int.TryParse(dr["GIOI_TINH"].ToString(), out int gioiTinh) ? gioiTinh : (int?)null,  // Trả về null nếu không thể parse
                         so_cmnd = dr["SO_CMND"].ToString(),
-                        trang_thai_dong_bo = dr["TRANG_THAI_DONG_BO"] as int?,
+                        trang_thai_dong_bo = dr["TRANG_THAI_DONG_BO"] as int?,  // Trả về null nếu không có giá trị
                         db_taikhoandangnhap = dr["DB_TAIKHOANDANGNHAP"].ToString(),
-                        db_ngay = dr["DB_NGAY"] as DateTime?,
+                        db_ngay = dr["DB_NGAY"] as DateTime?,  // Trả về null nếu không có giá trị
                         dm_donvi_lamviec_id = dr["DM_DONVI_LAMVIEC_ID"].ToString(),
                         ht_vaitro_id = dr["HT_VAITRO_ID"].ToString(),
                         sign_alias = dr["SIGN_ALIAS"].ToString(),
                         sign_username = dr["SIGN_USERNAME"].ToString(),
                         sign_password = null,
-                        hrms_type = dr["HRMS_TYPE"] as int?,
+                        hrms_type = int.TryParse(dr["HRMS_TYPE"].ToString(), out int hrmsType) ? hrmsType : (int?)null,  // Trả về null nếu không thể parse
                         sign_image = dr["SIGN_IMAGE"].ToString(),
                         anhchukynhay = dr["ANHCHUKYNHAY"].ToString(),
                         roleid = dr["ROLEID"].ToString(),
                         phong_ban = dr["PHONG_BAN"].ToString(),
-                        anhdaidien = dr["ANHDAIDIEN"].ToString(),
+                        anhdaidien = dr["ANHDAIDIEN"].ToString()
 
 
                     };
@@ -438,7 +443,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                             cmd.Parameters.Add("p_ROLEID", OracleDbType.Varchar2).Value = data.roleid;
                             cmd.Parameters.Add("p_PHONG_BAN", OracleDbType.Varchar2).Value = data.phong_ban;
                             cmd.Parameters.Add("p_ANHDAIDIEN", OracleDbType.Varchar2).Value = data.anhdaidien;
-                           
+
 
                             cmd.ExecuteNonQuery();
                             transaction.Commit();
@@ -468,7 +473,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 
                 cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.HO_TEN) ? (object)DBNull.Value : request.HO_TEN;
                 cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.TEN_DANG_NHAP) ? (object)DBNull.Value : request.TEN_DANG_NHAP;
-                cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = request.TRANG_THAI!=-1 ? (object)request.TRANG_THAI.Value : DBNull.Value;
+                cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = request.TRANG_THAI != -1 ? (object)request.TRANG_THAI.Value : DBNull.Value;
                 cmd.Parameters.Add("p_DM_DONVI_ID", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.DM_DONVI_ID) ? (object)DBNull.Value : request.DM_DONVI_ID;
                 cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.DM_PHONGBAN_ID) ? (object)DBNull.Value : request.DM_PHONGBAN_ID;
                 cmd.Parameters.Add("p_DM_CHUCVU_ID", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.DM_CHUCVU_ID) ? (object)DBNull.Value : request.DM_CHUCVU_ID;
@@ -669,7 +674,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 }
             }
         }
-        public void updateTrangThai_NguoiDung(string id,int trangthainew)
+        public void updateTrangThai_NguoiDung(string id, int trangthainew)
         {
             string strErr = "";
             using (OracleConnection cn = new ConnectionOracle().getConnection())
@@ -704,6 +709,80 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                         cn.Close();
                     }
                 }
+            }
+        }
+
+
+        public List<HT_MENU_Model> get_HT_MENU_ByIDUser(string userId)
+        {
+            try
+            {
+                DataTable tb = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_HT_MENUByUserId", "p_UserID", userId);
+                List<HT_MENU_Model> results = new List<HT_MENU_Model>();
+                if (tb != null)
+                {
+                    for (int i = 0; i < tb.Rows.Count; i++)
+                    {
+                        HT_MENU_Model model = new HT_MENU_Model();
+                        model.children = new List<HT_MENU_Model>();
+                        if (tb.Rows[i]["PARENT_ID"] != DBNull.Value)
+                        {
+                            model.id = tb.Rows[i]["ID"] != DBNull.Value ? int.Parse(tb.Rows[i]["ID"].ToString()) : null;
+                            model.ten_menu = tb.Rows[i]["TEN_MENU"] != DBNull.Value ? tb.Rows[i]["TEN_MENU"].ToString() : null;
+                            model.ghi_chu = tb.Rows[i]["GHI_CHU"] != DBNull.Value ? tb.Rows[i]["GHI_CHU"].ToString() : null;
+                            model.ngay_tao = tb.Rows[i]["NGAY_TAO"] != DBNull.Value ? DateTime.Parse(tb.Rows[i]["NGAY_TAO"].ToString()) : null;
+                            model.nguoi_tao = tb.Rows[i]["NGUOI_TAO"] != DBNull.Value ? tb.Rows[i]["NGUOI_TAO"].ToString() : null;
+                            model.ngay_sua = tb.Rows[i]["NGAY_SUA"] != DBNull.Value ? DateTime.Parse(tb.Rows[i]["NGAY_SUA"].ToString()) : null;
+                            model.nguoi_sua = tb.Rows[i]["NGUOI_SUA"] != DBNull.Value ? tb.Rows[i]["NGUOI_SUA"].ToString() : null;
+                            model.duong_dan = tb.Rows[i]["DUONG_DAN"] != DBNull.Value ? tb.Rows[i]["DUONG_DAN"].ToString() : null;
+                            model.parent_id = tb.Rows[i]["PARENT_ID"] != DBNull.Value ? int.Parse(tb.Rows[i]["PARENT_ID"].ToString()) : null;
+                            model.icon = tb.Rows[i]["ICON"] != DBNull.Value ? tb.Rows[i]["ICON"].ToString() : null;
+                            model.sap_xep = tb.Rows[i]["SAP_XEP"] != DBNull.Value ? int.Parse(tb.Rows[i]["SAP_XEP"].ToString()) : null;
+                            model.children = null;
+                            if (results.Count > 0)
+                            {
+                                HT_MENU_Model parent = results.FirstOrDefault<HT_MENU_Model>(menu => menu.id == model.parent_id);
+                                if (parent != null)
+                                {
+                                    if (parent.children != null)
+                                    {
+                                        parent.children.Add(model);
+
+                                    }
+                                    else
+                                    {
+                                        parent.children = new List<HT_MENU_Model> { model };
+
+                                    }
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            model.id = tb.Rows[i]["ID"] != DBNull.Value ? int.Parse(tb.Rows[i]["ID"].ToString()) : null;
+                            model.ten_menu = tb.Rows[i]["TEN_MENU"] != DBNull.Value ? tb.Rows[i]["TEN_MENU"].ToString() : null;
+                            model.ghi_chu = tb.Rows[i]["GHI_CHU"] != DBNull.Value ? tb.Rows[i]["GHI_CHU"].ToString() : null;
+                            model.ngay_tao = tb.Rows[i]["NGAY_TAO"] != DBNull.Value ? DateTime.Parse(tb.Rows[i]["NGAY_TAO"].ToString()) : null;
+                            model.nguoi_tao = tb.Rows[i]["NGUOI_TAO"] != DBNull.Value ? tb.Rows[i]["NGUOI_TAO"].ToString() : null;
+                            model.ngay_sua = tb.Rows[i]["NGAY_SUA"] != DBNull.Value ? DateTime.Parse(tb.Rows[i]["NGAY_SUA"].ToString()) : null;
+                            model.nguoi_sua = tb.Rows[i]["NGUOI_SUA"] != DBNull.Value ? tb.Rows[i]["NGUOI_SUA"].ToString() : null;
+                            model.duong_dan = tb.Rows[i]["DUONG_DAN"] != DBNull.Value ? tb.Rows[i]["DUONG_DAN"].ToString() : null;
+                            model.parent_id = tb.Rows[i]["PARENT_ID"] != DBNull.Value ? int.Parse(tb.Rows[i]["PARENT_ID"].ToString()) : null;
+                            model.icon = tb.Rows[i]["ICON"] != DBNull.Value ? tb.Rows[i]["ICON"].ToString() : null;
+                            model.sap_xep = tb.Rows[i]["SAP_XEP"] != DBNull.Value ? int.Parse(tb.Rows[i]["SAP_XEP"].ToString()) : null;
+                            model.children = null;
+                            results.Add(model);
+                        }
+
+                    }
+                }
+                return results;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI;
+using iTextSharp.text;
+using System;
+using System.Collections.Generic;
 
 namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 {
@@ -38,7 +41,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
         public string? roleid { get; set; }
         public string? phong_ban { get; set; }
         public string? anhdaidien { get; set; }
-
+        public string? ma_dviqly { get; set; }
+        public List<DM_DONVI_Model> ds_donvi { get; set; }
         public string token { get; set; }
 
     }

@@ -15,7 +15,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.create_HT_NHOMQUYEN", "p_Error", "p_NHOM_ID",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.create_HT_NHOMQUYEN", "p_Error", "p_NHOM_ID",
                                                     "p_GHI_CHU", "p_NGUOI_TAO", "p_CAP_BAC", "p_SAP_XEP", "p_TEN_NHOM",
                                                     "p_MA_DVIQLY", model.nhom_id, model.ghi_chu, model.nguoi_tao, model.cap_bac,
                                                     model.sap_xep, model.ten_nhom, model.ma_dviqly);
@@ -33,7 +33,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.update_HT_NHOMQUYEN", "p_Error", "p_ID",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.update_HT_NHOMQUYEN", "p_Error", "p_ID",
                                                     "p_GHI_CHU", "p_NGUOI_SUA", "p_CAP_BAC", "p_SAP_XEP", "p_TEN_NHOM",
                                                     "p_MA_DVIQLY", model.id, model.ghi_chu, model.nguoi_sua, model.cap_bac,
                                                     model.sap_xep, model.ten_nhom, model.ma_dviqly);
@@ -51,7 +51,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_NGOCANH.delete_HT_NHOMQUYEN", "p_Error", "p_ID", id);
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.delete_HT_NHOMQUYEN", "p_Error", "p_ID", id);
                 return result;
             }
 
@@ -67,7 +67,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
             totalItems = 0;
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_NGOCANH.search_HT_NHOMQUYEN", "p_page_index", "p_page_size",
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.search_HT_NHOMQUYEN", "p_page_index", "p_page_size",
                                                 "p_TEN_NHOM", pageIndex, pageSize, ten_nhom);
                 var count = ds.Rows.Count;
 
@@ -115,7 +115,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_NGOCANH.get_HT_NHOMQUYEN_By_ID", "p_ID", id);
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_HT_NHOMQUYEN_By_ID", "p_ID", id);
                 if (ds != null && ds.Rows.Count > 0)
                 {
                     HT_NHOMQUYEN_Model model = new HT_NHOMQUYEN_Model();

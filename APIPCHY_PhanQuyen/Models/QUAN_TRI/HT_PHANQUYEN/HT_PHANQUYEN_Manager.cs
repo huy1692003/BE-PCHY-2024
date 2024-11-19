@@ -11,7 +11,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_PHANQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_SANG.insert_HT_PHANQUYEN", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.insert_HT_PHANQUYEN", "p_Error",
                         "p_TIEU_DE", "p_GHI_CHU", "p_TT_KHOA", "p_NGUOI_KHOA", "p_TT_XOA",
                         "p_NGUOI_XOA", "p_NGAY_TAO", "p_NGUOI_TAO", "p_NGAY_SUA", "p_NGUOI_SUA",
                         "p_MENU_ID", "p_VIEW", "p_INSERT", "p_EDIT", "p_DELETE", "p_EXPORT",
@@ -34,7 +34,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_PHANQUYEN
         {
             try
             {
-                DataTable result = helper.ExcuteReader("PKG_QLKC_SANG.get_HT_PHANQUYENByMA_NHOM_TV",
+                DataTable result = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_HT_PHANQUYENByMA_NHOM_TV",
                        "p_MA_NHOM_TV",
                        ma_nhom_tv
                         );
@@ -84,7 +84,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_PHANQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_SANG.delete_HT_PHANQUYEN", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.delete_HT_PHANQUYEN", "p_Error",
                        "p_ID",
                        id
                         );

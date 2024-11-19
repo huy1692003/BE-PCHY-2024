@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System;
+using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
 
 namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
 {
@@ -176,6 +177,21 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
         {
             _manager.updateTrangThai_NguoiDung(id,trangthai);
             return Ok("Thành công");
+        }
+
+        [Route("get_HT_MENUByIdUser")]
+        [HttpGet]
+        public IActionResult get_HT_MENUByIdUser(string userId)
+        {
+            try
+            {
+                List<HT_MENU_Model> result = _manager.get_HT_MENU_ByIDUser(userId);
+                return result != null ? Ok(result) : NotFound();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
