@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\apipchy_phanquyen\\models\\quan_tri\\ht_nguoidung\\ht_nguoidung_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|solutionrelative:apipchy_phanquyen\\models\\quan_tri\\ht_nguoidung\\ht_nguoidung_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\apipchy_phanquyen\\models\\quan_tri\\dm_phongban\\dm_phongban_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|solutionrelative:apipchy_phanquyen\\models\\quan_tri\\dm_phongban\\dm_phongban_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +15,16 @@
       "RelativeMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|solutionrelative:apipchy_phanquyen\\controllers\\quan_tri\\dm_phongban\\dm_phongbancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\apipchy_phanquyen\\controllers\\quan_tri\\dm_donvi\\dm_donvicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|solutionrelative:apipchy_phanquyen\\controllers\\quan_tri\\dm_donvi\\dm_donvicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\apipchy_phanquyen\\models\\quan_tri\\dm_donvi\\dm_donvi_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|solutionrelative:apipchy_phanquyen\\models\\quan_tri\\dm_donvi\\dm_donvi_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\apipchy_phanquyen\\helpers\\datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|solutionrelative:apipchy_phanquyen\\helpers\\datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\apipchy_phanquyen\\controllers\\quan_tri\\dm_donvi\\dm_donvicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47B929F0-8BD8-4411-9BA2-50B937629A9E}|APIPCHY_PhanQuyen\\API_PCHY.csproj|solutionrelative:apipchy_phanquyen\\controllers\\quan_tri\\dm_donvi\\dm_donvicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +50,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "HT_NGUOIDUNG_Manager.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNG_Manager.cs",
+              "RelativeDocumentMoniker": "APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNG_Manager.cs",
+              "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNG_Manager.cs",
+              "RelativeToolTip": "APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNG_Manager.cs",
+              "ViewState": "AgIAAPkBAAAAAAAAAADwvwgCAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T03:20:30.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DM_DONVI_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\DM_DONVI\\DM_DONVI_Manager.cs",
               "RelativeDocumentMoniker": "APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\DM_DONVI\\DM_DONVI_Manager.cs",
@@ -54,25 +71,23 @@
               "RelativeToolTip": "APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\DM_DONVI\\DM_DONVI_Manager.cs",
               "ViewState": "AgIAAGkAAAAAAAAAAADwv5IAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T17:16:34.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T17:16:34.454Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DM_PHONGBAN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBAN_Manager.cs",
               "RelativeDocumentMoniker": "APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBAN_Manager.cs",
               "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBAN_Manager.cs",
               "RelativeToolTip": "APIPCHY_PhanQuyen\\Models\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBAN_Manager.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAEwEYAAACmAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAADwv0EAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:52:24.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T16:52:24.274Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "DataHelper.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Helpers\\DataHelper.cs",
               "RelativeDocumentMoniker": "APIPCHY_PhanQuyen\\Helpers\\DataHelper.cs",
@@ -80,34 +95,31 @@
               "RelativeToolTip": "APIPCHY_PhanQuyen\\Helpers\\DataHelper.cs",
               "ViewState": "AgIAAGQAAAAAAAAAAAAIwH8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:51:06.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T16:51:06.976Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "DM_DONVIController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Controllers\\QUAN_TRI\\DM_DONVI\\DM_DONVIController.cs",
               "RelativeDocumentMoniker": "APIPCHY_PhanQuyen\\Controllers\\QUAN_TRI\\DM_DONVI\\DM_DONVIController.cs",
               "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Controllers\\QUAN_TRI\\DM_DONVI\\DM_DONVIController.cs",
               "RelativeToolTip": "APIPCHY_PhanQuyen\\Controllers\\QUAN_TRI\\DM_DONVI\\DM_DONVIController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAwwDQAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAADwvzMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:51:07.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T16:51:07.031Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DM_PHONGBANController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Controllers\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBANController.cs",
               "RelativeDocumentMoniker": "APIPCHY_PhanQuyen\\Controllers\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBANController.cs",
               "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\APIPCHY_PhanQuyen\\Controllers\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBANController.cs",
               "RelativeToolTip": "APIPCHY_PhanQuyen\\Controllers\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBANController.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAASwFIAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAwwC8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T16:46:19.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T16:46:19.417Z"
             }
           ]
         }
