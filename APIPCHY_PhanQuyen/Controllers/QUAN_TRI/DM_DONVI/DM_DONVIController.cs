@@ -48,9 +48,9 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI
 
         [Route("get_All_DM_DONVI")]
         [HttpGet]
-        public IActionResult get_All_DM_DONVI()
+        public IActionResult get_All_DM_DONVI(string ma_dviqly)
         {
-            List<DM_DONVI_Model> result = db.get_All_DM_DONVI();
+            List<DM_DONVI_Model> result = db.get_All_DM_DONVI(ma_dviqly);
             return result != null ? Ok(result) : NotFound();
         }
 
@@ -64,7 +64,8 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI
                 int? pageSize = 5;
                 string ten = null;
                 string ma = null;
-                int? trang_thai = null;
+                int? trang_thai = -1;
+                string ma_dviqly = null;
                 if (formData.Keys.Contains("pageIndex") && !string.IsNullOrEmpty(formData["pageIndex"].ToString()))
                 {
                     pageIndex = int.Parse(formData["pageIndex"].ToString());
@@ -85,9 +86,13 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI
                 {
                     trang_thai = int.Parse(formData["trang_thai"].ToString());
                 }
+                if (formData.Keys.Contains("ma_dviqly") && !string.IsNullOrEmpty(formData["ma_dviqly"].ToString()))
+                {
+                    ma_dviqly = formData["ma_dviqly"].ToString();
+                }
 
                 int totalItems = 0;
-                List<DM_DONVI_Model> result = db.search_DM_DONVI(pageIndex, pageSize, ten, ma, trang_thai, out totalItems);
+                List<DM_DONVI_Model> result = db.search_DM_DONVI(pageIndex, pageSize, ten, ma, trang_thai, ma_dviqly, out totalItems);
                 // Nếu không có kết quả, trả về mảng trống
                 if (result == null || result.Count == 0)
                 {
@@ -97,7 +102,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI
                         pageSize = pageSize,
                         totalItems = 0,
                         data = new List<DM_DONVI_Model>(), // Trả về mảng trống
-                       
+
                     });
                 }
 
@@ -108,7 +113,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI
                     pageSize = pageSize,
                     totalItems = totalItems,
                     data = result,
-                   
+
                 });
 
             }

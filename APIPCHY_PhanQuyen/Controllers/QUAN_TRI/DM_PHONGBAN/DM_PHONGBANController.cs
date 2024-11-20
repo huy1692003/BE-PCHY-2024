@@ -44,15 +44,16 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.DM_PHONGBAN
         }
         [Route("search_DM_PHONGBAN")]
         [HttpPost]
-        public IActionResult search_DM_PHONGBANByID([FromBody] Dictionary<string,object> formData)
+        public IActionResult search_DM_PHONGBANByID([FromBody] Dictionary<string, object> formData)
         {
             try
             {
                 int? pageIndex = 0;
                 int? pageSize = 0;
                 string ten = null;
-                string ma =null;
+                string ma = null;
                 int? trang_thai = null;
+                string ma_dviqly = null;
                 if (formData.Keys.Contains("pageIndex") && !string.IsNullOrEmpty(formData["pageIndex"].ToString()))
                 {
                     pageIndex = int.Parse(formData["pageIndex"].ToString());
@@ -73,21 +74,27 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.DM_PHONGBAN
                 {
                     trang_thai = int.Parse(formData["trang_thai"].ToString());
                 }
+                if (formData.Keys.Contains("ma_dviqly") && !string.IsNullOrEmpty(formData["ma_dviqly"].ToString()))
+                {
+                    ma_dviqly = (formData["ma_dviqly"].ToString());
+                }
 
                 int totalItems = 0;
-                List<DM_PHONGBAN_Model> result = db.search_DM_PHONGBANByID(pageIndex,pageSize,ten,  ma,  trang_thai,out totalItems);
+                List<DM_PHONGBAN_Model> result = db.search_DM_PHONGBANByID(pageIndex, pageSize, ten, ma, trang_thai, ma_dviqly, out totalItems);
                 return result != null ? Ok(new
                 {
-                    page= pageIndex,
-                    pageSize=pageSize,
+                    page = pageIndex,
+                    pageSize = pageSize,
                     totalItems = totalItems,
                     data = result,
                     ten = ten,
                     ma = ma,
+                    ma_dviqly = ma_dviqly,
                     trang_thai = trang_thai
                 }) : NotFound();
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

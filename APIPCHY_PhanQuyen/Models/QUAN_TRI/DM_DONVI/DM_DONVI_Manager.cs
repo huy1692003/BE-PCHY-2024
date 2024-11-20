@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using APIPCHY.Helpers;
 using System.Data;
 using System.Drawing;
@@ -21,7 +21,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                 Guid dm_donvi_id = Guid.NewGuid();
                 string str_dm_donvi_id = dm_donvi_id.ToString();
 
-               
+
 
                 string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.insert_DM_DONVI", "p_Error",
                                                     "p_ID", "p_DM_DONVI_ID", "p_LOAI_DON_VI", "p_MA", "p_TEN",
@@ -57,7 +57,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                                                     "p_DM_DONVI_CHUQUAN_ID", "p_MA_FMIS", "p_DB_MADONVI", "p_DB_MADONVI_FMIS",
                                                     "p_DB_NGAY", "p_TYPE_DONVI", "p_GROUP_DONVI", "p_DO_DUTHAO", "p_SU_DUNG", "p_MA_DVIQLY",
                                                     model.id, model.dm_donvi_id, model.loai_don_vi, model.ma, model.ten, model.trang_thai,
-                                                    model.sap_xep, model.ghi_chu, model.ngay_cap_nhat??DateTime.Now, model.nguoi_cap_nhat??"Trống", model.cap_so, model.cap_ma, model.dm_tinhthanh_id,
+                                                    model.sap_xep, model.ghi_chu, model.ngay_cap_nhat ?? DateTime.Now, model.nguoi_cap_nhat ?? "Trống", model.cap_so, model.cap_ma, model.dm_tinhthanh_id,
                                                     model.dm_quanhuyen_id, model.dm_donvi_chuquan_id, model.ma_fmis, model.db_madonvi, model.db_madonvi_fmis,
                                                     model.db_ngay, model.type_donvi, model.group_donvi, model.do_duthao, model.su_dung, model.ma_dviqly);
 
@@ -88,20 +88,20 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
             }
         }
 
-        public List<DM_DONVI_Model> search_DM_DONVI(int? pageIndex, int? pageSize, string ten, string ma, int? trang_thai, out int totalItems)
+        public List<DM_DONVI_Model> search_DM_DONVI(int? pageIndex, int? pageSize, string ten, string ma, int? trang_thai, string ma_dviqly, out int totalItems)
         {
             totalItems = 0;
             try
             {
                 DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.search_DM_DONVI", "p_page_index", "p_page_size",
-                                                    "p_TEN", "p_MA", "p_TRANG_THAI", pageIndex, pageSize, ten, ma, trang_thai);
+                                                    "p_TEN", "p_MA", "p_TRANG_THAI", "p_DVIQLY", pageIndex, pageSize, ten, ma, trang_thai==-1?DBNull.Value:trang_thai, ma==null?ma_dviqly:DBNull.Value);
                 var count = ds.Rows.Count;
                 totalItems = int.Parse(ds.Rows[0]["RECORDCOUNT"].ToString());
                 List<DM_DONVI_Model> list = new List<DM_DONVI_Model>();
                 for (int i = 0; i < ds.Rows.Count; i++)
                 {
                     DM_DONVI_Model model = new DM_DONVI_Model();
-                    model.id =ds.Rows[i]["ID"].ToString();
+                    model.id = ds.Rows[i]["ID"].ToString();
                     model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[i]["DM_DONVI_ID"].ToString() : null;
                     model.loai_don_vi = ds.Rows[i]["LOAI_DON_VI"] != DBNull.Value ? int.Parse(ds.Rows[i]["LOAI_DON_VI"].ToString()) : null;
                     model.ma = ds.Rows[i]["MA"] != DBNull.Value ? ds.Rows[i]["MA"].ToString() : null;
@@ -140,11 +140,11 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
 
         }
 
-        public List<DM_DONVI_Model> get_All_DM_DONVI()
+        public List<DM_DONVI_Model> get_All_DM_DONVI(string ma_dviqly)
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_All_DM_DONVI");
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_All_DM_DONVI", "p_MA_DVIQLY", ma_dviqly);
                 List<DM_DONVI_Model> list = new List<DM_DONVI_Model>();
                 if (ds != null)
                 {
@@ -152,7 +152,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                     {
                         DM_DONVI_Model model = new DM_DONVI_Model();
                         model.id = ds.Rows[i]["ID"].ToString();
-                        model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ?ds.Rows[i]["DM_DONVI_ID"].ToString() : null;
+                        model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[i]["DM_DONVI_ID"].ToString() : null;
                         model.loai_don_vi = ds.Rows[i]["LOAI_DON_VI"] != DBNull.Value ? int.Parse(ds.Rows[i]["LOAI_DON_VI"].ToString()) : null;
                         model.ma = ds.Rows[i]["MA"] != DBNull.Value ? ds.Rows[i]["MA"].ToString() : null;
                         model.ten = ds.Rows[i]["TEN"] != DBNull.Value ? ds.Rows[i]["TEN"].ToString() : null;
@@ -196,7 +196,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_DM_DONVI_By_MADVIQLY", "@p_MA_DVIQLY",MaDVIQLY);
+                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_DM_DONVI_By_MADVIQLY", "@p_MA_DVIQLY", MaDVIQLY);
                 List<DM_DONVI_Model> list = new List<DM_DONVI_Model>();
                 if (ds != null)
                 {
@@ -207,7 +207,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                         model.dm_donvi_id = ds.Rows[i]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[i]["DM_DONVI_ID"].ToString() : null;
                         model.loai_don_vi = ds.Rows[i]["LOAI_DON_VI"] != DBNull.Value ? int.Parse(ds.Rows[i]["LOAI_DON_VI"].ToString()) : null;
                         model.ma = ds.Rows[i]["MA"] != DBNull.Value ? ds.Rows[i]["MA"].ToString() : null;
-                        model.ten = ds.Rows[i]["TEN"] != DBNull.Value ? ds.Rows[i]["TEN"].ToString() : null;                    
+                        model.ten = ds.Rows[i]["TEN"] != DBNull.Value ? ds.Rows[i]["TEN"].ToString() : null;
                         model.ma_dviqly = ds.Rows[i]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[i]["MA_DVIQLY"].ToString() : null;
 
                         list.Add(model);
@@ -249,7 +249,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
                     model.cap_so = ds.Rows[0]["CAP_SO"] != DBNull.Value ? ds.Rows[0]["CAP_SO"].ToString() : null;
                     model.cap_ma = ds.Rows[0]["CAP_MA"] != DBNull.Value ? ds.Rows[0]["CAP_MA"].ToString() : null;
                     model.dm_tinhthanh_id = ds.Rows[0]["DM_TINHTHANH_ID"] != DBNull.Value ? ds.Rows[0]["DM_TINHTHANH_ID"].ToString() : null;
-                    model.dm_quanhuyen_id = ds.Rows[0]["DM_QUANHUYEN_ID"] != DBNull.Value ? ds.Rows[0]["DM_QUANHUYEN_ID"].ToString() :  null;
+                    model.dm_quanhuyen_id = ds.Rows[0]["DM_QUANHUYEN_ID"] != DBNull.Value ? ds.Rows[0]["DM_QUANHUYEN_ID"].ToString() : null;
                     model.dm_donvi_chuquan_id = ds.Rows[0]["DM_DONVI_CHUQUAN_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_CHUQUAN_ID"].ToString() : null;
                     model.ma_fmis = ds.Rows[0]["MA_FMIS"] != DBNull.Value ? ds.Rows[0]["MA_FMIS"].ToString() : null;
                     model.db_madonvi = ds.Rows[0]["DB_MADONVI"] != DBNull.Value ? ds.Rows[0]["DB_MADONVI"].ToString() : null;

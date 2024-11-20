@@ -59,6 +59,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
         public string DM_DONVI_ID { get; set; }
         public string DM_PHONGBAN_ID { get; set; }
         public string DM_CHUCVU_ID { get; set; }
+        public string ma_dviqly { get; set; }
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
     }

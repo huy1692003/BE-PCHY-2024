@@ -56,6 +56,8 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN
                 int? pageIndex = 0;
                 int? pageSize = 0;
                 string ten_nhom = null;
+                string ma_dviqly = null;
+
                 if (formData.Keys.Contains("pageIndex") && !string.IsNullOrEmpty(formData["pageIndex"].ToString()))
                 {
                     pageIndex = int.Parse(formData["pageIndex"].ToString());
@@ -68,16 +70,20 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN
                 {
                     ten_nhom = formData["ten_nhom"].ToString();
                 }
+                if (formData.Keys.Contains("ma_dviqly") && !string.IsNullOrEmpty(formData["ma_dviqly"].ToString()))
+                {
+                    ma_dviqly = formData["ma_dviqly"].ToString();
+                }
 
                 int totalItems = 0;
-                List<HT_NHOMQUYEN_Model> result = manager.search_HT_NHOMQUYEN( pageSize, pageIndex, ten_nhom, out totalItems);
+                List<HT_NHOMQUYEN_Model> result = manager.search_HT_NHOMQUYEN(pageSize, pageIndex, ten_nhom, ma_dviqly, out totalItems);
                 return result != null ? Ok(new
                 {
                     page = pageIndex,
                     pageSize = pageSize,
                     totalItems = totalItems,
                     data = result,
-                   
+
                 }) : NotFound();
 
             }
@@ -86,7 +92,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN
                 return BadRequest(ex.Message);
             }
         }
-       
+
 
         [HttpGet("getNhomQuyen_byMaDV")]
         public ActionResult<List<HT_NHOMQUYEN_Model>> GetNhomQuyenByMaDVI(string maDviqly)
@@ -105,9 +111,9 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-       
 
-       
+
+
     }
 }
 

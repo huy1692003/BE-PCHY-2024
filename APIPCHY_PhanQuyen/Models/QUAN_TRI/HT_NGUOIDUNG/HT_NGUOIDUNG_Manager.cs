@@ -50,7 +50,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                     {
 
 
-                      
+
                         user.id = ds.Rows[0]["ID"] != DBNull.Value ? ds.Rows[0]["ID"].ToString() : null;
                         user.dm_donvi_id = ds.Rows[0]["DM_DONVI_ID"] != DBNull.Value ? ds.Rows[0]["DM_DONVI_ID"].ToString() : null;
                         user.ten_donvi = ds.Rows[0]["TEN"] != DBNull.Value ? ds.Rows[0]["TEN"].ToString() : null;
@@ -75,8 +75,8 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                         user.roleid = ds.Rows[0]["ROLEID"] != DBNull.Value ? ds.Rows[0]["ROLEID"].ToString() : null;
                         user.phong_ban = ds.Rows[0]["PHONG_BAN"] != DBNull.Value ? ds.Rows[0]["PHONG_BAN"].ToString() : null;
                         user.anhdaidien = ds.Rows[0]["ANHDAIDIEN"] != DBNull.Value ? ds.Rows[0]["ANHDAIDIEN"].ToString() : null;
-                        user.ma_dviqly= ds.Rows[0]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[0]["MA_DVIQLY"].ToString() : null;
-                        user.value_token= ds.Rows[0]["VALUE_TOKEN"] != DBNull.Value ? ds.Rows[0]["VALUE_TOKEN"].ToString() : null;
+                        user.ma_dviqly = ds.Rows[0]["MA_DVIQLY"] != DBNull.Value ? ds.Rows[0]["MA_DVIQLY"].ToString() : null;
+                        user.value_token = ds.Rows[0]["VALUE_TOKEN"] != DBNull.Value ? ds.Rows[0]["VALUE_TOKEN"].ToString() : null;
                         user.ds_donvi = new DM_DONVI_Manager().get_All_DM_DONVI_ByMADVIQLY(user.ma_dviqly);
                         TokenService tokenService = new TokenService(_configuration);
                         string token = tokenService.GenerateJwtToken(user);
@@ -485,7 +485,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
 
                 cmd.Parameters.Add("p_pageNumber", OracleDbType.Int32).Value = request.PageIndex;
                 cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = request.PageSize;
-
+                cmd.Parameters.Add("p_MA_DVIQLY", OracleDbType.Varchar2).Value = request.ma_dviqly;
                 cmd.Parameters.Add("p_totalRecords", OracleDbType.Decimal).Direction = ParameterDirection.Output;
 
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;

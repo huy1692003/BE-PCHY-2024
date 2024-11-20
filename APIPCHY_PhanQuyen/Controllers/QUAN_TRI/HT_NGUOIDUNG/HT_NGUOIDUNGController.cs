@@ -122,7 +122,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
                 List<UserResponse> users = _manager.FILTER_HT_NGUOIDUNG(request, out totalRecords);
 
                 int totalPages = (int)Math.Ceiling((double)totalRecords / request.PageSize);
-                
+
                 var result = new
                 {
                     page = request.PageIndex,
@@ -170,12 +170,12 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
         {
             _manager.Delete_HT_NGUOIDUNG(id);
             return Ok("Xoa thanh cong");
-        }  
-        
+        }
+
         [HttpPut("update_Trangthai/{id}/{trangthai}")]
-        public IActionResult updateTrangThai(string id,int trangthai)
+        public IActionResult updateTrangThai(string id, int trangthai)
         {
-            _manager.updateTrangThai_NguoiDung(id,trangthai);
+            _manager.updateTrangThai_NguoiDung(id, trangthai);
             return Ok("Thành công");
         }
 

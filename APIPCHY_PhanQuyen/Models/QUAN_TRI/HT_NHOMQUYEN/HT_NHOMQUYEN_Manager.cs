@@ -62,16 +62,16 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
             }
         }
 
-        public List<HT_NHOMQUYEN_Model> search_HT_NHOMQUYEN(int? pageSize, int? pageIndex, string? ten_nhom, out int totalItems)
+        public List<HT_NHOMQUYEN_Model> search_HT_NHOMQUYEN(int? pageSize, int? pageIndex, string? ten_nhom, string ma_dviqly, out int totalItems)
         {
             totalItems = 0;
             try
             {
                 DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.search_HT_NHOMQUYEN", "p_page_index", "p_page_size",
-                                                "p_TEN_NHOM", pageIndex, pageSize, ten_nhom);
+                                                "p_TEN_NHOM", "p_MA_DVIQLY", pageIndex, pageSize, ten_nhom, ma_dviqly);
                 var count = ds.Rows.Count;
 
-                if (pageSize>0&&pageIndex>0&&count > 0)
+                if (pageSize > 0 && pageIndex > 0 && count > 0)
                 {
                     totalItems = int.Parse(ds.Rows[0]["RecordCount"].ToString());
                 }
