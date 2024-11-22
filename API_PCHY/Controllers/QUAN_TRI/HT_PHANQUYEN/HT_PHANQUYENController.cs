@@ -1,4 +1,5 @@
 ﻿using APIPCHY_PhanQuyen.Models.QLKC.HT_PHANQUYEN;
+using APIPCHY_PhanQuyen.Models.QLTN.HT_PHANQUYEN;
 using iTextSharp.text;
 using Microsoft.AspNetCore.Mvc;
 using System;

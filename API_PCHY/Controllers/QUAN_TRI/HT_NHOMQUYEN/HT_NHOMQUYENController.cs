@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
+using APIPCHY_PhanQuyen.Models.QLTN.HT_NHOMQUYEN;
 
 namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN
 {

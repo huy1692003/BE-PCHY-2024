@@ -1,6 +1,8 @@
 ﻿using APIPCHY.Helpers;
-using APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI;
 using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
+using APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG;
+using APIPCHY_PhanQuyen.Models.QLTN.DM_DONVI;
+using APIPCHY_PhanQuyen.Models.QLTN.HT_MENU;
 using APIPCHY_PhanQuyen.Services;
 using Microsoft.Extensions.Configuration;
 using Oracle.ManagedDataAccess.Client;
@@ -10,7 +12,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
+namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
 {
     public class HT_NGUOIDUNG_Manager
     {
@@ -30,7 +32,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.login_HT_NGUOIDUNG", "p_TEN_DANG_NHAP", username);
+                DataTable ds = helper.ExcuteReader("PKG_QLTN_QUANTRI.login_HT_NGUOIDUNG", "p_TEN_DANG_NHAP", username);
                 if (ds == null || ds.Rows.Count == 0)
                 {
 
@@ -104,7 +106,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                     OracleCommand cmd = new OracleCommand();
                     cmd.Connection = cn;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLKC_QUANTRI.get_ALL_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLTN_QUANTRI.get_ALL_NGUOIDUNG";
 
                     cmd.Parameters.Add("p_pageIndex", OracleDbType.Int32).Value = pageIndex;
                     cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = pageSize;
@@ -182,7 +184,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 cmd.Parameters.Clear();
                 cmd.Connection = cn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLKC_QUANTRI.insert_HT_NGUOIDUNG";
+                cmd.CommandText = @"PKG_QLTN_QUANTRI.insert_HT_NGUOIDUNG";
                 cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = Guid.NewGuid().ToString();
                 cmd.Parameters.Add("p_DM_DONVI_ID", OracleDbType.Varchar2).Value = data.dm_donvi_id;
                 cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = data.dm_phongban_id;
@@ -249,7 +251,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 cmd.Connection = cn;
                 OracleDataAdapter dap = new OracleDataAdapter();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLKC_QUANTRI.get_HT_NGUOIDUNG_byID";
+                cmd.CommandText = @"PKG_QLTN_QUANTRI.get_HT_NGUOIDUNG_byID";
                 cmd.Parameters.Add("p_ID", Id);
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                 dap.SelectCommand = cmd;
@@ -319,7 +321,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 cmd.Connection = cn;
                 OracleDataAdapter dap = new OracleDataAdapter();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLKC_QUANTRI.get_HT_NGUOIDUNGByID";
+                cmd.CommandText = @"PKG_QLTN_QUANTRI.get_HT_NGUOIDUNGByID";
                 cmd.Parameters.Add("p_ID", Id);
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
                 dap.SelectCommand = cmd;
@@ -413,7 +415,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                         {
                             cmd.Parameters.Clear();
                             cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.CommandText = @"PKG_QLKC_QUANTRI.update_HT_NGUOIDUNG";
+                            cmd.CommandText = @"PKG_QLTN_QUANTRI.update_HT_NGUOIDUNG";
                             cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = data.id;
                             cmd.Parameters.Add("p_DM_DONVI_ID", OracleDbType.Varchar2).Value = data.dm_donvi_id;
                             cmd.Parameters.Add("p_DM_PHONGBAN_ID", OracleDbType.Varchar2).Value = data.dm_phongban_id;
@@ -474,7 +476,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = cn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLKC_QUANTRI.search_HT_NGUOIDUNG";
+                cmd.CommandText = @"PKG_QLTN_QUANTRI.search_HT_NGUOIDUNG";
 
                 cmd.Parameters.Add("p_HO_TEN", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.HO_TEN) ? (object)DBNull.Value : request.HO_TEN;
                 cmd.Parameters.Add("p_TEN_DANG_NHAP", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.TEN_DANG_NHAP) ? (object)DBNull.Value : request.TEN_DANG_NHAP;
@@ -568,7 +570,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 string hashedNewPassword = PasswordHasher.HashString(newPassword);
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLKC_QUANTRI.update_password_HT_NGUOIDUNG";
+                cmd.CommandText = @"PKG_QLTN_QUANTRI.update_password_HT_NGUOIDUNG";
                 cmd.Parameters.Add("p_USER_ID", ID);
                 cmd.Parameters.Add("p_NEW_PASSWORD", hashedNewPassword);
                 cmd.Parameters.Add("p_Error", OracleDbType.NVarchar2, 200).Direction = ParameterDirection.Output;
@@ -608,7 +610,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 OracleDataAdapter dap = new OracleDataAdapter();
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.CommandText = @"PKG_QLKC_QUANTRI.get_HT_NGUOIDUNG_byID";
+                cmd.CommandText = @"PKG_QLTN_QUANTRI.get_HT_NGUOIDUNG_byID";
                 cmd.Parameters.Add("p_ID", ID);
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
@@ -657,7 +659,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 {
                     cmd.Parameters.Clear();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLKC_QUANTRI.delete_HT_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLTN_QUANTRI.delete_HT_NGUOIDUNG";
 
                     cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = id;
                     cmd.Parameters.Add("p_Error", OracleDbType.Varchar2, 200).Direction = ParameterDirection.Output;
@@ -694,7 +696,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
                 {
                     cmd.Parameters.Clear();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLKC_QUANTRI.update_TT_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLTN_QUANTRI.update_TT_NGUOIDUNG";
 
                     cmd.Parameters.Add("p_ID", OracleDbType.Varchar2).Value = id;
                     cmd.Parameters.Add("p_TRANG_THAI", OracleDbType.Int32).Value = trangthainew;
@@ -722,7 +724,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG
         {
             try
             {
-                DataTable tb = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_HT_MENUByUserId", "p_UserID", userId);
+                DataTable tb = helper.ExcuteReader("PKG_QLTN_QUANTRI.get_HT_MENUByUserId", "p_UserID", userId);
                 List<HT_MENU_Model> results = new List<HT_MENU_Model>();
                 if (tb != null)
                 {

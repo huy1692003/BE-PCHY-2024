@@ -1,11 +1,12 @@
 ﻿using APIPCHY.Helpers;
-using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
+using APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN;
+using APIPCHY_PhanQuyen.Models.QLTN.HT_MENU;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
+namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NHOMQUYEN
 {
     public class HT_NHOMQUYEN_Manager
     {
@@ -15,7 +16,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.create_HT_NHOMQUYEN", "p_Error", "p_NHOM_ID",
+                string result = helper.ExcuteNonQuery("PKG_QLTN_QUANTRI.create_HT_NHOMQUYEN", "p_Error", "p_NHOM_ID",
                                                     "p_GHI_CHU", "p_NGUOI_TAO", "p_CAP_BAC", "p_SAP_XEP", "p_TEN_NHOM",
                                                     "p_MA_DVIQLY", model.nhom_id, model.ghi_chu, model.nguoi_tao, model.cap_bac,
                                                     model.sap_xep, model.ten_nhom, model.ma_dviqly);
@@ -33,7 +34,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.update_HT_NHOMQUYEN", "p_Error", "p_ID",
+                string result = helper.ExcuteNonQuery("PKG_QLTN_QUANTRI.update_HT_NHOMQUYEN", "p_Error", "p_ID",
                                                     "p_GHI_CHU", "p_NGUOI_SUA", "p_CAP_BAC", "p_SAP_XEP", "p_TEN_NHOM",
                                                     "p_MA_DVIQLY", model.id, model.ghi_chu, model.nguoi_sua, model.cap_bac,
                                                     model.sap_xep, model.ten_nhom, model.ma_dviqly);
@@ -51,7 +52,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.delete_HT_NHOMQUYEN", "p_Error", "p_ID", id);
+                string result = helper.ExcuteNonQuery("PKG_QLTN_QUANTRI.delete_HT_NHOMQUYEN", "p_Error", "p_ID", id);
                 return result;
             }
 
@@ -67,7 +68,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
             totalItems = 0;
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.search_HT_NHOMQUYEN", "p_page_index", "p_page_size",
+                DataTable ds = helper.ExcuteReader("PKG_QLTN_QUANTRI.search_HT_NHOMQUYEN", "p_page_index", "p_page_size",
                                                 "p_TEN_NHOM", "p_MA_DVIQLY", pageIndex, pageSize, ten_nhom, ma_dviqly);
                 var count = ds.Rows.Count;
 
@@ -115,7 +116,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_HT_NHOMQUYEN_By_ID", "p_ID", id);
+                DataTable ds = helper.ExcuteReader("PKG_QLTN_QUANTRI.get_HT_NHOMQUYEN_By_ID", "p_ID", id);
                 if (ds != null && ds.Rows.Count > 0)
                 {
                     HT_NHOMQUYEN_Model model = new HT_NHOMQUYEN_Model();
@@ -161,7 +162,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN
                     {
                         Connection = cn,
                         CommandType = CommandType.StoredProcedure,
-                        CommandText = "PKG_QLKC_QUANTRI.get_NHOMQUYEN_BY_DVIQLY"
+                        CommandText = "PKG_QLTN_QUANTRI.get_NHOMQUYEN_BY_DVIQLY"
                     };
 
                     cmd.Parameters.Add("p_ma_dviqly", OracleDbType.Varchar2).Value = maDvi;

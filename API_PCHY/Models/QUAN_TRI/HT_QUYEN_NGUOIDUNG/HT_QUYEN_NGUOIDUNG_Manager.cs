@@ -3,8 +3,9 @@ using Oracle.ManagedDataAccess.Client;
 using System.Collections.Generic;
 using System.Data;
 using System;
+using APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG;
 
-namespace APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG
+namespace APIPCHY_PhanQuyen.Models.QLTN.HT_QUYEN_NGUOIDUNG
 {
     public class HT_QUYEN_NGUOIDUNG_Manager
     {
@@ -28,7 +29,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG
             {
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = @"PKG_QLKC_QUANTRI.grant_HT_QUYEN_NGUOIDUNG";
+                cmd.CommandText = @"PKG_QLTN_QUANTRI.grant_HT_QUYEN_NGUOIDUNG";
                 cmd.Parameters.Add("p_MA_NGUOI_DUNG", qnd.MA_NGUOI_DUNG);
                 cmd.Parameters.Add("p_NHOM_QUYEN_ID", qnd.MA_NHOM_TV);
                 cmd.Parameters.Add("p_Error", OracleDbType.NVarchar2, 200).Direction = ParameterDirection.Output;
@@ -66,7 +67,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG
                 {
                     cmd.Parameters.Clear();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLKC_QUANTRI.delete_HT_QUYEN_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLTN_QUANTRI.delete_HT_QUYEN_NGUOIDUNG";
 
                     cmd.Parameters.Add("p_ID", OracleDbType.Int32).Value = id;
                     cmd.Parameters.Add("p_Error", OracleDbType.Varchar2, 200).Direction = ParameterDirection.Output;
@@ -99,7 +100,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG
                 {
                     Connection = cn,
                     CommandType = CommandType.StoredProcedure,
-                    CommandText = @"PKG_QLKC_QUANTRI.get_NHOMQUYEN_BY_NGUOIDUNG_ID"
+                    CommandText = @"PKG_QLTN_QUANTRI.get_NHOMQUYEN_BY_NGUOIDUNG_ID"
                 };
                 cmd.Parameters.Add("p_MA_NGUOI_DUNG", OracleDbType.Varchar2).Value = maNguoiDung;
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;

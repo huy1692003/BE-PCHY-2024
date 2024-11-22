@@ -11,8 +11,8 @@ namespace APIPCHY.Helpers
         {
             try
             {
-                string connectionString = "User Id=QLKC;Password=qlkc;Data Source=117.0.33.2:1522/QLKC";
-                //string connectionString = "User Id=QLTN;Password=QLTN;Data Source=117.0.33.2:1523/QLTN";
+                // string connectionString = "User Id=QLKC;Password=qlkc;Data Source=117.0.33.2:1522/QLKC";
+                string connectionString = "User Id=QLTN;Password=QLTN;Data Source=117.0.33.2:1523/QLTN";
                 OracleConnection connection = new OracleConnection(connectionString);
                 return connection;
             }

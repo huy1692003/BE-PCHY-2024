@@ -4,8 +4,9 @@ using System.Data;
 using System.Drawing;
 using iTextSharp.text;
 using System.Collections.Generic;
+using APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI;
 
-namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
+namespace APIPCHY_PhanQuyen.Models.QLTN.DM_DONVI
 {
     public class DM_DONVI_Manager
     {
@@ -23,7 +24,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
 
 
 
-                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.insert_DM_DONVI", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLTN_QUANTRI.insert_DM_DONVI", "p_Error",
                                                     "p_ID", "p_DM_DONVI_ID", "p_LOAI_DON_VI", "p_MA", "p_TEN",
                                                     "p_TRANG_THAI", "p_SAP_XEP", "p_GHI_CHU", "p_NGUOI_TAO", "p_CAP_SO",
                                                     "p_CAP_MA", "p_DM_TINHTHANH_ID", "p_DM_QUANHUYEN_ID", "p_DM_DONVI_CHUQUAN_ID",
@@ -50,7 +51,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
             {
                 //Guid id = Guid.NewGuid();               
 
-                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.update_DM_DONVI", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLTN_QUANTRI.update_DM_DONVI", "p_Error",
                                                     "p_ID", "p_DM_DONVI_ID", "p_LOAI_DON_VI", "p_MA", "p_TEN",
                                                     "p_TRANG_THAI", "p_SAP_XEP", "p_GHI_CHU", "p_NGAY_CAP_NHAT", "p_NGUOI_CAP_NHAT",
                                                     "p_CAP_SO", "p_CAP_MA", "p_DM_TINHTHANH_ID", "p_DM_QUANHUYEN_ID",
@@ -75,7 +76,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLKC_QUANTRI.delete_DM_DONVI", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLTN_QUANTRI.delete_DM_DONVI", "p_Error",
                                                     "p_ID", id);
 
                 return result;
@@ -93,7 +94,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
             totalItems = 0;
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.search_DM_DONVI", "p_page_index", "p_page_size",
+                DataTable ds = helper.ExcuteReader("PKG_QLTN_QUANTRI.search_DM_DONVI", "p_page_index", "p_page_size",
                                                     "p_TEN", "p_MA", "p_TRANG_THAI", "p_DVIQLY", pageIndex, pageSize, ten, ma, trang_thai==-1?DBNull.Value:trang_thai, ma==null?ma_dviqly:DBNull.Value);
                 var count = ds.Rows.Count;
                 totalItems = int.Parse(ds.Rows[0]["RECORDCOUNT"].ToString());
@@ -144,7 +145,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_All_DM_DONVI", "p_MA_DVIQLY", ma_dviqly);
+                DataTable ds = helper.ExcuteReader("PKG_QLTN_QUANTRI.get_All_DM_DONVI", "p_MA_DVIQLY", ma_dviqly);
                 List<DM_DONVI_Model> list = new List<DM_DONVI_Model>();
                 if (ds != null)
                 {
@@ -196,7 +197,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_DM_DONVI_By_MADVIQLY", "@p_MA_DVIQLY", MaDVIQLY);
+                DataTable ds = helper.ExcuteReader("PKG_QLTN_QUANTRI.get_DM_DONVI_By_MADVIQLY", "@p_MA_DVIQLY", MaDVIQLY);
                 List<DM_DONVI_Model> list = new List<DM_DONVI_Model>();
                 if (ds != null)
                 {
@@ -229,7 +230,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI
         {
             try
             {
-                DataTable ds = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_DM_DONVI_By_ID", "p_ID", ID);
+                DataTable ds = helper.ExcuteReader("PKG_QLTN_QUANTRI.get_DM_DONVI_By_ID", "p_ID", ID);
                 if (ds != null && ds.Rows.Count > 0)
                 {
                     DM_DONVI_Model model = new DM_DONVI_Model();

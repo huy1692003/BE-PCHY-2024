@@ -1,4 +1,5 @@
 ﻿using APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG;
+using APIPCHY_PhanQuyen.Models.QLTN.HT_QUYEN_NGUOIDUNG;
 using Microsoft.AspNetCore.Mvc;
 using System;
 

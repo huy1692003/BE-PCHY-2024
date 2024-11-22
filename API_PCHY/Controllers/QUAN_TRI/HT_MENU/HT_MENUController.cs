@@ -3,6 +3,7 @@ using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
+using APIPCHY_PhanQuyen.Models.QLTN.HT_MENU;
 
 namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_MENU
 {

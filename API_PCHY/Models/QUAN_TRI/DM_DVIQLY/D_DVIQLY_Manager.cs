@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System;
-namespace APIPCHY_PhanQuyen.Models.QLKC.D_DVIQLY
+using APIPCHY_PhanQuyen.Models.QLKC.D_DVIQLY;
+namespace APIPCHY_PhanQuyen.Models.QLTN.D_DVIQLY
 {
     public class D_DVIQLY_Manager
     {
@@ -11,7 +12,7 @@ namespace APIPCHY_PhanQuyen.Models.QLKC.D_DVIQLY
         {
             try
             {
-                DataTable tb = helper.ExcuteReader("PKG_QLKC_SANG.getAllDM_DVIQLY");
+                DataTable tb = helper.ExcuteReader("PKG_QLTN_SANG.getAllDM_DVIQLY");
                 List<D_DVIQLY_Model> result = new List<D_DVIQLY_Model>();
                 if (tb != null)
                 {

@@ -1,4 +1,5 @@
 ﻿using APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN;
+using APIPCHY_PhanQuyen.Models.QLTN.DM_PHONGBAN;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;

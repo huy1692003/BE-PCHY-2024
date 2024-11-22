@@ -1,5 +1,5 @@
 ﻿using APIPCHY.Helpers;
-using APIPCHY_PhanQuyen.Models.QLKC.D_DVIQLY;
+using APIPCHY_PhanQuyen.Models.QLTN.D_DVIQLY;
 using System.Collections.Generic;
 using System;
 using System.Data;
@@ -14,7 +14,7 @@ namespace API_PCHY.Models.QUAN_TRI.DM_CHUCVU
         {
             try
             {
-                DataTable tb = helper.ExcuteReader("PKG_QLKC_QUANTRI.get_DM_CHUCVU");
+                DataTable tb = helper.ExcuteReader("PKG_QLTN_QUANTRI.get_DM_CHUCVU");
                 List<DM_CHUCVU_Model> result = new List<DM_CHUCVU_Model>();
                 if (tb != null)
                 {

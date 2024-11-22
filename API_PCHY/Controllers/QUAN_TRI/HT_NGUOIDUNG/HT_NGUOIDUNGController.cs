@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System;
 using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
+using APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG;
 
 namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
 {
