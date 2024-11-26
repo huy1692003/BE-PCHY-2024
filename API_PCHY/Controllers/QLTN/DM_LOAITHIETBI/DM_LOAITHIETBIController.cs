@@ -3,15 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using API_PCHY.Models.QLTN.DM_LOAITHIETBI;
 using System;
 using System.Collections.Generic;
-using APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN;
-using System.Drawing;
-using System.Linq;
+
 
 namespace API_PCHY.Controllers.QLTN.DM_LOAITHIETBI
 {
     [Route("APIPCHY/[controller]")]
     [ApiController]
-    public class DM_LOAITHIETBI_Controler : ControllerBase
+    public class DM_LOAITHIETBIController : ControllerBase
     {
         DM_LOAITHIETBI_Manager manager = new DM_LOAITHIETBI_Manager();
 
