@@ -59,7 +59,7 @@ namespace API_PCHY.Models.QLTN.DM_TRUONG_YCTN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLTN_VINH.update_DM_TRUONG_YCTN", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLTN_VINH.UPDATE_DM_TRUONG_YCTN", "p_Error",
                         "p_ID", "p_TEN_TRUONG", "p_VI_TRI", "p_MA_CODE",
                         model.id, model.ten_truong, model.vi_tri, model.ma_code
                         );
@@ -75,7 +75,7 @@ namespace API_PCHY.Models.QLTN.DM_TRUONG_YCTN
         {
             try
             {
-                string result = helper.ExcuteNonQuery("PKG_QLTN_VINH.delete_DM_TRUONG_YCTN_ByID", "p_Error",
+                string result = helper.ExcuteNonQuery("PKG_QLTN_VINH.delete_DM_TRUONG_YCTN", "p_Error",
                         "p_ID",
                         id
                         );
