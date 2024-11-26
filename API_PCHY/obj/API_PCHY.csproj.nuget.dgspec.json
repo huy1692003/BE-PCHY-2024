@@ -1,32 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\API_PCHY.csproj": {}
+    "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\API_PCHY.csproj": {}
   },
   "projects": {
-    "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\API_PCHY.csproj": {
+    "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\API_PCHY.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\API_PCHY.csproj",
+        "projectUniqueName": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\API_PCHY.csproj",
         "projectName": "API_PCHY",
-        "projectPath": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\API_PCHY.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\obj\\",
+        "projectPath": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\API_PCHY.csproj",
+        "packagesPath": "C:\\Users\\huy16\\.nuget\\packages\\",
+        "outputPath": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huy16\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -34,11 +38,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "BCrypt.Net-Next": {
               "target": "Package",
@@ -112,7 +122,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
