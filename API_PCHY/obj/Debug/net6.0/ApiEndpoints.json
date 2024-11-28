@@ -1,0 +1,821 @@
+[
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.D_DVIQLY.D_DVIQLYController",
+    "Method": "getAllD_DVQLY",
+    "RelativePath": "APIPCHY/D_DVIQLY/getAllD_DVQLY",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QUAN_TRI.DM_CHUCVU.DM_CHUCVUController",
+    "Method": "Get",
+    "RelativePath": "APIPCHY/DM_CHUCVU/getAll_DM_CHUCVU",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI.DM_DONVIController",
+    "Method": "delete_DM_DONVI",
+    "RelativePath": "APIPCHY/DM_DONVI/delete_DM_DONVI",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI.DM_DONVIController",
+    "Method": "get_All_DM_DONVI",
+    "RelativePath": "APIPCHY/DM_DONVI/get_All_DM_DONVI",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ma_dviqly",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI.DM_DONVIController",
+    "Method": "get_DM_DONVI_ByID",
+    "RelativePath": "APIPCHY/DM_DONVI/get_DM_DONVI_ByID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI.DM_DONVIController",
+    "Method": "insert_DM_DONVI",
+    "RelativePath": "APIPCHY/DM_DONVI/insert_DM_DONVI",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI.DM_DONVI_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI.DM_DONVIController",
+    "Method": "search_DM_DONVI",
+    "RelativePath": "APIPCHY/DM_DONVI/search_DM_DONVI",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "formData",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI.DM_DONVIController",
+    "Method": "update_DM_DONVI",
+    "RelativePath": "APIPCHY/DM_DONVI/update_DM_DONVI",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.DM_DONVI.DM_DONVI_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_KHACH_HANG.DM_KHACH_HANGController",
+    "Method": "Delete",
+    "RelativePath": "APIPCHY/DM_KHACH_HANG/delete_DM_KHACH_HANG",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_KHACH_HANG.DM_KHACH_HANGController",
+    "Method": "Insert",
+    "RelativePath": "APIPCHY/DM_KHACH_HANG/insert_DM_KHACH_HANG",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "khachHang",
+        "Type": "API_PCHY.Models.QLTN.DM_KHACH_HANG.DM_KHACH_HANG_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_KHACH_HANG.DM_KHACH_HANGController",
+    "Method": "Search",
+    "RelativePath": "APIPCHY/DM_KHACH_HANG/search_DM_KHACH_HANG",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "API_PCHY.Models.QLTN.DM_KHACH_HANG.DM_KHACH_HANG_Request",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_KHACH_HANG.DM_KHACH_HANGController",
+    "Method": "Update",
+    "RelativePath": "APIPCHY/DM_KHACH_HANG/update_DM_KHACH_HANG",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "khachHang",
+        "Type": "API_PCHY.Models.QLTN.DM_KHACH_HANG.DM_KHACH_HANG_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SANController",
+    "Method": "delete_LOAI_TAI_SAN_ByID",
+    "RelativePath": "APIPCHY/DM_LOAI_TAI_SAN/delete_DM_LOAI_TAI_SAN",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SANController",
+    "Method": "GET_DM_LOAI_TAI_SA",
+    "RelativePath": "APIPCHY/DM_LOAI_TAI_SAN/GET_DM_LOAI_TAI_SAN",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SANController",
+    "Method": "Insert_DM_LOAI_TAI_SAN",
+    "RelativePath": "APIPCHY/DM_LOAI_TAI_SAN/insert_DM_LOAI_TAI_SAN",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "API_PCHY.Models.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SAN_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SANController",
+    "Method": "Search_DM_LOAI_TAI_SAN",
+    "RelativePath": "APIPCHY/DM_LOAI_TAI_SAN/Search_DM_LOAI_TAI_SAN",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "API_PCHY.Models.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SAN_Request",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "API_PCHY.Models.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SAN_Model",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API_PCHY.Controllers.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SANController",
+    "Method": "UpdateLoaiTaiSan",
+    "RelativePath": "APIPCHY/DM_LOAI_TAI_SAN/update_DM_LOAI_TAI_SAN",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "API_PCHY.Models.QLTN.DM_LOAI_TAI_SAN.DM_LOAI_TAI_SAN_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_PHONGBAN.DM_PHONGBANController",
+    "Method": "delete_DM_PHONGBAN",
+    "RelativePath": "APIPCHY/DM_PHONGBAN/delete_DM_PHONGBAN",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_PHONGBAN.DM_PHONGBANController",
+    "Method": "get_DM_PHONGBANByID",
+    "RelativePath": "APIPCHY/DM_PHONGBAN/get_DM_PHONGBANByID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ID",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_PHONGBAN.DM_PHONGBANController",
+    "Method": "insert_DM_PHONGBAN",
+    "RelativePath": "APIPCHY/DM_PHONGBAN/insert_DM_PHONGBAN",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dM_PHONGBAN",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN.DM_PHONGBAN_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_PHONGBAN.DM_PHONGBANController",
+    "Method": "search_DM_PHONGBANByID",
+    "RelativePath": "APIPCHY/DM_PHONGBAN/search_DM_PHONGBAN",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "formData",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.DM_PHONGBAN.DM_PHONGBANController",
+    "Method": "update_DM_PHONGBAN",
+    "RelativePath": "APIPCHY/DM_PHONGBAN/update_DM_PHONGBAN",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dM_PHONGBAN",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN.DM_PHONGBAN_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_MENU.HT_MENUController",
+    "Method": "create_HT_MENU",
+    "RelativePath": "APIPCHY/HT_MENU/create_HT_MENU",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_MENU.HT_MENU_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_MENU.HT_MENUController",
+    "Method": "delete_HT_MENU",
+    "RelativePath": "APIPCHY/HT_MENU/delete_HT_MENU",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_MENU.HT_MENUController",
+    "Method": "get_All_HT_MENU",
+    "RelativePath": "APIPCHY/HT_MENU/get_All_HT_MENU",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_MENU.HT_MENUController",
+    "Method": "update_HT_MENU",
+    "RelativePath": "APIPCHY/HT_MENU/update_HT_MENU",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_MENU.HT_MENU_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "GetNguoiDungById",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "PostInsertNguoiDung",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nd",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNG_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "Delete_HT_NGUOIDUNG",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "get_HT_MENUByIdUser",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/get_HT_MENUByIdUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "GET_HT_NGUOIDUNG",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/get_ListNguoiDung",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "formData",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "Login",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNG_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "Reset_Password_HT_NGUOIDUNG",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/resetPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "FilterUsers",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG.UserFilterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "UpdateQuyen",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/update",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nd",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNG_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG.HT_NGUOIDUNGController",
+    "Method": "updateTrangThai",
+    "RelativePath": "APIPCHY/HT_NGUOIDUNG/update_Trangthai/{id}/{trangthai}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "trangthai",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN.HT_NHOMQUYENController",
+    "Method": "create_HT_NHOMQUYEN",
+    "RelativePath": "APIPCHY/HT_NHOMQUYEN/create_HT_NHOMQUYEN",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN.HT_NHOMQUYEN_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN.HT_NHOMQUYENController",
+    "Method": "delete_HT_NHOMQUYEN",
+    "RelativePath": "APIPCHY/HT_NHOMQUYEN/delete_HT_NHOMQUYEN",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN.HT_NHOMQUYENController",
+    "Method": "get_HT_NHOMQUYEN_By_ID",
+    "RelativePath": "APIPCHY/HT_NHOMQUYEN/get_HT_NHOMQUYEN_By_ID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN.HT_NHOMQUYENController",
+    "Method": "GetNhomQuyenByMaDVI",
+    "RelativePath": "APIPCHY/HT_NHOMQUYEN/getNhomQuyen_byMaDV",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maDviqly",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN.HT_NHOMQUYEN_Model, API_PCHY, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN.HT_NHOMQUYENController",
+    "Method": "search_HT_NHOMQUYEN",
+    "RelativePath": "APIPCHY/HT_NHOMQUYEN/search_HT_NHOMQUYEN",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "formData",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_NHOMQUYEN.HT_NHOMQUYENController",
+    "Method": "update_HT_NHOMQUYEN",
+    "RelativePath": "APIPCHY/HT_NHOMQUYEN/update_HT_NHOMQUYEN",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_NHOMQUYEN.HT_NHOMQUYEN_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_PHANQUYEN.HT_PHANQUYENController",
+    "Method": "delete_HT_PHANQUYEN",
+    "RelativePath": "APIPCHY/HT_PHANQUYEN/delete_HT_PHANQUYEN",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_PHANQUYEN.HT_PHANQUYENController",
+    "Method": "get_HT_PHANQUYENByMA_NHOM_TV",
+    "RelativePath": "APIPCHY/HT_PHANQUYEN/get_HT_PHANQUYENByMA_NHOM_TV",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ma_nhomtv",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_PHANQUYEN.HT_PHANQUYENController",
+    "Method": "a",
+    "RelativePath": "APIPCHY/HT_PHANQUYEN/insert_HT_PHANQUYEN",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_PHANQUYEN.HT_PHANQUYEN_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_QUYEN_NGUOIDUNG.HT_QUYEN_NGUOIDUNGController",
+    "Method": "PostInsertQuyen",
+    "RelativePath": "APIPCHY/HT_QUYEN_NGUOIDUNG/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "quyen",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG.HT_QUYEN_NGUOIDUNG_Model",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_QUYEN_NGUOIDUNG.HT_QUYEN_NGUOIDUNGController",
+    "Method": "PostInsertQuyenMultiple",
+    "RelativePath": "APIPCHY/HT_QUYEN_NGUOIDUNG/createMultiple",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "list",
+        "Type": "APIPCHY_PhanQuyen.Models.QLKC.HT_QUYEN_NGUOIDUNG.HT_QUYEN_NGUOIDUNG_Model[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_QUYEN_NGUOIDUNG.HT_QUYEN_NGUOIDUNGController",
+    "Method": "DeleteQuyen",
+    "RelativePath": "APIPCHY/HT_QUYEN_NGUOIDUNG/delete/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIPCHY_PhanQuyen.Controllers.QLKC.HT_QUYEN_NGUOIDUNG.HT_QUYEN_NGUOIDUNGController",
+    "Method": "get_QUYEN_NGUOIDUNG_byID",
+    "RelativePath": "APIPCHY/HT_QUYEN_NGUOIDUNG/getByUserId/{maNguoiDung}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maNguoiDung",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "api_pchy.controllers.UploadController",
+    "Method": "UploadAnhChuKyNhayImage",
+    "RelativePath": "APIPCHY/Upload/image",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
