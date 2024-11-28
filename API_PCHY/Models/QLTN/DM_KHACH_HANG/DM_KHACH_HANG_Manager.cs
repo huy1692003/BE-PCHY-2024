@@ -11,7 +11,7 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
         DataHelper _helper = new DataHelper();
 
 
- /***
+        /***
         ** GET ALL DM KHACH HANG 
         */
         public List<DM_KHACH_HANG_Model> get_DM_KHACHHANG()
@@ -22,7 +22,8 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
                 List<DM_KHACH_HANG_Model> list = new List<DM_KHACH_HANG_Model>();
 
                 if (ds != null)
-                {
+                { 
+
                     for (int i = 0; i < ds.Rows.Count; i++)
                     {
                         DM_KHACH_HANG_Model model = new DM_KHACH_HANG_Model();
