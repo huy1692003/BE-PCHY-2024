@@ -13,6 +13,20 @@ namespace API_PCHY.Controllers.QLTN.DM_KHACH_HANG
     {
         private readonly DM_KHACH_HANG_Manager _dmKhachHang = new DM_KHACH_HANG_Manager();
 
+         [HttpGet]
+        [Route("getAll_DM_KHACH_HANG")]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                var result = _dmKhachHang.get_DM_KHACHHANG();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Lỗi: {ex.Message}");
+            }
+        }
         // Thêm khách hàng mới (POST)
         //{
         //  "ten_kh": "string",
@@ -95,10 +109,10 @@ namespace API_PCHY.Controllers.QLTN.DM_KHACH_HANG
 
             var result = new
             {
-                page = request.PageIndex,
+                page = request.pageIndex,
                 TotalRecords = totalRecords,
                 TotalPages = totalPages,
-                PageSize = request.PageSize,
+                PageSize = request.pageSize,
                 data = results
             };
 
