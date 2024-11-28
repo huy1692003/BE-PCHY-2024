@@ -4,7 +4,7 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
 {
     public class DM_KHACH_HANG_Model
     {
-        public int id { get; set; }
+        public int? id { get; set; }
         public string ten_kh { get; set; } 
         public string ghi_chu { get; set; }  
         public DateTime ngay_tao { get; set; } 
