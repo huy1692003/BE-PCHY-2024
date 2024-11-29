@@ -2,6 +2,7 @@
 
     namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
     {
+
         public class DM_KHACH_HANG_Model
         {
             public int? id { get; set; }
@@ -21,9 +22,6 @@
         public class DM_KHACH_HANG_Request
         {
             public string searchData { get; set; }  
-     
-
-            // Các tham số phân trang
             public int pageIndex { get; set; }   
             public int pageSize { get; set; }    
 
