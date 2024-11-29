@@ -103,20 +103,20 @@ namespace API_PCHY.Controllers.QLTN.DM_KHACH_HANG
         }
 
 
-        [HttpPost("search_DM_KHACH_HANG")]
+      [HttpPost("search_DM_KHACH_HANG")]
       public IActionResult Search([FromBody] DM_KHACH_HANG_Request request)
         {
 
             int totalRecords = 0;
             int totalPages = 0;
-            var results = _dmKhachHang.FILTER_DM_KHACH_HANG(request, out totalRecords, out totalPages);
+            var results = _dmKhachHang.search_DM_KHACH_HANG(request, out totalRecords, out totalPages);
 
             var result = new
             {
-                page = request.PageIndex,
+                page = request.pageIndex,
                 TotalRecords = totalRecords,
                 TotalPages = totalPages,
-                PageSize = request.PageSize,
+                PageSize = request.pageSize,
                 data = results
             };
 
