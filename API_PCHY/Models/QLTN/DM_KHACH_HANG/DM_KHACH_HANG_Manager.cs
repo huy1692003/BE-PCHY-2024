@@ -94,7 +94,7 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
         }
 
 
-        public List<DM_KHACH_HANG_Model> FILTER_DM_KHACH_HANG(DM_KHACH_HANG_Request request, out int totalRecords, out int totalPages)
+        public List<DM_KHACH_HANG_Model> search_DM_KHACH_HANG(DM_KHACH_HANG_Request request, out int totalRecords, out int totalPages)
         {
             OracleConnection cn = new ConnectionOracle().getConnection();
             try
@@ -105,13 +105,9 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = @"PKG_QLTN_TANH.search_DM_KHACH_HANG";
 
-                // Các tham số đầu vào
-                cmd.Parameters.Add("p_TEN_KH", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.TEN_KH) ? (object)DBNull.Value : request.TEN_KH;
-                cmd.Parameters.Add("p_SO_DT", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.SO_DT) ? (object)DBNull.Value : request.SO_DT;
-                cmd.Parameters.Add("p_EMAIL", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.EMAIL) ? (object)DBNull.Value : request.EMAIL;
-
-                cmd.Parameters.Add("p_pageNumber", OracleDbType.Int32).Value = request.PageIndex;   // pageNumber
-                cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = request.PageSize;      // pageSize
+                cmd.Parameters.Add("p_searchData", OracleDbType.Varchar2).Value = request.searchData ?? string.Empty;
+                cmd.Parameters.Add("p_pageNumber", OracleDbType.Int32).Value = request.pageIndex;   
+                cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = request.pageSize;      
 
                 cmd.Parameters.Add("p_totalRecords", OracleDbType.Decimal).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
@@ -130,7 +126,7 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
                 }
 
                 // Tính toán tổng số trang
-                totalPages = (int)Math.Ceiling((double)totalRecords / request.PageSize);
+                totalPages = (int)Math.Ceiling((double)totalRecords / request.pageSize);
 
                 // Lấy dữ liệu khách hàng
                 List<DM_KHACH_HANG_Model> results = new List<DM_KHACH_HANG_Model>();
@@ -171,6 +167,8 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
                 }
             }
         }
+    
+    
     }
 
 }
