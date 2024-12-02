@@ -1,40 +1,48 @@
 {
   "Files": [
     {
-      "Id": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\0d9300a1-7e37-45d3-9562-56c0edb4aa06_cap-sac-nhanh-baseus-cafule-lightning-usb-2a-3m-day-sac-boc-du-chong-gap-cho-iphone-ipad-hang-chinh-hang-15-180x180.jpg",
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\fileYCTN\\HDSD-QLTNPCHY.docx",
+      "PackagePath": "staticwebassets\\fileYCTN\\HDSD-QLTNPCHY.docx"
+    },
+    {
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\fileYCTN\\PhantichHeThongQuanLyThiNghiem25-07-2024.docx",
+      "PackagePath": "staticwebassets\\fileYCTN\\PhantichHeThongQuanLyThiNghiem25-07-2024.docx"
+    },
+    {
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\fileYCTN\\param_QLTN_YCTN.txt",
+      "PackagePath": "staticwebassets\\fileYCTN\\param_QLTN_YCTN.txt"
+    },
+    {
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\0d9300a1-7e37-45d3-9562-56c0edb4aa06_cap-sac-nhanh-baseus-cafule-lightning-usb-2a-3m-day-sac-boc-du-chong-gap-cho-iphone-ipad-hang-chinh-hang-15-180x180.jpg",
       "PackagePath": "staticwebassets\\images\\chukynhay\\0d9300a1-7e37-45d3-9562-56c0edb4aa06_cap-sac-nhanh-baseus-cafule-lightning-usb-2a-3m-day-sac-boc-du-chong-gap-cho-iphone-ipad-hang-chinh-hang-15-180x180.jpg"
     },
     {
-      "Id": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\2dc1984e-de85-4809-a5b5-2605a8ae5140_images.png",
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\2dc1984e-de85-4809-a5b5-2605a8ae5140_images.png",
       "PackagePath": "staticwebassets\\images\\chukynhay\\2dc1984e-de85-4809-a5b5-2605a8ae5140_images.png"
     },
     {
-      "Id": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\59c49dc2-13d9-43b6-a03e-a796a0017bd4_images.png",
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\59c49dc2-13d9-43b6-a03e-a796a0017bd4_images.png",
       "PackagePath": "staticwebassets\\images\\chukynhay\\59c49dc2-13d9-43b6-a03e-a796a0017bd4_images.png"
     },
     {
-      "Id": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\5a482032-dcf6-48a5-818c-d05e4b860ee4_images.png",
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\5a482032-dcf6-48a5-818c-d05e4b860ee4_images.png",
       "PackagePath": "staticwebassets\\images\\chukynhay\\5a482032-dcf6-48a5-818c-d05e4b860ee4_images.png"
     },
     {
-      "Id": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\7c3732fe-3c5c-48d4-bb22-7223a80354c4_images.png",
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\7c3732fe-3c5c-48d4-bb22-7223a80354c4_images.png",
       "PackagePath": "staticwebassets\\images\\chukynhay\\7c3732fe-3c5c-48d4-bb22-7223a80354c4_images.png"
     },
     {
-      "Id": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\7f73f9cb-201f-4582-b501-7f6671d5bbd7_images.png",
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\7f73f9cb-201f-4582-b501-7f6671d5bbd7_images.png",
       "PackagePath": "staticwebassets\\images\\chukynhay\\7f73f9cb-201f-4582-b501-7f6671d5bbd7_images.png"
     },
     {
-      "Id": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\beac0853-2eff-42a7-893b-d4241dd5afb2_images.png",
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\beac0853-2eff-42a7-893b-d4241dd5afb2_images.png",
       "PackagePath": "staticwebassets\\images\\chukynhay\\beac0853-2eff-42a7-893b-d4241dd5afb2_images.png"
     },
     {
-      "Id": "D:\\Thực tập 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\f78b02b0-4e01-4c1c-a603-b26265f962d6_images.png",
+      "Id": "D:\\Nam4Ki1\\ThucTapDienLuc\\admin2211\\BE-PCHY-2024\\API_PCHY\\wwwroot\\images\\chukynhay\\f78b02b0-4e01-4c1c-a603-b26265f962d6_images.png",
       "PackagePath": "staticwebassets\\images\\chukynhay\\f78b02b0-4e01-4c1c-a603-b26265f962d6_images.png"
-    },
-    {
-      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.API_PCHY.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.API_PCHY.Microsoft.AspNetCore.StaticWebAssets.props",
