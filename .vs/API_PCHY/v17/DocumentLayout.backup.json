@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\controllers\\api_uploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\controllers\\api_uploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\controllers\\qltn\\qltn_phanmien_yctn\\qltn_phanmien_yctncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\controllers\\qltn\\qltn_phanmien_yctn\\qltn_phanmien_yctncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,7 +62,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "API_UploadController.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\API_UploadController.cs",
+              "RelativeDocumentMoniker": "API_PCHY\\Controllers\\API_UploadController.cs",
+              "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\API_UploadController.cs",
+              "RelativeToolTip": "API_PCHY\\Controllers\\API_UploadController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T01:35:57.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "HT_NGUOIDUNG_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNG_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNG_Manager.cs",
@@ -70,20 +87,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "QLTN_PHANMIEN_YCTNController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTNController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTNController.cs",
               "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTNController.cs",
               "RelativeToolTip": "API_PCHY\\Controllers\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTNController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAwwCcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAACcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T13:43:56.647Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "QLTN_PHANMIEN_YCTN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTN_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTN_Manager.cs",
@@ -95,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DM_LOAI_YCTN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Manager.cs",
@@ -103,12 +120,11 @@
               "RelativeToolTip": "API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Manager.cs",
               "ViewState": "AgIAADgAAAAAAAAAAAAgwBEAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T08:57:15.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T08:57:15.21Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "DM_LOAI_YCTNController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTNController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTNController.cs",
@@ -120,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DM_LOAI_YCTN_Model.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Model.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Model.cs",
@@ -132,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ConnectionOracle.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\ConnectionOracle.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Helpers\\ConnectionOracle.cs",
