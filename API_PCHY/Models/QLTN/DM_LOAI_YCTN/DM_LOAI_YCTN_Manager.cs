@@ -76,8 +76,20 @@ namespace API_PCHY.Models.QLTN.DM_LOAI_YCTN
                     }
                 }
                 
-
                 return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DM_LOAI_YCTN_Model get_DM_LOAI_YCTN_ByMaLoai(string maLoai)
+        {
+            try
+            {
+                var list = get_All_DM_LOAI_YCTN();
+                return list?.Find(x => x.ma_loai_yctn == maLoai);
             }
             catch (Exception ex)
             {

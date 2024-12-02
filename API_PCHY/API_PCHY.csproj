@@ -22,6 +22,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\fileYCTN\" />
+    <Folder Include="wwwroot\fileGiaoNV\" />
   </ItemGroup>
 
 </Project>

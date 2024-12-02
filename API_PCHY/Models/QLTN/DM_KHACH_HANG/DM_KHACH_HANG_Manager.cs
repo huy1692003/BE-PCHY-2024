@@ -10,6 +10,48 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
     {
         DataHelper _helper = new DataHelper();
 
+        /***
+       ** GET ALL DM KHACH HANG 
+       */
+        public List<DM_KHACH_HANG_Model> get_DM_KHACHHANG()
+        {
+            try
+            {
+                DataTable ds = _helper.ExcuteReader("PKG_QLTN_TANH.get_all_DM_KHACHHANG");
+                List<DM_KHACH_HANG_Model> list = new List<DM_KHACH_HANG_Model>();
+
+                if (ds != null)
+                {
+
+                    for (int i = 0; i < ds.Rows.Count; i++)
+                    {
+                        DM_KHACH_HANG_Model model = new DM_KHACH_HANG_Model();
+
+                        model.id = ds.Rows[i]["ID"] != DBNull.Value ? int.Parse(ds.Rows[i]["ID"].ToString()) : null;
+                        model.ten_kh = ds.Rows[i]["TEN_KH"] != DBNull.Value ? ds.Rows[i]["TEN_KH"].ToString() : null;
+                        model.ghi_chu = ds.Rows[i]["GHI_CHU"] != DBNull.Value ? ds.Rows[i]["GHI_CHU"].ToString() : null;
+                        model.ngay_tao = ds.Rows[i]["NGAY_TAO"] != DBNull.Value ? Convert.ToDateTime(ds.Rows[i]["NGAY_TAO"]) : DateTime.MinValue;
+                        model.nguoi_tao = ds.Rows[i]["NGUOI_TAO"] != DBNull.Value ? ds.Rows[i]["NGUOI_TAO"].ToString() : null;
+                        model.ngay_sua = ds.Rows[i]["NGAY_SUA"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(ds.Rows[i]["NGAY_SUA"]) : null;
+                        model.nguoi_sua = ds.Rows[i]["NGUOI_SUA"] != DBNull.Value ? ds.Rows[i]["NGUOI_SUA"].ToString() : null;
+                        model.so_dt = ds.Rows[i]["SO_DT"] != DBNull.Value ? ds.Rows[i]["SO_DT"].ToString() : null;
+                        model.email = ds.Rows[i]["EMAIL"] != DBNull.Value ? ds.Rows[i]["EMAIL"].ToString() : null;
+                        model.ma_so_thue = ds.Rows[i]["MA_SO_THUE"] != DBNull.Value ? ds.Rows[i]["MA_SO_THUE"].ToString() : null;
+                        model.dia_chi = ds.Rows[i]["DIA_CHI"] != DBNull.Value ? ds.Rows[i]["DIA_CHI"].ToString() : null;
+
+                        list.Add(model);
+                    }
+                }
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         /***
         ** INSERT DM KHACH HANG 
@@ -94,7 +136,7 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
         }
 
 
-        public List<DM_KHACH_HANG_Model> FILTER_DM_KHACH_HANG(DM_KHACH_HANG_Request request, out int totalRecords, out int totalPages)
+        public List<DM_KHACH_HANG_Model> search_DM_KHACH_HANG(DM_KHACH_HANG_Request request, out int totalRecords, out int totalPages)
         {
             OracleConnection cn = new ConnectionOracle().getConnection();
             try
@@ -105,13 +147,9 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = @"PKG_QLTN_TANH.search_DM_KHACH_HANG";
 
-                // Các tham số đầu vào
-                cmd.Parameters.Add("p_TEN_KH", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.TEN_KH) ? (object)DBNull.Value : request.TEN_KH;
-                cmd.Parameters.Add("p_SO_DT", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.SO_DT) ? (object)DBNull.Value : request.SO_DT;
-                cmd.Parameters.Add("p_EMAIL", OracleDbType.Varchar2).Value = string.IsNullOrEmpty(request.EMAIL) ? (object)DBNull.Value : request.EMAIL;
-
-                cmd.Parameters.Add("p_pageNumber", OracleDbType.Int32).Value = request.PageIndex;   // pageNumber
-                cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = request.PageSize;      // pageSize
+                cmd.Parameters.Add("p_searchData", OracleDbType.Varchar2).Value = request.searchData ?? string.Empty;
+                cmd.Parameters.Add("p_pageNumber", OracleDbType.Int32).Value = request.pageIndex;   
+                cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = request.pageSize;      
 
                 cmd.Parameters.Add("p_totalRecords", OracleDbType.Decimal).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
@@ -130,7 +168,7 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
                 }
 
                 // Tính toán tổng số trang
-                totalPages = (int)Math.Ceiling((double)totalRecords / request.PageSize);
+                totalPages = (int)Math.Ceiling((double)totalRecords / request.pageSize);
 
                 // Lấy dữ liệu khách hàng
                 List<DM_KHACH_HANG_Model> results = new List<DM_KHACH_HANG_Model>();
@@ -171,6 +209,8 @@ namespace API_PCHY.Models.QLTN.DM_KHACH_HANG
                 }
             }
         }
+    
+    
     }
 
 }

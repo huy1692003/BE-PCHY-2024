@@ -10,17 +10,28 @@ namespace APIPCHY.Helpers
         //string connectionString = "User Id=QLKC;Password=qlkc;Data Source=117.0.33.2:1522/QLKC";
         OracleConnection cn;
 
+        /// <summary>
+        /// Khởi tạo DataHelper với chuỗi kết nối tùy chỉnh
+        /// </summary>
+        /// <param name="conn">Chuỗi kết nối đến Oracle database</param>
         public DataHelper(string conn)
         {
             cn = new OracleConnection(conn);
 
         }
 
+        /// <summary>
+        /// Khởi tạo DataHelper với chuỗi kết nối mặc định
+        /// </summary>
         public DataHelper()
         {
             cn = new ConnectionOracle().getConnection();
         }
 
+        /// <summary>
+        /// Mở kết nối đến database
+        /// </summary>
+        /// <returns>true nếu mở kết nối thành công, false nếu thất bại</returns>
         public bool Open()
         {
             try
@@ -37,6 +48,10 @@ namespace APIPCHY.Helpers
                 return false;
             }
         }
+
+        /// <summary>
+        /// Đóng kết nối database
+        /// </summary>
         public void Close()
         {
             if (cn.State != ConnectionState.Closed)
@@ -45,7 +60,13 @@ namespace APIPCHY.Helpers
             }
         }
 
-        //public DataTable ExcuteReader
+        /// <summary>
+        /// Thực thi stored procedure không trả về dữ liệu
+        /// </summary>
+        /// <param name="procedureName">Tên stored procedure</param>
+        /// <param name="paramOut">Tên tham số output</param>
+        /// <param name="param_list">Danh sách các tham số đầu vào theo cặp (tên tham số, giá trị)</param>
+        /// <returns>Chuỗi rỗng nếu thành công, chuỗi bao gồm lỗi nếu thất bại</returns>
         public string ExcuteNonQuery(string procedureName, string paramOut, params object[] param_list)
         {
 
@@ -83,6 +104,12 @@ namespace APIPCHY.Helpers
             return strErr;
         }
 
+        /// <summary>
+        /// Thực thi stored procedure và trả về dữ liệu dạng DataTable
+        /// </summary>
+        /// <param name="ProcedureName">Tên stored procedure</param>
+        /// <param name="param_list">Danh sách các tham số đầu vào theo cặp (tên tham số, giá trị)</param>
+        /// <returns>DataTable chứa dữ liệu kết quả, null nếu có lỗi hoặc không có dữ liệu</returns>
         public DataTable ExcuteReader(string ProcedureName, params object[] param_list)
         {
             DataTable tb = new DataTable();
