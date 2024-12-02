@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Text.Json;
 using API_PCHY.Models.QLTN.DM_LOAI_YCTN;
 using API_PCHY.Models.QLTN.DM_LOAITHIETBI;
 using API_PCHY.Models.QLTN.DM_TRUONG_YCTN;
@@ -40,13 +41,14 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
 
         public bool giao_nhiem_vu_YCTN(QLTN_YCTN_Model model)
         {
+            string dv_thục_hien= JsonSerializer.Serialize(model.don_vi_thuc_hien);
             try
             {
                 string result = helper.ExcuteNonQuery("PKG_QLTN_HUY.giao_nhiem_vu_YCTN", "p_Error",
                                                     "p_MA_YCTN", "p_NGAY_GIAO_NV", "p_FILE_DINH_KEM_GIAO_NV",
                                                     "p_NGUOI_GIAO_NHIEM_VU", "p_DON_VI_THUC_HIEN",
                                                     model.ma_yctn, model.ngay_giao_nv, model.file_dinh_kem_giao_nv,
-                                                    model.nguoi_giao_nhiem_vu, model.don_vi_thuc_hien);
+                                                    model.nguoi_giao_nhiem_vu, dv_thục_hien);
 
                 return string.IsNullOrEmpty(result);
             }
@@ -129,7 +131,7 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                     data.phan_tram_chiet_giam = ds.Rows[0]["PHAN_TRAM_CHIET_GIAM"] != DBNull.Value ? decimal.Parse(ds.Rows[0]["PHAN_TRAM_CHIET_GIAM"].ToString()) : null;
                     data.ngay_ks_lap_pa_thi_cong = ds.Rows[0]["NGAY_KS_LAP_PA_THI_CONG"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_KS_LAP_PA_THI_CONG"].ToString()) : null;
                     data.ngay_tao = ds.Rows[0]["NGAY_TAO"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_TAO"].ToString()) : null;
-                    data.don_vi_thuc_hien = ds.Rows[0]["DON_VI_THUC_HIEN"] != DBNull.Value ? ds.Rows[0]["DON_VI_THUC_HIEN"].ToString() : null;
+                    data.don_vi_thuc_hien = ds.Rows[0]["DON_VI_THUC_HIEN"] != DBNull.Value ? JsonSerializer.Deserialize<List<string>>(ds.Rows[0]["DON_VI_THUC_HIEN"].ToString())     : null;
                     data.loai_yctn_model = data.ma_loai_yctn != null ? new DM_LOAI_YCTN_Manager().get_DM_LOAI_YCTN_ByMaLoai(data.ma_loai_yctn) : null;
                     return data;
                 }

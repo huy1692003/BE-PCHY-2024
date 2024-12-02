@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using API_PCHY.Models.QLTN.DM_LOAI_YCTN;
 
 namespace API_PCHY.Models.QLTN.QLTN_YCTN
@@ -40,7 +41,7 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
         public decimal? phan_tram_chiet_giam { get; set; }
         public DateTime? ngay_ks_lap_pa_thi_cong { get; set; }
         public DateTime? ngay_tao { get; set; }
-        public string? don_vi_thuc_hien { get; set; }
+        public List<String>? don_vi_thuc_hien { get; set; }
         public DM_LOAI_YCTN_Model loai_yctn_model { get; set; }
     }
 }
