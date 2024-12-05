@@ -130,8 +130,12 @@
               "RelativeToolTip": "API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
               "ViewState": "AgIAAKsAAAAAAAAAAAAowL4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2024-12-05T04:28:38.02Z",
               "EditorCaption": ""
+=======
+              "WhenOpened": "2024-12-02T02:08:18.254Z"
+>>>>>>> 5212207f61d99cf0b9e8e59dc62a4b0aef644c33
             },
             {
               "$type": "Document",
@@ -165,7 +169,7 @@
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\API_UploadController.cs",
               "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\API_UploadController.cs",
               "RelativeToolTip": "API_PCHY\\Controllers\\API_UploadController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAiwDkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAmwDoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T01:35:57.378Z"
             },
@@ -179,7 +183,11 @@
               "RelativeToolTip": "API_PCHY\\Helpers\\ConnectionOracle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2024-11-24T08:53:24.967Z"
+=======
+              "WhenOpened": "2024-11-26T08:45:52.768Z"
+>>>>>>> 5212207f61d99cf0b9e8e59dc62a4b0aef644c33
             },
             {
               "$type": "Document",
@@ -203,7 +211,11 @@
               "RelativeToolTip": "API_PCHY\\Models\\QLTN\\QLTN_YCTN\\QLTN_YCTN_Manager.cs",
               "ViewState": "AgIAADAAAAAAAAAAAIAwwD0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2024-11-26T08:45:52.768Z"
+=======
+              "WhenOpened": "2024-11-26T08:46:19.834Z"
+>>>>>>> 5212207f61d99cf0b9e8e59dc62a4b0aef644c33
             },
             {
               "$type": "Document",
