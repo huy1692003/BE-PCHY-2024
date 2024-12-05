@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\controllers\\quan_tri\\ht_nguoidung\\ht_nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\controllers\\quan_tri\\ht_nguoidung\\ht_nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\helpers\\connectionoracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\helpers\\connectionoracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\controllers\\quan_tri\\ht_menu\\ht_menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\controllers\\quan_tri\\ht_menu\\ht_menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\helpers\\connectionoracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\helpers\\connectionoracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\models\\quan_tri\\dm_chucvu\\dm_chucvu_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\models\\quan_tri\\dm_chucvu\\dm_chucvu_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\controllers\\quan_tri\\dm_chucvu\\dm_chucvucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\controllers\\quan_tri\\dm_chucvu\\dm_chucvucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\controllers\\quan_tri\\ht_nguoidung\\ht_nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\controllers\\quan_tri\\ht_nguoidung\\ht_nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\models\\qltn\\qltn_yctn\\qltn_yctn_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -102,7 +110,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -122,20 +130,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HT_NGUOIDUNGController.cs",
-              "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
-              "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
-              "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
-              "RelativeToolTip": "API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAowL4AAAANAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "DM_CHUCVU_Manager.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVU_Manager.cs",
+              "RelativeDocumentMoniker": "API_PCHY\\Models\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVU_Manager.cs",
+              "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVU_Manager.cs",
+              "RelativeToolTip": "API_PCHY\\Models\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVU_Manager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
-              "WhenOpened": "2024-12-05T04:28:38.02Z",
+              "WhenOpened": "2024-12-05T08:04:54.062Z",
               "EditorCaption": ""
-=======
-              "WhenOpened": "2024-12-02T02:08:18.254Z"
->>>>>>> 5212207f61d99cf0b9e8e59dc62a4b0aef644c33
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DM_CHUCVUController.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVUController.cs",
+              "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVUController.cs",
+              "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVUController.cs",
+              "RelativeToolTip": "API_PCHY\\Controllers\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVUController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T08:04:47.66Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -145,13 +162,40 @@
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QUAN_TRI\\HT_MENU\\HT_MENUController.cs",
               "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\HT_MENU\\HT_MENUController.cs",
               "RelativeToolTip": "API_PCHY\\Controllers\\QUAN_TRI\\HT_MENU\\HT_MENUController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwBUAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAAEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T04:28:10.02Z"
+              "WhenOpened": "2024-12-05T04:28:10.02Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "ConnectionOracle.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\ConnectionOracle.cs",
+              "RelativeDocumentMoniker": "API_PCHY\\Helpers\\ConnectionOracle.cs",
+              "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\ConnectionOracle.cs",
+              "RelativeToolTip": "API_PCHY\\Helpers\\ConnectionOracle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T08:53:24.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HT_NGUOIDUNGController.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
+              "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
+              "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
+              "RelativeToolTip": "API_PCHY\\Controllers\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNGController.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAiwL4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T04:28:38.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "QLTN_YCTN_Model.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\QLTN_YCTN\\QLTN_YCTN_Model.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\QLTN_YCTN\\QLTN_YCTN_Model.cs",
@@ -163,35 +207,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "API_UploadController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\API_UploadController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\API_UploadController.cs",
               "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\API_UploadController.cs",
               "RelativeToolTip": "API_PCHY\\Controllers\\API_UploadController.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAmwDoAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAiwDkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T01:35:57.378Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ConnectionOracle.cs",
-              "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\ConnectionOracle.cs",
-              "RelativeDocumentMoniker": "API_PCHY\\Helpers\\ConnectionOracle.cs",
-              "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\ConnectionOracle.cs",
-              "RelativeToolTip": "API_PCHY\\Helpers\\ConnectionOracle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
-              "WhenOpened": "2024-11-24T08:53:24.967Z"
-=======
-              "WhenOpened": "2024-11-26T08:45:52.768Z"
->>>>>>> 5212207f61d99cf0b9e8e59dc62a4b0aef644c33
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "DM_LOAI_YCTN_Model.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Model.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Model.cs",
@@ -203,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "QLTN_YCTN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\QLTN_YCTN\\QLTN_YCTN_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\QLTN_YCTN\\QLTN_YCTN_Manager.cs",
@@ -211,15 +239,11 @@
               "RelativeToolTip": "API_PCHY\\Models\\QLTN\\QLTN_YCTN\\QLTN_YCTN_Manager.cs",
               "ViewState": "AgIAADAAAAAAAAAAAIAwwD0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2024-11-26T08:45:52.768Z"
-=======
-              "WhenOpened": "2024-11-26T08:46:19.834Z"
->>>>>>> 5212207f61d99cf0b9e8e59dc62a4b0aef644c33
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "DM_DONVIController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\DM_DONVI\\DM_DONVIController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QUAN_TRI\\DM_DONVI\\DM_DONVIController.cs",
@@ -231,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "DM_LOAI_YCTN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTN_Manager.cs",
@@ -243,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "QLTN_YCTNController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QLTN\\QLTN_YCTN\\QLTN_YCTNController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QLTN\\QLTN_YCTN\\QLTN_YCTNController.cs",
@@ -255,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "DM_TRUONG_YCTN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\DM_TRUONG_YCTN\\DM_TRUONG_YCTN_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\DM_TRUONG_YCTN\\DM_TRUONG_YCTN_Manager.cs",
@@ -267,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "DM_KHACH_HANG_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\DM_KHACH_HANG\\DM_KHACH_HANG_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\DM_KHACH_HANG\\DM_KHACH_HANG_Manager.cs",
@@ -279,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "DM_PHONGBAN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBAN_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QUAN_TRI\\DM_PHONGBAN\\DM_PHONGBAN_Manager.cs",
@@ -291,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "DM_LOAI_TAI_SAN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\DM_LOAI_TAI_SAN\\DM_LOAI_TAI_SAN_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\DM_LOAI_TAI_SAN\\DM_LOAI_TAI_SAN_Manager.cs",
@@ -303,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "DM_LOAI_TAI_SANController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QLTN\\DM_LOAI_TAI_SAN\\DM_LOAI_TAI_SANController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QLTN\\DM_LOAI_TAI_SAN\\DM_LOAI_TAI_SANController.cs",
@@ -315,7 +339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "DataHelper.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\DataHelper.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Helpers\\DataHelper.cs",
@@ -327,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "PasswordHasher.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\PasswordHasher.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Helpers\\PasswordHasher.cs",
@@ -339,7 +363,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Pagination.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\Pagination.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Helpers\\Pagination.cs",
@@ -351,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "DM_KHACH_HANGController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QLTN\\DM_KHACH_HANG\\DM_KHACH_HANGController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QLTN\\DM_KHACH_HANG\\DM_KHACH_HANGController.cs",
@@ -363,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "QLTN_PHANMIEN_YCTNController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTNController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTNController.cs",
@@ -375,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "DM_LOAI_YCTNController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTNController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QLTN\\DM_LOAI_YCTN\\DM_LOAI_YCTNController.cs",
@@ -387,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "HT_NGUOIDUNG_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNG_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QUAN_TRI\\HT_NGUOIDUNG\\HT_NGUOIDUNG_Manager.cs",
@@ -399,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "QLTN_PHANMIEN_YCTN_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTN_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QLTN\\QLTN_PHANMIEN_YCTN\\QLTN_PHANMIEN_YCTN_Manager.cs",
