@@ -1,0 +1,8 @@
+D:\Thực tập 2024\PCHY\BE-PCHY-2024\API_PCHY\obj\Debug\net5.0\API_PCHY.csproj.AssemblyReference.cache
+D:\Thực tập 2024\PCHY\BE-PCHY-2024\API_PCHY\obj\Debug\net5.0\API_PCHY.GeneratedMSBuildEditorConfig.editorconfig
+D:\Thực tập 2024\PCHY\BE-PCHY-2024\API_PCHY\obj\Debug\net5.0\API_PCHY.AssemblyInfoInputs.cache
+D:\Thực tập 2024\PCHY\BE-PCHY-2024\API_PCHY\obj\Debug\net5.0\API_PCHY.AssemblyInfo.cs
+D:\Thực tập 2024\PCHY\BE-PCHY-2024\API_PCHY\obj\Debug\net5.0\API_PCHY.csproj.CoreCompileInputs.cache
+D:\Thực tập 2024\PCHY\BE-PCHY-2024\API_PCHY\obj\Debug\net5.0\API_PCHY.MvcApplicationPartsAssemblyInfo.cs
+D:\Thực tập 2024\PCHY\BE-PCHY-2024\API_PCHY\obj\Debug\net5.0\API_PCHY.MvcApplicationPartsAssemblyInfo.cache
+D:\Thực tập 2024\PCHY\BE-PCHY-2024\API_PCHY\obj\Debug\net5.0\API_PCHY.sourcelink.json

@@ -1,5 +1,4 @@
-﻿using APIPCHY_PhanQuyen.Models.QLKC.D_DVIQLY;
-using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
+﻿using APIPCHY_PhanQuyen.Models.QLKC.HT_MENU;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;

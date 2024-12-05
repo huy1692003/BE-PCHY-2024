@@ -1,5 +1,4 @@
 ﻿using API_PCHY.Models.QUAN_TRI.DM_CHUCVU;
-using APIPCHY_PhanQuyen.Models.QLKC.D_DVIQLY;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
