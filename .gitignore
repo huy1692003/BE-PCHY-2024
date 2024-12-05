@@ -6,7 +6,7 @@
 
 # Thư mục biên dịch
 /bin/
-.obj/
+/obj/
 *.exe
 *.dll
 *.pdb
