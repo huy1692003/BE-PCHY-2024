@@ -5,8 +5,8 @@
 *.suo
 
 # Thư mục biên dịch
-./API_PCHY/bin/
-./API_PCHY/obj/
+bin/
+obj/
 *.exe
 *.dll
 *.pdb
