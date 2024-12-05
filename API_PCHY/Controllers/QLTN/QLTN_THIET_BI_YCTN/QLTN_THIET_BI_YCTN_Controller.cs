@@ -82,14 +82,18 @@ namespace API_PCHY.Controllers.QLTN.QLTN_THIET_BI_YCTN
             }
 
             return Ok(new
-            {
+                {
                 Success = errors.Count == 0,
                 Message = errors.Any()
                     ? $"Đã thêm thành công {successCount}/{devices.Count} thiết bị. Có {errors.Count} lỗi."
                     : "Tất cả thiết bị đã được thêm thành công.",
-                Errors = errors
-            });
+                    Errors = errors
+                });
+            }
+
+            return Ok("Tất cả thiết bị đã được thêm thành công.");
         }
+
 
         [Route("update_Thiet_Bi_YCTN")]
         [HttpPut]
