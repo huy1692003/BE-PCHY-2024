@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using API_PCHY.Models.QLTN.QLTN_CHI_TIET_THI_NGHIEM;
 
 namespace API_PCHY.Models.QLTN.QLTN_THIET_BI_YCTN
 {
@@ -14,7 +16,7 @@ namespace API_PCHY.Models.QLTN.QLTN_THIET_BI_YCTN
         public int? trang_thai { get; set; }
 
         public DateTime? ngay_tao { get; set; }
-
+         public List<QLTN_CHI_TIET_THI_NGHIEM_Model>? listTN {  get; set; }
         public string? nguoi_tao { get; set; }
         public string? ten_loai_thiet_bi { get; set; }
 
