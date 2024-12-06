@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\helpers\\connectionoracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\helpers\\connectionoracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\models\\quan_tri\\dm_chucvu\\dm_chucvu_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\models\\quan_tri\\dm_chucvu\\dm_chucvu_manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\controllers\\quan_tri\\dm_chucvu\\dm_chucvucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\controllers\\quan_tri\\dm_chucvu\\dm_chucvucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\helpers\\connectionoracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|solutionrelative:api_pchy\\helpers\\connectionoracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E3F8C64-6AE6-4BCD-B246-FE1AD18AC6E4}|API_PCHY\\API_PCHY.csproj|d:\\th\u1EF1c t\u1EADp 2024\\pchy\\be-pchy-2024\\api_pchy\\controllers\\quan_tri\\ht_nguoidung\\ht_nguoidungcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -110,7 +110,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -130,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DM_CHUCVU_Manager.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Models\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVU_Manager.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Models\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVU_Manager.cs",
@@ -143,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DM_CHUCVUController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVUController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVUController.cs",
@@ -151,12 +151,11 @@
               "RelativeToolTip": "API_PCHY\\Controllers\\QUAN_TRI\\DM_CHUCVU\\DM_CHUCVUController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwAoAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T08:04:47.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T08:04:47.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "HT_MENUController.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Controllers\\QUAN_TRI\\HT_MENU\\HT_MENUController.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Controllers\\QUAN_TRI\\HT_MENU\\HT_MENUController.cs",
@@ -164,18 +163,17 @@
               "RelativeToolTip": "API_PCHY\\Controllers\\QUAN_TRI\\HT_MENU\\HT_MENUController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T04:28:10.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T04:28:10.02Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ConnectionOracle.cs",
               "DocumentMoniker": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\ConnectionOracle.cs",
               "RelativeDocumentMoniker": "API_PCHY\\Helpers\\ConnectionOracle.cs",
               "ToolTip": "D:\\Th\u1EF1c t\u1EADp 2024\\PCHY\\BE-PCHY-2024\\API_PCHY\\Helpers\\ConnectionOracle.cs",
               "RelativeToolTip": "API_PCHY\\Helpers\\ConnectionOracle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T08:53:24.967Z",
               "EditorCaption": ""
