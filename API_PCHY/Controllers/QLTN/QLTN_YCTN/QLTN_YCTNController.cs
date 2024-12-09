@@ -46,7 +46,6 @@ namespace API_PCHY.Controllers.QLTN.QLTN_YCTN
             }
         }
 
-        /// <summary>
         /// Bước 4: LẬP KHẢO SÁT PHƯƠNG ÁN THI CÔNG 
         /// </summary>
         /// <param name="model"></param>

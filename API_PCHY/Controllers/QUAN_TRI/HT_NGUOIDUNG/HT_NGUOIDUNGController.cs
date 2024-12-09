@@ -44,7 +44,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
         }
 
 
-        //sua
+        //lay danh sach nguoi dung
         [HttpPost("get_ListNguoiDung")]
         public IActionResult GET_HT_NGUOIDUNG([FromBody] Dictionary<string, string> formData)
         {

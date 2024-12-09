@@ -58,7 +58,7 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
             }
         }
 
-        //buoc 4:   khao sat phuong an thi cong
+        //buoc 4: khao sat phuong an thi cong
         //  "ten_yctn": "YCTN.HD-9",
         //  "file_pa_thi_cong": "string",
         //  "nguoi_th_ks_lap_pa_thi_cong": "string",
