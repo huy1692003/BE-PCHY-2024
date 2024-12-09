@@ -23,5 +23,19 @@ namespace API_PCHY.Controllers.QLTN.QLTN_NGUOI_KY
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
+        [Route("updateTRANGTHAIKY_NGUOI_KY_SO")]
+        [HttpPut]
+
+        public IActionResult update_TRANG_THAI_KY([FromBody] Input_TrangThaiKy_Model model)
+        {
+            
+            try
+            {
+                string result = manager.updateTrangThaiKy_QLTN_NGUOI_KY_SO(model);
+
+                return string.IsNullOrEmpty(result) ? Ok("Thành công") : BadRequest(result);
+            }
+            catch (Exception ex) { return BadRequest(ex.Message); }
+        }
     }
 }
