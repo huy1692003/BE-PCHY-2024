@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using API_PCHY.Models.QLTN.QLTN_YCTN;
 using System;
+using System.Threading.Tasks;
 
 namespace API_PCHY.Controllers.QLTN.QLTN_YCTN
 {
@@ -44,6 +45,58 @@ namespace API_PCHY.Controllers.QLTN.QLTN_YCTN
                 return BadRequest($"Lỗi: {ex.Message}");
             }
         }
+
+        /// <summary>
+        /// Bước 4: LẬP KHẢO SÁT PHƯƠNG ÁN THI CÔNG 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        /// 
+        //{
+        //  "ma_yctn": "YCTN.TN-11",
+        //  "file_pa_thi_cong": "/fileYCTN/PA-TC-T12.doc",
+        //  "nguoi_th_ks_lap_pa_thi_cong": "123241212",
+        //  "ngay_ks_lap_pa_thi_cong": "2024-12-06T08:16:07.447Z"
+        //} 
+    [HttpPost]
+        [Route("KhaoSatPhuongAn")]
+        public IActionResult KhaoSatPhuongAn([FromBody] QLTN_YCTN_Model model)
+        {
+            try
+            {
+                bool result = _manager.khao_sat_phuong_an_YCTN(model);
+                return result ? Ok("Khảo sát thành công") : BadRequest("Khảo sát thất bại");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Lỗi: {ex.Message}");
+            }
+        }
+        //public IActionResult KhaoSatPhuongAn([FromBody] QLTN_YCTN_Model model)
+        //{
+        //    try
+        //    {
+        //        var result = _manager.khao_sat_phuong_an_YCTN(model);
+
+        //        if (result != null)
+        //        {
+        //            return Ok(new
+        //            {
+        //                message = "Them thanh cong"
+        //            });
+        //        }
+        //        else
+        //        {
+        //            return StatusCode(500, "Lỗi khi lưu dữ liệu");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Lỗi: {ex.Message}");
+        //    }
+        //}
+
+
 
         [HttpGet]
         [Route("SearchMaYCTN")]

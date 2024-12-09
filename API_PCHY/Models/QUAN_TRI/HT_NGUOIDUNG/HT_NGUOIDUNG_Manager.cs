@@ -94,6 +94,8 @@ namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
             }
         }
 
+
+
         public List<HTNguoiDungDTO> GET_HT_NGUOIDUNG(int pageIndex, int pageSize, out long total)
         {
             List<HTNguoiDungDTO> result = new List<HTNguoiDungDTO>();
@@ -106,7 +108,7 @@ namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
                     OracleCommand cmd = new OracleCommand();
                     cmd.Connection = cn;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLTN_QUANTRI.get_ALL_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLTN_TANH.get_ALL_NGUOIDUNG";
 
                     cmd.Parameters.Add("p_pageIndex", OracleDbType.Int32).Value = pageIndex;
                     cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = pageSize;
@@ -126,11 +128,7 @@ namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
                             HTNguoiDungDTO user = new HTNguoiDungDTO
                             {
                                 ID = dr["ID"].ToString(),
-                                DM_DONVI_ID = dr["DM_DONVI_ID"].ToString(),
-                                DM_PHONGBAN_ID = dr["DM_PHONGBAN_ID"].ToString(),
-                                DM_CHUCVU_ID = dr["DM_CHUCVU_ID"].ToString(),
                                 TEN_DANG_NHAP = dr["TEN_DANG_NHAP"].ToString(),
-                                MAT_KHAU = dr["MAT_KHAU"].ToString(),
                                 HO_TEN = dr["HO_TEN"].ToString(),
                                 EMAIL = dr["EMAIL"].ToString(),
                                 LDAP = dr["LDAP"].ToString(),
@@ -141,7 +139,6 @@ namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
                                 NGUOI_CAP_NHAT = dr["NGUOI_CAP_NHAT"].ToString(),
                                 SO_DIEN_THOAI = dr["SO_DIEN_THOAI"].ToString(),
                                 GIOI_TINH = dr["GIOI_TINH"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["GIOI_TINH"]),
-                                SO_CMND = dr["SO_CMND"].ToString(),
                                 TRANG_THAI_DONG_BO = dr["TRANG_THAI_DONG_BO"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["TRANG_THAI_DONG_BO"]),
                                 ROLEID = dr["ROLEID"].ToString(),
                                 PHONG_BAN = dr["PHONG_BAN"].ToString(),
@@ -164,6 +161,66 @@ namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
 
             return result;
         }
+
+
+        //get all
+        //public List<HTNguoiDungDTO> GET_HT_NGUOIDUNG()
+        //{
+        //    List<HTNguoiDungDTO> result = new List<HTNguoiDungDTO>();
+
+        //    using (OracleConnection cn = new ConnectionOracle().getConnection())
+        //    {
+        //        cn.Open();
+        //        try
+        //        {
+        //            OracleCommand cmd = new OracleCommand();
+        //            cmd.Connection = cn;
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.CommandText = @"PKG_QLTN_TANH.get_all_HT_NGUOIDUNG";
+
+        //            cmd.Parameters.Add("p_getDB", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+        //            OracleDataAdapter dap = new OracleDataAdapter(cmd);
+        //            DataSet ds = new DataSet();
+        //            dap.Fill(ds);
+
+        //            if (ds.Tables.Count > 0)
+        //            {
+        //                foreach (DataRow dr in ds.Tables[0].Rows)
+        //                {
+        //                    HTNguoiDungDTO user = new HTNguoiDungDTO
+        //                    {
+        //                        ID = dr["ID"].ToString(),
+        //                        TEN_DANG_NHAP = dr["TEN_DANG_NHAP"].ToString(),
+        //                        HO_TEN = dr["HO_TEN"].ToString(),
+        //                        EMAIL = dr["EMAIL"].ToString(),
+        //                        LDAP = dr["LDAP"].ToString(),
+        //                        TRANG_THAI = dr["TRANG_THAI"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["TRANG_THAI"]),
+        //                        NGAY_TAO = dr["NGAY_TAO"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["NGAY_TAO"]),
+        //                        NGUOI_TAO = dr["NGUOI_TAO"].ToString(),
+        //                        NGAY_CAP_NHAT = dr["NGAY_CAP_NHAT"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["NGAY_CAP_NHAT"]),
+        //                        NGUOI_CAP_NHAT = dr["NGUOI_CAP_NHAT"].ToString(),
+        //                        SO_DIEN_THOAI = dr["SO_DIEN_THOAI"].ToString(),
+        //                        GIOI_TINH = dr["GIOI_TINH"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["GIOI_TINH"]),
+        //                        TRANG_THAI_DONG_BO = dr["TRANG_THAI_DONG_BO"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["TRANG_THAI_DONG_BO"]),
+        //                        ROLEID = dr["ROLEID"].ToString(),
+        //                        PHONG_BAN = dr["PHONG_BAN"].ToString(),
+        //                        ANHDAIDIEN = dr["ANHDAIDIEN"].ToString()
+        //                    };
+
+        //                    result.Add(user);
+        //                }
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw ex;
+        //        }
+        //    }
+
+        //    return result;
+        //}
+
 
 
         //them nguoi dung

@@ -26,6 +26,7 @@ namespace API_PCHY.Controllers.QLTN.DM_TRUONG_YCTN
             {
                 return BadRequest(ex.Message);
             }
+            
         }
 
         [Route("insert_DM_TRUONG_YCTN")]

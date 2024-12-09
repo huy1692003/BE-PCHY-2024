@@ -50,7 +50,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.DM_DONVI
         [Route("get_All_DM_DONVI")]
         [HttpGet]
         public IActionResult get_All_DM_DONVI(string ma_dviqly)
-        {
+            {
             List<DM_DONVI_Model> result = db.get_All_DM_DONVI(ma_dviqly);
             return result != null ? Ok(result) : NotFound();
         }

@@ -42,6 +42,9 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
 
             return Ok(new { user });
         }
+
+
+
         [HttpPost("get_ListNguoiDung")]
         public IActionResult GET_HT_NGUOIDUNG([FromBody] Dictionary<string, string> formData)
         {
@@ -84,7 +87,7 @@ namespace APIPCHY_PhanQuyen.Controllers.QLKC.HT_NGUOIDUNG
             try
             {
                 var nguoiDung = _manager.GET_DM_NGUOIDUNG_byID(id);
-                if (nguoiDung == null)
+                if (nguoiDung == null)  
                 {
                     return NotFound($"Không tìm thấy người dùng với ID: {id}");
                 }

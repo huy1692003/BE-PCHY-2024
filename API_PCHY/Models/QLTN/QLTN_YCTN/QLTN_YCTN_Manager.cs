@@ -7,6 +7,8 @@ using API_PCHY.Models.QLTN.DM_LOAITHIETBI;
 using API_PCHY.Models.QLTN.DM_TRUONG_YCTN;
 using APIPCHY.Helpers;
 using APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN;
+using APIPCHY_PhanQuyen.Models.QLKC.HT_NGUOIDUNG;
+using Oracle.ManagedDataAccess.Client;
 
 namespace API_PCHY.Models.QLTN.QLTN_YCTN
 {
@@ -55,6 +57,100 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                 return false;
             }
         }
+
+        /// <summary>
+        /// STEP 4: KHAO SAT PHUONG AN THI CONG
+        /// </summary>
+        /// <param name="Ma_YCTN"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        /// 
+        // {
+
+        //  "ten_yctn": "YCTN.HD-9",
+        //  "file_pa_thi_cong": "string",
+        //  "nguoi_th_ks_lap_pa_thi_cong": "string",
+        //  "ngay_ks_lap_pa_thi_cong": "2024-12-02T23:07:41.140Z",
+
+        //}
+        public bool khao_sat_phuong_an_YCTN(QLTN_YCTN_Model model)
+        {
+            try
+            {
+                string result = helper.ExcuteNonQuery(
+                    "PKG_QLTN_TANH.khao_sat_phuong_an_YCTN",
+                    "p_Error",
+                    "p_MA_YCTN",
+                    "p_FILE_PA_THI_CONG",
+                    "p_NGUOI_TH_KS_LAP_PA_THI_CONG",
+                    "p_NGAY_KS_LAP_PA_THI_CONG",
+                    model.ma_yctn,
+                    model.file_pa_thi_cong,
+                    model.nguoi_th_ks_lap_pa_thi_cong,
+                    model.ngay_ks_lap_pa_thi_cong
+                );
+
+                return string.IsNullOrEmpty(result);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+        }
+
+
+        //public QLTN_YCTN_Model khao_sat_phuong_an_YCTN(QLTN_YCTN_Model data)
+        //{
+        //    using (OracleConnection cn = new ConnectionOracle().getConnection())
+        //    {
+        //        cn.Open(); 
+
+        //        using (OracleCommand cmd = new OracleCommand())
+        //        {
+        //            using (OracleTransaction transaction = cn.BeginTransaction())
+        //            {
+        //                cmd.Connection = cn;
+        //                cmd.Transaction = transaction;
+        //                try
+        //                {
+        //                    cmd.Parameters.Clear();
+
+        //                    cmd.CommandType = CommandType.StoredProcedure;
+        //                    cmd.CommandText = "PKG_QLTN_TANH.khao_sat_phuong_an_YCTN";
+
+        //                    cmd.Parameters.Add("p_MA_YCTN", OracleDbType.Varchar2).Value = data.ma_yctn;
+        //                    cmd.Parameters.Add("p_FILE_PA_THI_CONG", OracleDbType.Varchar2).Value = data.file_pa_thi_cong;
+        //                    cmd.Parameters.Add("p_NGUOI_TH_KS_LAP_PA_THI_CONG", OracleDbType.Varchar2).Value = data.nguoi_th_ks_lap_pa_thi_cong;
+        //                    cmd.Parameters.Add("p_NGAY_KS_LAP_PA_THI_CONG", OracleDbType.Date).Value = data.ngay_ks_lap_pa_thi_cong;
+
+        //                    OracleParameter pError = new OracleParameter("p_Error", OracleDbType.Varchar2, 4000);
+        //                    pError.Direction = ParameterDirection.Output;
+        //                    cmd.Parameters.Add(pError);
+
+        //                    cmd.ExecuteNonQuery();
+        //                    string errorMessage = pError.Value.ToString();
+        //                    if (!string.IsNullOrEmpty(errorMessage))
+        //                    {
+        //                        Console.WriteLine($"Error: {errorMessage}");
+        //                    }
+
+        //                    cmd.ExecuteNonQuery();
+        //                    return data;
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                    throw ex;   
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+
+
+
+
 
         public List<string> search_Ma_YCTN(string Ma_YCTN)
         {
