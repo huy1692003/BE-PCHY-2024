@@ -58,6 +58,41 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
             }
         }
 
+
+
+        //buoc 4: khao sat phuong an thi cong
+        //  "ten_yctn": "YCTN.HD-9",
+        //  "file_pa_thi_cong": "string",
+        //  "nguoi_th_ks_lap_pa_thi_cong": "string",
+        //  "ngay_ks_lap_pa_thi_cong": "2024-12-02T23:07:41.140Z",
+
+        //}
+        public bool khao_sat_phuong_an_YCTN(QLTN_YCTN_Model models)
+        {
+            try
+            {
+                string result = helper.ExcuteNonQuery(
+                    "PKG_QLTN_TANH.khao_sat_phuong_an_YCTN",
+                    "p_Error",
+                    "p_MA_YCTN",
+                    "p_FILE_PA_THI_CONG",
+                    "p_NGUOI_TH_KS_LAP_PA_THI_CONG",
+                    "p_NGAY_KS_LAP_PA_THI_CONG",
+                    models.ma_yctn,
+                    models.file_pa_thi_cong,
+                    models.nguoi_th_ks_lap_pa_thi_cong,
+                    models.ngay_ks_lap_pa_thi_cong
+                );
+
+                return string.IsNullOrEmpty(result);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+        }
+
         public List<string> search_Ma_YCTN(string Ma_YCTN)
         {
             try
