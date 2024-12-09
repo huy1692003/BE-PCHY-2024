@@ -45,6 +45,24 @@ namespace API_PCHY.Controllers.QLTN.QLTN_YCTN
             }
         }
 
+
+
+
+        [HttpPost]
+        [Route("KhaoSatPhuongAn")]
+        public IActionResult KhaoSatPhuongAnThiCong([FromBody] QLTN_YCTN_Model model)
+        {
+            try
+            {
+                bool result = _manager.khao_sat_phuong_an_YCTN(model);
+                return result ? Ok("Khảo sát thành công") : BadRequest("Khảo sát thất bại");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Lỗi: {ex.Message}");
+            }
+        }
+
         [HttpGet]
         [Route("SearchMaYCTN")]
         public IActionResult SearchMaYCTN(string maYCTN)

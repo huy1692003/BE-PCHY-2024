@@ -106,7 +106,7 @@ namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
                     OracleCommand cmd = new OracleCommand();
                     cmd.Connection = cn;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = @"PKG_QLTN_QUANTRI.get_ALL_NGUOIDUNG";
+                    cmd.CommandText = @"PKG_QLTN_TANH.get_ALL_NGUOIDUNG";
 
                     cmd.Parameters.Add("p_pageIndex", OracleDbType.Int32).Value = pageIndex;
                     cmd.Parameters.Add("p_pageSize", OracleDbType.Int32).Value = pageSize;
@@ -126,11 +126,11 @@ namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
                             HTNguoiDungDTO user = new HTNguoiDungDTO
                             {
                                 ID = dr["ID"].ToString(),
-                                DM_DONVI_ID = dr["DM_DONVI_ID"].ToString(),
-                                DM_PHONGBAN_ID = dr["DM_PHONGBAN_ID"].ToString(),
-                                DM_CHUCVU_ID = dr["DM_CHUCVU_ID"].ToString(),
+                                //DM_DONVI_ID = dr["DM_DONVI_ID"].ToString(),
+                                //DM_PHONGBAN_ID = dr["DM_PHONGBAN_ID"].ToString(),
+                                //DM_CHUCVU_ID = dr["DM_CHUCVU_ID"].ToString(),
                                 TEN_DANG_NHAP = dr["TEN_DANG_NHAP"].ToString(),
-                                MAT_KHAU = dr["MAT_KHAU"].ToString(),
+                                //MAT_KHAU = dr["MAT_KHAU"].ToString(),
                                 HO_TEN = dr["HO_TEN"].ToString(),
                                 EMAIL = dr["EMAIL"].ToString(),
                                 LDAP = dr["LDAP"].ToString(),
@@ -141,7 +141,7 @@ namespace APIPCHY_PhanQuyen.Models.QLTN.HT_NGUOIDUNG
                                 NGUOI_CAP_NHAT = dr["NGUOI_CAP_NHAT"].ToString(),
                                 SO_DIEN_THOAI = dr["SO_DIEN_THOAI"].ToString(),
                                 GIOI_TINH = dr["GIOI_TINH"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["GIOI_TINH"]),
-                                SO_CMND = dr["SO_CMND"].ToString(),
+                                //SO_CMND = dr["SO_CMND"].ToString(),
                                 TRANG_THAI_DONG_BO = dr["TRANG_THAI_DONG_BO"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["TRANG_THAI_DONG_BO"]),
                                 ROLEID = dr["ROLEID"].ToString(),
                                 PHONG_BAN = dr["PHONG_BAN"].ToString(),
