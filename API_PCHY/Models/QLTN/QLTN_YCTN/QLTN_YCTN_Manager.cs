@@ -58,22 +58,14 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
             }
         }
 
-        /// <summary>
-        /// STEP 4: KHAO SAT PHUONG AN THI CONG
-        /// </summary>
-        /// <param name="Ma_YCTN"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
-        /// 
-        // {
-
+        //buoc 4:   khao sat phuong an thi cong
         //  "ten_yctn": "YCTN.HD-9",
         //  "file_pa_thi_cong": "string",
         //  "nguoi_th_ks_lap_pa_thi_cong": "string",
         //  "ngay_ks_lap_pa_thi_cong": "2024-12-02T23:07:41.140Z",
 
         //}
-        public bool khao_sat_phuong_an_YCTN(QLTN_YCTN_Model model)
+        public bool khao_sat_phuong_an_YCTN(QLTN_YCTN_Model models)
         {
             try
             {
@@ -84,10 +76,10 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                     "p_FILE_PA_THI_CONG",
                     "p_NGUOI_TH_KS_LAP_PA_THI_CONG",
                     "p_NGAY_KS_LAP_PA_THI_CONG",
-                    model.ma_yctn,
-                    model.file_pa_thi_cong,
-                    model.nguoi_th_ks_lap_pa_thi_cong,
-                    model.ngay_ks_lap_pa_thi_cong
+                    models.ma_yctn,
+                    models.file_pa_thi_cong,
+                    models.nguoi_th_ks_lap_pa_thi_cong,
+                    models.ngay_ks_lap_pa_thi_cong
                 );
 
                 return string.IsNullOrEmpty(result);

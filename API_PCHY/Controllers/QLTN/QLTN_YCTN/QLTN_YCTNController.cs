@@ -58,9 +58,9 @@ namespace API_PCHY.Controllers.QLTN.QLTN_YCTN
         //  "nguoi_th_ks_lap_pa_thi_cong": "123241212",
         //  "ngay_ks_lap_pa_thi_cong": "2024-12-06T08:16:07.447Z"
         //} 
-    [HttpPost]
+        [HttpPost]
         [Route("KhaoSatPhuongAn")]
-        public IActionResult KhaoSatPhuongAn([FromBody] QLTN_YCTN_Model model)
+        public IActionResult KhaoSatPhuongAnThiCong([FromBody] QLTN_YCTN_Model model)
         {
             try
             {
@@ -72,31 +72,7 @@ namespace API_PCHY.Controllers.QLTN.QLTN_YCTN
                 return BadRequest($"Lỗi: {ex.Message}");
             }
         }
-        //public IActionResult KhaoSatPhuongAn([FromBody] QLTN_YCTN_Model model)
-        //{
-        //    try
-        //    {
-        //        var result = _manager.khao_sat_phuong_an_YCTN(model);
-
-        //        if (result != null)
-        //        {
-        //            return Ok(new
-        //            {
-        //                message = "Them thanh cong"
-        //            });
-        //        }
-        //        else
-        //        {
-        //            return StatusCode(500, "Lỗi khi lưu dữ liệu");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, $"Lỗi: {ex.Message}");
-        //    }
-        //}
-
-
+ 
 
         [HttpGet]
         [Route("SearchMaYCTN")]
