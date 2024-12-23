@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using API_PCHY.Models.QLTN.QLTN_CHI_TIET_THI_NGHIEM;
+using iTextSharp.text;
 
 namespace API_PCHY.Models.QLTN.QLTN_THIET_BI_YCTN
 {
