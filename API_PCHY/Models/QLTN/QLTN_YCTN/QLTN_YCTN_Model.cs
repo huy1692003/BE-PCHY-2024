@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using API_PCHY.Models.QLTN.DM_LOAI_YCTN;
 
 namespace API_PCHY.Models.QLTN.QLTN_YCTN
@@ -41,7 +42,20 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
         public decimal? phan_tram_chiet_giam { get; set; }
         public DateTime? ngay_ks_lap_pa_thi_cong { get; set; }
         public DateTime? ngay_tao { get; set; }
+        public string? nguoi_tao { get; set; }
         public List<String>? don_vi_thuc_hien { get; set; }
         public DM_LOAI_YCTN_Model loai_yctn_model { get; set; }
+        public DateTime? ngay_sua { get; set; }
+        public string? nguoi_sua { get; set; }       
+        public List<QLTN_YCTN_LOG_Model>? qltn_yctn_log { get; set; } 
+    }
+
+    public class QLTN_YCTN_LOG_Model : QLTN_YCTN_Model
+    {
+        public QLTN_YCTN_LOG_Model()
+        {
+            // Gán null cho các thuộc tính khi khởi tạo lớp con           
+            this.qltn_yctn_log = null;
+        }
     }
 }

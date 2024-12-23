@@ -17,7 +17,7 @@ namespace API_PCHY.Controllers.QLTN.QLTN_CHI_TIET_THI_NGHIEM
         public QLTN_CHI_TIET_THI_NGHIEMController()
         {
             _manager = new QLTN_CHI_TIET_THI_NGHIEM_Manager();
-            _manager_tb=new QLTN_THIET_BI_Manager();
+            _manager_tb = new QLTN_THIET_BI_Manager();
         }
 
         [HttpGet]
@@ -35,9 +35,24 @@ namespace API_PCHY.Controllers.QLTN.QLTN_CHI_TIET_THI_NGHIEM
             }
         }
 
+        [HttpDelete]
+        [Route("deleteCTTN/{ma_CTTN}")]
+        public IActionResult GetByMaTBTN(string ma_CTTN)
+        {
+            try
+            {
+                var result = _manager.deleteQLTN_CHITIET_TN_BYID(ma_CTTN);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Lỗi: {ex.Message}");
+            }
+        }
+
         //Lấy danh sách thiết bị kèm chi tiết thí nghiệm tương ứng 
         [Route("getAll_TBTN_byMA_YCTN")]
-        [HttpPost]
+        [HttpGet]
         public  IActionResult getbyMA_yctn(string ma_yctn)
         {
             try
@@ -62,13 +77,15 @@ namespace API_PCHY.Controllers.QLTN.QLTN_CHI_TIET_THI_NGHIEM
         {
             try
             {
-                bool result = _manager.insert_QLTN_CHI_TIET_THI_NGHIEM(model);
-                return result ? Ok("Thêm mới thành công") : BadRequest("Thêm mới thất bại");
+                var result = _manager.insert_QLTN_CHI_TIET_THI_NGHIEM(model);
+                return result !=null ? Ok(result) : BadRequest("Thêm mới thất bại");
             }
             catch (Exception ex)
             {
                 return BadRequest($"Lỗi: {ex.Message}");
             }
         }
+
+
     }
 }

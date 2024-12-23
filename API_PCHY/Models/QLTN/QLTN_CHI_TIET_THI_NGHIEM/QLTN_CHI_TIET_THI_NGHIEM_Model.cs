@@ -17,5 +17,7 @@ namespace API_PCHY.Models.QLTN.QLTN_CHI_TIET_THI_NGHIEM
         public DateTime? ngay_sua { get; set; }
         public string? nguoi_sua { get; set; }
         public int? lanthu { get; set; }
+        public int? trang_thai_ky { get; set; }
+        
     }
 }

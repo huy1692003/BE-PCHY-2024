@@ -22,9 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\SMART_CA\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\fileYCTN\" />
     <Folder Include="wwwroot\fileGiaoNV\" />
+    <Folder Include="wwwroot\fileBBTN\" />
   </ItemGroup>
 
 </Project>

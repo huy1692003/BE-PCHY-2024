@@ -8,6 +8,7 @@ using API_PCHY.Models.QLTN.DM_LOAITHIETBI;
 using API_PCHY.Models.QLTN.DM_TRUONG_YCTN;
 using APIPCHY.Helpers;
 using APIPCHY_PhanQuyen.Models.QLKC.DM_PHONGBAN;
+using Oracle.ManagedDataAccess.Types;
 
 namespace API_PCHY.Models.QLTN.QLTN_YCTN
 {
@@ -24,12 +25,13 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                                                     "p_ID_KHACH_HANG", "p_MA_KHACH_HANG", "p_LOAI_TAI_SAN", "p_NOI_DUNG",
                                                     "p_GTDT_TRUOC_THUE", "p_GTDT_THUE", "p_GTDT_SAU_THUE",
                                                     "p_GTDT_CHIET_GIAM", "p_GTDT_SAU_CHIET_GIAM", "p_NGAY_KY_HOP_DONG",
-                                                    "p_NGAY_XAY_RA_SU_CO", "p_FILE_UPLOAD", "p_PHAN_TRAM_CHIET_GIAM", "p_PHAN_TRAM_THUE",
+                                                    "p_NGAY_XAY_RA_SU_CO", "p_FILE_UPLOAD", "p_PHAN_TRAM_CHIET_GIAM", "p_PHAN_TRAM_THUE" ,"p_NGUOI_TAO",
                                                     model.ma_loai_yctn, model.ma_yctn, model.ten_yctn, model.ngay_tao,
                                                     model.id_khach_hang, model.ma_khach_hang, model.loai_tai_san, model.noi_dung,
                                                     model.gtdt_truoc_thue, model.gtdt_thue, model.gtdt_sau_thue,
                                                     model.gtdt_chiet_giam, model.gtdt_sau_chiet_giam, model.ngay_ky_hop_dong,
-                                                    model.ngay_xay_ra_su_co, model.file_upload, model.phan_tram_chiet_giam ,model.phan_tram_thue);
+                                                    model.ngay_xay_ra_su_co, model.file_upload, model.phan_tram_chiet_giam ,model.phan_tram_thue , model.nguoi_tao
+                                                    );
 
                 return string.IsNullOrEmpty(result);
             }
@@ -38,6 +40,51 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                 return false;
             }
         }
+
+
+        public bool update_QLTN_YCTN(QLTN_YCTN_Model model)
+        {
+            string log = null;
+            if(model.qltn_yctn_log!=null)
+            {
+                log= JsonSerializer.Serialize(model.qltn_yctn_log);
+            }    
+            try
+            {
+                string result = helper.ExcuteNonQuery("PKG_QLTN_HUY.update_YCTN", "p_Error",
+                                                        "p_MA_LOAI_YCTN", "p_MA_YCTN", "p_TEN_YCTN", "p_ID_KHACH_HANG",
+                                                        "p_MA_KHACH_HANG", "p_LOAI_TAI_SAN", "p_NOI_DUNG", "p_GTDT_TRUOC_THUE",
+                                                        "p_GTDT_THUE", "p_GTDT_SAU_THUE", "p_GTDT_CHIET_GIAM", "p_GTDT_SAU_CHIET_GIAM",
+                                                        "p_NGAY_KY_HOP_DONG", "p_NGAY_XAY_RA_SU_CO", "p_FILE_UPLOAD", "p_PHAN_TRAM_CHIET_GIAM",
+                                                        "p_PHAN_TRAM_THUE", "p_NGUOI_SUA", "p_YCTN_LOG",
+                                                        model.ma_loai_yctn, model.ma_yctn, model.ten_yctn, model.id_khach_hang,
+                                                        model.ma_khach_hang, model.loai_tai_san, model.noi_dung, model.gtdt_truoc_thue,
+                                                        model.gtdt_thue, model.gtdt_sau_thue, model.gtdt_chiet_giam, model.gtdt_sau_chiet_giam,
+                                                        model.ngay_ky_hop_dong, model.ngay_xay_ra_su_co, model.file_upload,
+                                                        model.phan_tram_chiet_giam, model.phan_tram_thue, model.nguoi_sua,log);
+                return string.IsNullOrEmpty(result); // Nếu không có lỗi, trả về true
+            }
+            catch (Exception)
+            {
+                return false; // Nếu có lỗi trong quá trình thực hiện, trả về false
+            }
+        }
+
+
+        public bool delete_QLTN_YCTN(string maYCTN)
+        {
+            try
+            {
+                string result = helper.ExcuteNonQuery("PKG_QLTN_HUY.delete_YCTN", "p_Error",
+                                                        "p_MA_YCTN", maYCTN);
+                return string.IsNullOrEmpty(result); // Nếu không có lỗi, trả về true
+            }
+            catch (Exception)
+            {
+                return false; // Nếu có lỗi trong quá trình thực hiện, trả về false
+            }
+        }
+
 
         public bool giao_nhiem_vu_YCTN(QLTN_YCTN_Model model)
         {
@@ -152,6 +199,7 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                     data.ngay_xay_ra_su_co = ds.Rows[0]["NGAY_XAY_RA_SU_CO"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_XAY_RA_SU_CO"].ToString()) : null;
                     data.file_upload = ds.Rows[0]["FILE_UPLOAD"] != DBNull.Value ? ds.Rows[0]["FILE_UPLOAD"].ToString() : null;
                     data.ngay_giao_nv = ds.Rows[0]["NGAY_GIAO_NV"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_GIAO_NV"].ToString()) : null;
+                    data.ngay_sua = ds.Rows[0]["NGAY_SUA"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_SUA"].ToString()) : null;
                     data.file_dinh_kem_giao_nv = ds.Rows[0]["FILE_DINH_KEM_GIAO_NV"] != DBNull.Value ? ds.Rows[0]["FILE_DINH_KEM_GIAO_NV"].ToString() : null;
                     data.nguoi_giao_nhiem_vu = ds.Rows[0]["NGUOI_GIAO_NHIEM_VU"] != DBNull.Value ? ds.Rows[0]["NGUOI_GIAO_NHIEM_VU"].ToString() : null;
                     data.file_pa_thi_cong = ds.Rows[0]["FILE_PA_THI_CONG"] != DBNull.Value ? ds.Rows[0]["FILE_PA_THI_CONG"].ToString() : null;
@@ -159,6 +207,8 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                     data.ngay_nhap_kl_thuc_hien = ds.Rows[0]["NGAY_NHAP_KL_THUC_HIEN"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_NHAP_KL_THUC_HIEN"].ToString()) : null;
                     data.nguoi_nhap_kl_thuc_hien = ds.Rows[0]["NGUOI_NHAP_KL_THUC_HIEN"] != DBNull.Value ? ds.Rows[0]["NGUOI_NHAP_KL_THUC_HIEN"].ToString() : null;
                     data.nguoi_ban_giao = ds.Rows[0]["NGUOI_BAN_GIAO"] != DBNull.Value ? ds.Rows[0]["NGUOI_BAN_GIAO"].ToString() : null;
+                    data.nguoi_tao = ds.Rows[0]["NGUOI_TAO"] != DBNull.Value ? ds.Rows[0]["NGUOI_TAO"].ToString() : null;
+                    data.nguoi_sua = ds.Rows[0]["NGUOI_SUA"] != DBNull.Value ? ds.Rows[0]["NGUOI_SUA"].ToString() : null;
                     data.don_vi_nhan_ban_giao = ds.Rows[0]["DON_VI_NHAN_BAN_GIAO"] != DBNull.Value ? ds.Rows[0]["DON_VI_NHAN_BAN_GIAO"].ToString() : null;
                     data.ngay_ban_giao = ds.Rows[0]["NGAY_BAN_GIAO"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_BAN_GIAO"].ToString()) : null;
                     data.ghi_chu_ban_giao = ds.Rows[0]["GHI_CHU_BAN_GIAO"] != DBNull.Value ? ds.Rows[0]["GHI_CHU_BAN_GIAO"].ToString() : null;
@@ -168,6 +218,28 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                     data.ngay_tao = ds.Rows[0]["NGAY_TAO"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_TAO"].ToString()) : null;
                     data.don_vi_thuc_hien = ds.Rows[0]["DON_VI_THUC_HIEN"] != DBNull.Value ? JsonSerializer.Deserialize<List<string>>(ds.Rows[0]["DON_VI_THUC_HIEN"].ToString())     : null;
                     data.loai_yctn_model = data.ma_loai_yctn != null ? new DM_LOAI_YCTN_Manager().get_DM_LOAI_YCTN_ByMaLoai(data.ma_loai_yctn) : null;
+                    if (ds.Rows[0]["QLTN_YCTN_LOG"] != DBNull.Value)
+                    {
+                        // Lấy giá trị NClob từ cột QLTN_YCTN_LOG
+                         //Đọc dữ liệu từ NClob và chuyển nó thành chuỗi
+                            string jsonString = ds.Rows[0]["QLTN_YCTN_LOG"].ToString();
+
+                            // Sau đó tiến hành deserialize
+                            if (!string.IsNullOrWhiteSpace(jsonString))
+                            {
+                                data.qltn_yctn_log = JsonSerializer.Deserialize<List<QLTN_YCTN_LOG_Model>>(jsonString);
+                            }
+                            else
+                            {
+                                data.qltn_yctn_log = null;
+                            }
+                        
+                    }
+                    else
+                    {
+                        data.qltn_yctn_log = null;
+                    }
+
                     return data;
                 }
                 else
