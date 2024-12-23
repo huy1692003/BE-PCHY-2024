@@ -85,7 +85,21 @@ namespace APIPCHY.Helpers
                 {
                     string paramKey = Convert.ToString(param_list);
                     object paramValue = param_list[i + paramInput];
-                    cmd.Parameters.Add(new OracleParameter(paramKey, paramValue));
+                    // Kiểm tra nếu tham số là null, thay thế bằng DBNull.Value
+                    if (paramValue == null)
+                    {
+                        paramValue = DBNull.Value;
+                    }
+
+                    // Kiểm tra nếu tham số là kiểu CLOB hoặc BLOB, cần thêm OracleDbType tương ứng
+                    if (paramValue is string)
+                    {
+                        cmd.Parameters.Add(new OracleParameter(paramKey, OracleDbType.NClob) { Value = paramValue });
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add(new OracleParameter(paramKey, paramValue));
+                    }
                 }
                 cmd.Parameters.Add(paramOut, OracleDbType.Varchar2, 200).Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
@@ -110,6 +124,77 @@ namespace APIPCHY.Helpers
         /// <param name="ProcedureName">Tên stored procedure</param>
         /// <param name="param_list">Danh sách các tham số đầu vào theo cặp (tên tham số, giá trị)</param>
         /// <returns>DataTable chứa dữ liệu kết quả, null nếu có lỗi hoặc không có dữ liệu</returns>
+        //public DataTable ExcuteReaders(string ProcedureName, params object[] param_list)
+        //{
+        //    DataTable tb = new DataTable();
+        //    try
+        //    {
+        //        OracleCommand cmd = new OracleCommand { CommandType = CommandType.StoredProcedure, CommandText = ProcedureName, Connection = cn };
+        //        Open();
+        //        int paramterInput = param_list.Length / 2;
+
+        //        for (int i = 0; i < paramterInput; i++)
+        //        {
+        //            string paramName = Convert.ToString(param_list[i * 2]);
+        //            object paramValue = param_list[i * 2 + 1];
+
+        //            // Kiểm tra tham số JSON và Clob
+        //            if (paramName.ToLower().Contains("json"))
+        //            {
+        //                cmd.Parameters.Add(new OracleParameter
+        //                {
+        //                    ParameterName = paramName,
+        //                    OracleDbType = OracleDbType.NVarchar2, // Dữ liệu kiểu JSON
+        //                    Value = paramValue ?? DBNull.Value
+        //                });
+        //            }
+        //            else if (paramName.ToLower().Contains("nclob"))
+        //            {
+        //                cmd.Parameters.Add(new OracleParameter
+        //                {
+        //                    ParameterName = paramName,
+        //                    OracleDbType = OracleDbType.Clob, // Dữ liệu kiểu CLOB
+        //                    Value = paramValue ?? DBNull.Value
+        //                });
+        //            }
+        //            else
+        //            {
+        //                cmd.Parameters.Add(new OracleParameter(paramName, paramValue ?? DBNull.Value));
+        //            }
+        //        }
+
+        //        // Thêm tham số RefCursor để nhận kết quả
+        //        OracleParameter refCursor = new OracleParameter
+        //        {
+        //            ParameterName = "p_getDB",
+        //            OracleDbType = OracleDbType.RefCursor,
+        //            Direction = ParameterDirection.Output
+        //        };
+        //        cmd.Parameters.Add(refCursor);
+
+        //        // Thực thi và lấy kết quả
+        //        OracleDataAdapter ad = new OracleDataAdapter(cmd);
+        //        ad.Fill(tb);
+        //        ad.Dispose();
+        //        cmd.Dispose();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return tb;
+        //        // Log lỗi nếu cần
+        //    }
+        //    finally
+        //    {
+        //        Close();
+        //    }
+
+        //    return tb; // Trả về DataTable chứa dữ liệu
+
+
+        //}
+
+
+
         public DataTable ExcuteReader(string ProcedureName, params object[] param_list)
         {
             DataTable tb = new DataTable();
@@ -128,6 +213,15 @@ namespace APIPCHY.Helpers
                         {
                             ParameterName = paramName,
                             OracleDbType = OracleDbType.NVarchar2,
+                            Value = paramValue ?? DBNull.Value
+                        });
+                    }
+                    else if (paramName.ToLower().Contains("nclob"))
+                    {
+                        cmd.Parameters.Add(new OracleParameter
+                        {
+                            ParameterName = paramName,
+                            OracleDbType = OracleDbType.Clob, // Dữ liệu kiểu CLOB
                             Value = paramValue ?? DBNull.Value
                         });
                     }
@@ -165,3 +259,4 @@ namespace APIPCHY.Helpers
         }
     }
 }
+    

@@ -3,7 +3,7 @@ namespace API_PCHY.Models.QLTN.QLTN_NGUOI_KY
 {
     public class QLTN_NGUOI_KY_Model
     {
-        public int id { get; set; }
+        public int? id { get; set; }
         public int? trang_thai_ky { get; set; }
         public int? nhom_nguoi_ky { get; set; }
         public string? ly_do_tu_choi { get; set; }
