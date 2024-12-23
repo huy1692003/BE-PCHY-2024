@@ -58,6 +58,25 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
             }
         }
 
+        public bool ban_giao_ket_qua_YCTN(QLTN_YCTN_Model model)
+        {
+            string dv_nhan_ban_giao = JsonSerializer.Serialize(model.don_vi_nhan_ban_giao);
+            try
+            {
+                string result = helper.ExcuteNonQuery("PKG_QLTN_VINH.ban_giao_ket_qua_YCTN", "p_Error",
+                                                    "p_MA_YCTN", "p_NGUOI_BAN_GIAO", "p_NGAY_BAN_GIAO",
+                                                    "p_GHI_CHU_BAN_GIAO", "p_DON_VI_NHAN_BAN_GIAO",
+                                                    model.ma_yctn, model.nguoi_ban_giao, model.ngay_ban_giao,
+                                                    model.ghi_chu_ban_giao, dv_nhan_ban_giao);
+
+                return string.IsNullOrEmpty(result);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public List<string> search_Ma_YCTN(string Ma_YCTN)
         {
             try
@@ -124,7 +143,7 @@ namespace API_PCHY.Models.QLTN.QLTN_YCTN
                     data.ngay_nhap_kl_thuc_hien = ds.Rows[0]["NGAY_NHAP_KL_THUC_HIEN"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_NHAP_KL_THUC_HIEN"].ToString()) : null;
                     data.nguoi_nhap_kl_thuc_hien = ds.Rows[0]["NGUOI_NHAP_KL_THUC_HIEN"] != DBNull.Value ? ds.Rows[0]["NGUOI_NHAP_KL_THUC_HIEN"].ToString() : null;
                     data.nguoi_ban_giao = ds.Rows[0]["NGUOI_BAN_GIAO"] != DBNull.Value ? ds.Rows[0]["NGUOI_BAN_GIAO"].ToString() : null;
-                    data.don_vi_nhan_ban_giao = ds.Rows[0]["DON_VI_NHAN_BAN_GIAO"] != DBNull.Value ? ds.Rows[0]["DON_VI_NHAN_BAN_GIAO"].ToString() : null;
+                    data.don_vi_nhan_ban_giao = ds.Rows[0]["DON_VI_NHAN_BAN_GIAO"] != DBNull.Value ? JsonSerializer.Deserialize<List<string>>(ds.Rows[0]["DON_VI_NHAN_BAN_GIAO"].ToString()) : null;
                     data.ngay_ban_giao = ds.Rows[0]["NGAY_BAN_GIAO"] != DBNull.Value ? DateTime.Parse(ds.Rows[0]["NGAY_BAN_GIAO"].ToString()) : null;
                     data.ghi_chu_ban_giao = ds.Rows[0]["GHI_CHU_BAN_GIAO"] != DBNull.Value ? ds.Rows[0]["GHI_CHU_BAN_GIAO"].ToString() : null;
                     data.phan_tram_thue = ds.Rows[0]["PHAN_TRAM_THUE"] != DBNull.Value ? decimal.Parse(ds.Rows[0]["PHAN_TRAM_THUE"].ToString()) : null;

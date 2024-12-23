@@ -5,12 +5,14 @@ using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+using System.Threading;
 using OfficeOpenXml; // Thư viện để đọc file Excel
 using OfficeOpenXml.Style;
 using System.Drawing;
 using System.Linq;
 using System.Transactions;
+using System.Collections.Concurrent;
+using System.Threading.Tasks;
 
 namespace API_PCHY.Controllers.QLTN.QLTN_THIET_BI_YCTN
 {
@@ -57,18 +59,17 @@ namespace API_PCHY.Controllers.QLTN.QLTN_THIET_BI_YCTN
             if (devices == null || !devices.Any())
                 return BadRequest("Danh sách thiết bị không được rỗng.");
 
-            var errors = new List<string>();
-            var successCount = 0;
+            var errors = new ConcurrentBag<string>();
+            int successCount = 0;
 
-            // Có thể xem xét sử dụng Parallel.ForEach nếu các thao tác insert độc lập
-            foreach (var device in devices)
+            Parallel.ForEach(devices, device =>
             {
                 try
                 {
                     string result = manager.insert_QLTN_THIET_BI(device);
                     if (string.IsNullOrEmpty(result))
                     {
-                        successCount++;
+                        Interlocked.Increment(ref successCount);
                     }
                     else
                     {
@@ -79,18 +80,17 @@ namespace API_PCHY.Controllers.QLTN.QLTN_THIET_BI_YCTN
                 {
                     errors.Add($"Thiết bị {device.ten_thiet_bi}: {ex.Message}");
                 }
-            }
+            });
 
             return Ok(new
             {
-                Success = errors.Count == 0,
+                Success = errors.IsEmpty,
                 Message = errors.Any()
                     ? $"Đã thêm thành công {successCount}/{devices.Count} thiết bị. Có {errors.Count} lỗi."
                     : "Tất cả thiết bị đã được thêm thành công.",
-                Errors = errors
+                Errors = errors.ToList()
             });
         }
-
 
 
 
